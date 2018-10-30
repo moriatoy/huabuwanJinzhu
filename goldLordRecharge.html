@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>金主充值</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="css/page.css" />
+
+	<!-- 全局js -->
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+
+	<!-- 自定义js -->
+	<script src="js/content.js?v=1.0.0"></script>
+	<script src="js/core.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/goldLordRecharge.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>金主充值</h5>
+				</div>
+				<style>
+					.list-mor {
+						padding: 40px 30px;
+						font-size: 16px;
+						text-align: center;
+					}
+					.list-mor > .row > .col-sm-4 > div {
+						padding: 10px 0;
+					}
+					.balance {
+						overflow: hidden;
+						font-size: 16px;
+						padding: 0 60px 16px;
+					}
+					.balance > div {
+						float: right;
+						background: #f2dede;
+						color: #a94442;
+						border: 1px solid #ebccd1;
+						padding: 10px 16px;
+						border-radius: 12px;
+					}
+				</style>
+				<div class="list-mor">
+					<div class="row">
+						<div class="col-sm-4">
+							<div>短信通知短信次数</div>
+							<div id="notifyNumber"></div>
+						</div>
+						<div class="col-sm-4">
+							<div>短信验证码调用次数</div>
+							<div id="verificationNumber"></div>
+						</div>
+						<div class="col-sm-4">
+							<div>运营商调用次数</div>
+							<div id="yysNumber"></div>
+						</div>
+						<div class="col-sm-4">
+							<div>淘宝调用次数</div>
+							<div id="tbNumber"></div>
+						</div>
+						<div class="col-sm-4">
+							<div>活体认证调用次数</div>
+							<div id="faceNumber"></div>
+						</div>
+						<div class="col-sm-4">
+							<div>银行卡认证调用次数</div>
+							<div id="bankNumber"></div>
+						</div>
+					</div>
+				</div>
+				<div class="balance">
+					<div>
+						<span>余额：</span>
+						<span id="nowMoney"></span>
+					</div>
+				</div>
+				<h3 style="padding: 10px 30px">充值记录</h3>
+				<div class="ibox-content" style="overflow:scroll;">
+					<table class="table table-stripped toggle-arrow-tiny" style="min-width:300px" data-page-size="14">
+						<thead>
+						<tr>
+							<th>时间</th>
+							<th style="text-align: center">充值金额</th>
+						</tr>
+						</thead>
+						<tbody id="dataList">
+						</tbody>
+						<tbody align="center">
+							<tr>
+								<td colspan="14">
+									<div id="pager"></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!--<div class="list-mor">-->
+					<!--<ul id="tishiList">-->
+					<!--</ul>-->
+				<!--</div>-->
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

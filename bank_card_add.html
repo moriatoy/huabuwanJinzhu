@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>发布知识</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/core.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+
+     <!-- fileinput -->
+    <script src="js/plugins/fileinput/fileinput.js"></script>
+    <script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+    
+	<!-- summernote -->
+    <script src="js/plugins/summernote/summernote.min.js"></script>
+    <script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="js/demo/summernote-demo.js"></script>	
+    
+    <!-- 自定义js -->
+    <script src="js/bank_card_add.js"></script>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">       
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="commentForm">
+                            <div class="form-group" id="thisType">
+                            	<input id="importantMsgId" style="display:none"  name="name" minlength="2" type="text" class="form-control">
+                            	<input id="planpayMsgId" style="display:none" name="name" minlength="2" type="text" class="form-control">
+                            	<input id="pointMsgId" style="display:none" name="name" minlength="2" type="text" class="form-control">
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">银行名称</label>
+	                                <div class="col-sm-8">
+	                                    <input id="bankName" placeholder="如：工商银行" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">标题</label>
+	                                <div class="col-sm-8">
+	                                    <input id="title" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">副标题</label>
+	                                <div class="col-sm-8">
+	                                    <input id="secondTitle" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">取现额度</label>
+	                                <div class="col-sm-8">
+	                                    <input id="limitMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">免息期</label>
+	                                <div class="col-sm-8">
+	                                    <input id="freeDays" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">发卡组织</label>
+	                                <div class="col-sm-8">
+	                                    <input id="sendPlace" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">评分等级</label>
+	                                <div class="col-sm-8">
+	                                    <input id="evaluateLevel" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>                          	
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">第三方链接地址</label>
+	                                <div class="col-sm-8">
+	                                    <input id="linkUrl" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+		                        <div id="jiu_picture_div" class="form-group" style="display: none;">
+	                                <label class="col-sm-3 control-label">旧上传图片：</label>
+	                                <div class="col-sm-8">
+	                                    <span id="messUrlUrl" class="footable-sort-indicator"></span>
+	                                </div>
+	                            </div>
+	                            <div id="img_div" class="form-group">
+	                                <label class="col-sm-3 control-label">上传图片：</label>
+	                                <div class="col-sm-8">
+					                        <div class="page-container">
+					                            <input type="file" id="messUrl" name="files">
+					                        </div>
+						            </div>
+	                            </div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">主卡年费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="maincardMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">附卡年费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="othercardMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                           		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">免年费政策</label>
+	                                <div class="col-sm-8">
+	                                    <input id="freeInfo" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">循环信用利息（日息）</label>
+	                                <div class="col-sm-8">
+	                                    <input id="dayMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">消费验证方式</label>
+	                                <div class="col-sm-8">
+	                                    <input id="valiType" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">滞纳金</label>
+	                                <div class="col-sm-8">
+	                                    <input id="backMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">换卡费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="changecardMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">挂失费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="losscardMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境内同行取现费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_one" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境内跨行取现费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_two" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境外银联取现费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_three" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境外非银联取现费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_four" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境外应急取现费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_five" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                          		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">境外应急补卡手续费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="getmoney_six" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	      	      	            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">网上支付限额</label>
+	                                <div class="col-sm-8">
+	                                    <input id="limitPaymoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                           		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">交易方式</label>
+	                                <div class="col-sm-8">
+	                                    <input id="planpay_Type" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                                <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">起分金额</label>
+	                                <div class="col-sm-8">
+	                                    <input id="minMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+<!--                           		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">分期期数费率</label>
+	                                <div class="col-sm-8">
+	                                    <input id="allPercent" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>-->
+                                <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">提前还款规定</label>
+	                                <div class="col-sm-8">
+	                                    <input id="repayMsg" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                           		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">扣除手续费方式</label>
+	                                <div class="col-sm-8">
+	                                    <input id="handmoneyType" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">分期手续费</label>
+	                                <div class="col-sm-8">
+	                                    <input id="handMoney" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                           		<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">积分方式</label>
+	                                <div class="col-sm-8">
+	                                    <input id="point_type" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">积分有效期</label>
+	                                <div class="col-sm-8">
+	                                    <input id="point_limitTime" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div class="form-group">
+	                                <div class="col-sm-4 col-sm-offset-3">
+	                                    <button class="btn btn-primary" type="button" onclick="release()" >发布</button>
+	                                </div>
+	                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>        
+    
+</body>
+
+</html>

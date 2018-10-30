@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>渠道转换率详情</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="css/page.css" />
+
+	<!-- 全局js -->
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+
+	<!-- 自定义js -->
+	<script src="js/content.js?v=1.0.0"></script>
+	<link rel="stylesheet" type="text/css" href="time/dist/css/bootstrap-datepicker3.css">
+	<script type="text/javascript" src="time/dist/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="time/dist/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+	<script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+        		language: 'zh-CN',
+        		format:"yyyy-mm-dd"
+        	});
+        });
+	</script>
+	<script src="js/core.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/channel_trans.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>渠道转换率详情</h5>
+				</div>
+				<div class="ibox-content">
+					<div class="row">
+						<!-- 多条件搜索 -->
+						<form class="form form-inline search-form-items" method="get" action="">
+							<style>
+								.form-inline .form-group {
+									margin-right: 12px;
+									margin-bottom: 15px;
+								}
+	
+								.form-inline .btn {
+									margin-bottom: 15px;
+								}
+	
+								.form-group .right {
+									display: inline-block;
+								}
+	
+								@media (max-width: 768px) {
+									.form-group .left {
+										width: 25%;
+									}
+									.form-group .right {
+										width: 70%;
+									}
+									.search-form-items .search-btn {
+										width: 100%;
+									}
+								}
+								.A_price{
+									float: left;
+									margin-left: 20px;
+									margin-top: 22px;
+								}
+								.A_price span{
+									display: inline-block;
+									float: left;
+									width: 60px;
+									font-size: 14px;
+									font-weight: normal;
+									color: #666666;
+									height: 30px;
+									line-height: 30px;
+								}
+								.A_price text{
+									display: inline-block;
+									float: left;
+									border: none;
+									font-size: 18px;
+									color: #f00;
+									height: 30px;
+									line-height: 30px;
+								}
+							</style>
+							<div class="form-group search-form-items ">
+								<label class="left control-label">
+						              <span>日期：</span>
+						        </label>
+								<div class="right">
+									<div class="input-group date datepicker">
+									    <input type="text" id="gmtDatetime" class="form-control" autocomplete="off">	
+									    <div class="input-group-addon">
+									        <span class="glyphicon glyphicon-th "></span>
+									    </div>							   
+									</div>
+								</div>
+							</div>
+						  	<div class="form-group search-form-items">
+	                             <input type="text" name="channelName" id="channelName" class="search-input form-control" value="" autocomplete="off" placeholder="代理商">
+	                         </div>
+	                         <div class="input-group search-form-items">
+	                         	 <a hidden="hidden"  class="" data="搜索" style="margin-left:20px ;" onclick="channel_trans.searchList()"> 搜索</a>
+	                         </div>
+							<div class="input-group search-form-items" style="margin-left: 16px">
+								<a hidden="hidden" class="" data="导出" style="margin-left:20px ;" onclick="channel_trans.exportFun();"> 导出</a>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="ibox-content" style="overflow:scroll;">
+					<table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+						<thead>
+						<tr>
+							<th>日期</th>
+							<th>渠道</th>
+							<!-- <th>今日H5点击</th> -->
+							<th>今日H5注册</th>
+							<th>今日APP下载激活</th>
+							<th>个人信息</th>
+							<th>身份认证</th>
+							<th>手机认证</th>
+							<th>银行卡认证</th>
+							<th>淘宝认证</th>
+							<th>今日申请订单</th>
+							<th>今日放款订单</th>
+							<th>今日还款订单</th>
+						</tr>
+						</thead>
+						<tbody id="thislist">
+						</tbody>
+						<tbody align="center">
+						<tr>
+							<td colspan="14">
+								<div id="pager"></div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

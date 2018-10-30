@@ -1,0 +1,137 @@
+/* jquery.page.js css  */
+#pager {
+	text-align: center;
+}
+ul.pages {
+	display: inline-block;
+	border: none;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+ul.pages li {
+	list-style: none;
+	float: left;
+	border: 1px solid #b36d41;
+	text-decoration: none;
+	margin: 0 5px 5px 0;
+	padding: 5px;
+}
+
+ul.pages li:hover {
+	border: 1px solid #afdfe4;
+	background-color: #afdfe4;
+}
+
+ul.pages li.pgEmpty {
+	border: 1px solid #f0f0f0;
+	color: #d9d6c3;
+	background-color: #f0f0f0;
+}
+
+ul.pages li.thpoint {
+	border: none;
+	cursor: auto;
+	color: #000;
+	background-color: #fff;
+}
+
+ul.pages li.pgCurrent {
+	padding: 4px 8px;
+	border: 3px double #fff; +
+	border-color: #afdfe4;
+	color: #FFF;
+	font-weight: 700;
+	background-color: #afdfe4;
+}
+
+
+
+/*2017-8-15tab*/
+.jg_pingjia_tab ul.w_xxtab_tit{
+	list-style:none;
+	width: 100%;
+	height: 44px;
+	background: #f5f5f5;
+	padding:0;
+}
+.jg_pingjia_tab ul.w_xxtab_tit li{
+	float: left;
+	text-align: center;
+	color: #666;
+	font-size: 14px;
+}
+.jg_pingjia_tab ul.w_xxtab_tit li em{
+	display: block;
+	font-size: 12px;
+}
+.jg_pingjia_tab ul.w_xxtab_tit li a{
+	display: block;
+	height: 44px;
+	line-height:42px;
+	border-bottom: 1px solid #E5E5E5;
+	padding:0 20px;
+	color:#666;
+}
+.jg_pingjia_tab ul.w_xxtab_tit li.jinbi_curr a{
+	color: #333;
+	border-bottom: none;
+	background:#fff;
+}
+.jg_pingjia_tab .sell_pingjia1{
+	margin-top: 0;
+}
+.jg_pingjia_tab .sell_pingjia1 .sell_pingjia_xinxi{
+	border-bottom: 1px solid #E5E5E5;
+}
+.w_ddcon{
+	padding:10px 0 20px 0;
+}
+.tab_left{
+	text-align:right;
+}
+.tab_line{
+	width:100%;
+	height:24px;
+	line-height:24px;
+}
+.tab_right img{
+	width:auto;
+	height:80px;
+}
+.tab_img .tab_left{
+	height:80px;
+	line-height:80px;
+}
+.tab_table table{
+	background:#fff;
+}
+.tab_table table td.tab_hui{
+	background:#f5f5f5;
+}
+.tab_table table td.tab_zi{
+	background:#e6e6fa;
+}
+.tab_title{
+	position:relative;
+}
+.tab_title img{
+	position:absolute;
+	top:10px;
+	right:10px;
+}
+.tab_title .padder-v{
+	padding: 30px 20px;
+}
+.tab_title .h1{
+	margin-top:0;
+}
+.tab_img{
+	margin-bottom:10px;
+}
+
+
+
+
+
+

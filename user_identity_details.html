@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>活动添加</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="assets/trumbowyg.css">
+    
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    
+    
+    <link rel="stylesheet" href="css/autocomplete.css" type="text/css">
+	<style>
+		#container {
+			height: 600px;
+			width: 100%;
+			border: 1px solid blue;
+		}
+	</style>
+	
+	
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/core.js"></script>
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>  
+    <!-- fileinput -->
+    <script src="js/plugins/fileinput/fileinput.js"></script>
+    <script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+    <!-- summernote -->
+    <script src="js/plugins/summernote/summernote.min.js"></script>
+    <script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="js/demo/summernote-demo.js"></script>	
+    
+    <script src="js/autocomplete.js"></script>
+    <!-- 百度地图js api -->
+    <script type="text/JavaScript" src="http://api.map.baidu.com/api?v=1.3"></script>
+    <!-- 自定义js -->
+    
+    
+    <script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">
+    
+    
+    <script src="js/user_identity_details.js"></script>
+	<script src="js/util.js"></script>
+	
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">       
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <h3 style="padding-top: 7px; display:inline;" id="update_add_title">详情
+                    	<a id="back" class="btn btn-sm btn-primary" href="javascript:;" onclick="window.history.go(-1)"> 返回</a>
+                    </h3>
+                    
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="commentForm">
+                            
+                            <span id="thisId" style="display: none;"></span>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">审核时间：</label>
+                                <div class="col-sm-5">
+                                    <input id="gmtDatetime" name="name" minlength="2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">姓名：</label>
+                                <div class="col-sm-5">
+                                    <input id="realName" name="name" minlength="2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <label class="col-sm-3 control-label">身份证号：</label>
+                                <div class="col-sm-5">
+                                    <input id="cardNum" name="name" minlength="2" type="text" class="form-control">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">证件证面照片：</label>
+                                <div class="col-sm-5">
+                                    <span id="path1" class="footable-sort-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">证件反面照片：</label>
+                                <div class="col-sm-5">
+                                    <span id="path2" class="footable-sort-indicator"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">证件反面照片：</label>
+                                <div class="col-sm-5">
+                                    <span id="path3" class="footable-sort-indicator"></span>
+                                </div>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>  
+    
+    
+    <!-- 审核失败-弹窗 -->
+    <div class="modal inmodal" id="update" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h4 class="modal-title" id="this_title1">失败描述</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>失败原因</label>
+                        <div class="form-group">
+                            <div class="summernote" id="faileContent"></div> 
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="changeStatus2()">保存</button>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+</body>
+
+</html>

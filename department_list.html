@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - FooTable</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+     <link rel="stylesheet" href="css/page.css"/>
+   
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+   
+
+    <!-- 自定义js -->
+   <script src="js/content.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
+
+    </script>
+    <script src="js/core.js"></script>
+    <script src="js/department_list.js"></script>
+</head>
+
+<body class="gray-bg">
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" style="padding-top: 6px">
+                        <h3 style="padding-top: 7px; display:inline;" id="update_add_title">部门列表</h3>
+                    	<a hidden="hidden" data="添加" name="添加" style="margin-left: 200px;" id="add" href="javascript:;" data-toggle="modal" data-target="#departmentAdd" >添加</a>
+                    </h3>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="row">
+                        </div> 
+                        
+						<div class="col-sm-0">
+                            <div class="input-group">
+                              	  数量：
+                                <span id="thiscount"></span>
+                            </div>
+                        </div>
+                        <table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>部门名称</th>  
+                                    <th>操作</th>  
+                                </tr>
+                            </thead>
+                            <tbody id="thislist">
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td colspan="8">
+                                      <div id="pager"></div>         
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal inmodal" id="departmentAdd" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<h5 class="modal-title" id="this_title" style="font-size: 20px;"></h5>
+					</div>
+					<div class="modal-body" style="height: 100px;">
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>部门名称：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="name" name="name" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									
+								</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal" href="javascript:history.go(-1);">取消</button>
+				
+						<button type="button" class="btn btn-white" data-dismiss="modal" onclick="departmentAdd()">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

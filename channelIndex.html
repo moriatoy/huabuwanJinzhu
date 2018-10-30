@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="renderer" content="webkit">
+
+		<title> 渠道商- 主页</title>
+
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+		<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="js/plugins/layer/layer.min.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/hAdmin.js?v=4.1.0"></script>
+		<script src="js/core.js"></script>
+		<script type="text/javascript" src="js/channelIndex.js"></script>
+	</head>
+
+	<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+		<div id="wrapper">
+			<!--左侧导航开始-->
+			<nav class="navbar-default navbar-static-side" role="navigation">
+				<div class="nav-close"><i class="fa fa-times-circle"></i>
+				</div>
+				<div class="sidebar-collapse">
+					<ul class="nav" id="side-menu">
+						<li class="nav-header">
+							<div class="dropdown profile-element">
+								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+									<span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;">
+                                        <i class="fa fa-area-chart"></i>
+                                        <strong class="font-bold">渠道商商后台系统</strong>
+                                    </span>
+									</span>
+								</a>
+							</div>
+						</li>
+						<li class="nav-header">
+							<div class="col-md-8 text-center" id="admin_img_user_name">
+							</div>
+						</li>
+						<li class="line dk"></li>
+						<li name="会员管理">
+							<a id="menu_2" href="">
+								<i class="fa fa-edit"></i>
+								<span class="nav-label">会员管理</span>
+							</a>
+							<ul class="nav nav-second-level">
+								<li name="会员列表">
+									<a class="J_menuItem" href="member_list.html" id="menu_19">会员列表</a>
+								</li>
+							</ul>
+						</li>
+						<li name="贷款管理">
+							<a id="menu_4" href="">
+								<i class="fa fa-edit"></i>
+								<span class="nav-label">贷款管理</span>
+								<span class="fa arrow"></span>
+							</a>
+							<ul class="nav nav-second-level">
+								<li name="贷款申请">
+									<a class="J_menuItem" href="channelOrder_list.html" id="menu_47">贷款订单</a>
+								</li>
+							</ul>
+							<!--<ul class="nav nav-second-level">
+								<li name="贷款成功列表">
+									<a class="J_menuItem" href="channelOrderOver_list.html" id="menu_47">贷款成功列表</a>
+								</li>
+							</ul>-->
+						</li>
+						<li name="数据统计">
+							<a id="menu_6" href="">
+								<i class="fa fa-edit"></i>
+								<span class="nav-label">数据统计</span>
+								<span class="fa arrow"></span>
+							</a>
+							<ul class="nav nav-second-level">
+								<li name="统计报表">
+									<a class="J_menuItem" href="channelIndex_v1.html" id="menu_44">统计报表</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!--左侧导航结束-->
+			<!--右侧部分开始-->
+			<div id="page-wrapper" class="gray-bg dashbard-1">
+				<div class="row border-bottom">
+					<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+						<div class="navbar-header">
+							<a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#"><i class="fa fa-bars"></i> </a>
+							<h3 style="text-align: center;"></h3>
+						</div>
+						<ul class="nav navbar-top-links navbar-right">
+							<li class="dropdown">
+								<h3><a href="javascript:;" onclick="loginout()">退出登陆</a></h3>
+							</li>
+						</ul>
+						<ul class="nav navbar-top-links navbar-right">
+							<li class="dropdown">
+								<h3> 欢迎&nbsp;&nbsp;&nbsp;<span id="nick_"></span></a></h3>
+							</li>
+						</ul>
+					</nav>
+
+				</div> 
+
+				<div class="row J_mainContent" id="content-main">
+					<iframe id="J_iframe" width="100%" height="100%" src="channelIndex_v1.html" frameborder="0" data-id="index_v1.html" seamless></iframe>
+				</div>
+			</div>
+			<!--右侧部分结束-->
+		</div>
+
+		<!-- 修改个人信息-弹窗 -->
+		<div class="modal inmodal" id="updatePassword" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+						<h4 class="modal-title" id="this_title">修改个人信息</h4>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<input id="adminId" type="text">
+							<label>旧密码</label>
+							<input id="oldPassword" type="password" placeholder="请输入旧密码" class="form-control">
+							<label>新密码</label>
+							<input id="password" type="password" placeholder="请输入新密码" class="form-control">
+							<label>确认密码</label>
+							<input id="aginPassword" type="password" placeholder="请再次输入密码" class="form-control">
+							<label>账号</label>
+							<input id="userName" type="text" placeholder="请输入新账号" class="form-control">
+							<label>昵称</label>
+							<input id="nick" type="text" placeholder="请输入新昵称" class="form-control">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+						<button type="button" class="btn btn-primary" onclick="toUpdatePassword()">提交</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>催收中心详情</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+		<link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+		<link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+		<link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/core.js"></script>
+
+		<!-- jQuery Validation plugin javascript-->
+		<script src="js/plugins/validate/jquery.validate.min.js"></script>
+		<script src="js/plugins/validate/messages_zh.min.js"></script>
+
+		<!-- fileinput -->
+		<script src="js/plugins/fileinput/fileinput.js"></script>
+		<script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+		<!-- 日期layerDate plugin javascript -->
+		<script src="js/plugins/layer/laydate/laydate.js"></script>
+
+		<!-- summernote -->
+		<script src="js/plugins/summernote/summernote.min.js"></script>
+		<script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+		<script src="js/demo/summernote-demo.js"></script>
+		<!-- 自定义js -->
+		<link rel="stylesheet" type="text/css" href="time/dist/css/bootstrap-datepicker3.css">
+		<script type="text/javascript" src="time/dist/js/bootstrap-datepicker.min.js"></script>
+		<script type="text/javascript" src="time/dist/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+		<script>
+            $(document).ready(function() {
+                $('.datepicker').datepicker({
+                    language: 'zh-CN',
+                    format:"yyyy-mm-dd"
+                });
+            });
+		</script>
+		<script src="js/overdue_list_core.js"></script>
+		<style>
+			.datainp {
+				width: 200px;
+				height: 30px;
+				border: 1px #ccc solid;
+			}
+			
+			.datep {
+				margin-bottom: 5px;
+			}
+
+			.control-label {
+				padding-right: 0;
+			}
+			.form-control {
+				padding-left: 0;
+			}
+			.ibox-title {
+				padding: 5px 18px 0 6px;
+			}
+			.right {
+				float: right;
+			}
+			.mailList {
+				display: none;
+				/*height: 800px;*/
+				overflow-y: scroll;
+				overflow-x: hidden;
+			}
+		</style>
+
+	</head>
+
+	<body class="gray-bg">
+		<div class="wrapper wrapper-content" id="modify_param_setting">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<!--<h5 id="update_add_title">催收中心</h5>-->
+							<div class="btn btn-sm btn-primary" onclick="callBack()">返回上一页</div>
+							<div class="right">
+								<a class="" hidden="hidden" name="续期" data-toggle="modal" data-target="#xuqiOrder">续期</a>
+								<a class="" hidden="hidden" name="结清" data-toggle="modal" data-target="#jieQing">结清</a>
+							</div>
+						</div>
+						<div class="ibox-content">
+							<div class="row">
+								<!--左半部分-->
+								<div class="col-sm-6"  style="border: 1px solid #eee;">
+									<form class="form-horizontal m-t" id="commentForm" style="padding: 0 10px">
+										<!--选择-->
+										<div class="btn btn-sm btn-default" id="btn1" onclick="changeBtn(1)">个人信息</div>
+										<div class="btn btn-sm btn-default" id="btn2" onclick="changeBtn(2)">通讯录</div>
+										<!--个人信息-->
+										<div class="personal">
+											<!--基本信息-->
+											<div class="row" style="border-bottom: 1px solid #eee;padding: 20px 0;">
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>姓名：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="userName" class="form-control"></span>
+														</div>
+													</div>
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>申请借款时间：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="gmtDatetime" class="form-control" style="white-space:nowrap;"></span>
+														</div>
+													</div>
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>手机：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="phoneNumber" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--单号详情-->
+											<div class="row" style="border-bottom: 1px solid #eee;padding: 40px 0;">
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>贷款单号：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="orderNumber" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>平台服务费：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="placeServePercent" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>银行名称：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="bankName" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>信息认证费：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="msgAuthPercent" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>银行卡号：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="bankCardNum" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>风控服务费：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="riskServePercent" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>贷款期限：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="limitDays" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>风险准备金：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="riskPlanPercent" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>借款金额：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="borrowMoney" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>综合费用：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="wateMoney" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span>到账金额：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="realMoney" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title">
+														<label class="col-sm-5 control-label">
+															<span >放款时间：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="passTime" class="form-control" style="white-space:nowrap;"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>利息：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="interestMoney" class="form-control"></span>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group item_title ">
+														<label class="col-sm-5 control-label">
+															<span>打款时间：</span>
+														</label>
+														<div class="col-sm-7">
+															<span id="giveTime" class="form-control" style="white-space:nowrap;"></span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<!--订单记录-->
+											<div class="row" style="padding: 20px 0;">
+												<div class="col-sm-12">
+													<label class="col-sm-offset-1 control-label" style="padding-bottom: 30px;">
+														<span>订单记录</span>
+													</label>
+												</div>
+												<div class="col-sm-10 col-sm-offset-1">
+													<table class="table table-striped toggle-arrow-tiny" data-page-size="14">
+														<thead>
+														<tr>
+															<th style="text-align: center">时间</th>
+															<th style="text-align: center">内容</th>
+															<th style="text-align: center">天数</th>
+															<th style="text-align: center">逾期费用</th>
+														</tr>
+														</thead>
+														<tbody id="orderlist" align="center">
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<!--通讯录-->
+										<div class="mailList">
+											<div class="row">
+												<div class="col-sm-8 col-sm-offset-2">
+													<table class="table table-striped toggle-arrow-tiny" data-page-size="14">
+														<thead>
+														<tr>
+															<th style="text-align: center">名字</th>
+															<th style="text-align: center">联系电话</th>
+														</tr>
+														</thead>
+														<tbody id="mailList" align="center">
+
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!--右半部分-->
+								<div class="col-sm-6">
+									<div style="border: 1px solid #eee;padding-bottom: 20px" hidden="hidden" name="保存">
+										<form class="form-horizontal m-t" method="get" action="">
+											<style>
+												.form-group input {
+													border: 1px solid #ccc;
+													border-radius: 4px;
+													padding-left: 12px;
+												}
+												.form-group select {
+													border:1px solid #ccc;
+												}
+												.form-group textarea {
+													border: 1px solid #ccc;
+													border-radius: 4px;
+													resize: none;
+													padding-left: 12px;
+													width: 114%
+												}
+												@media (max-width: 768px) {
+													.form-group textarea {
+														width: 100%;
+													}
+												}
+												.input-group-addon {
+													border-radius: 4px;
+												}
+											</style>
+											<div class="row">
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="col-sm-3 col-sm-offset-2 control-label">
+															<span>拨打电话</span>
+														</label>
+														<div class="col-sm-7">
+															<input type="text" name="channelName" id="telephone" maxlength="11" class="form-control" value="" autocomplete="off" placeholder="拨打电话">
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="col-sm-3 control-label">
+															<span>跟进时间</span>
+														</label>
+														<div class="col-sm-7">
+															<div class="input-group date datepicker">
+																<input type="text" id="dateTime" class="form-control" placeholder="下次跟进时间" autocomplete="off">
+																<div class="input-group-addon">
+																	<!--<span class="glyphicon glyphicon-calendar"></span>-->
+																	<i class="fa fa-calendar"></i>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="col-sm-3 col-sm-offset-2 control-label">
+															<span>催款对象</span>
+														</label>
+														<div class="col-sm-7">
+															<select id="object" name="object" class="form-control lyui-select select">
+																<option value="">请选择</option>
+																<option>本人</option>
+																<option>配偶</option>
+																<option>父母</option>
+																<option>朋友</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="col-sm-3 control-label">
+															<span>催款结果</span>
+														</label>
+														<div class="col-sm-7">
+															<select id="result" name="result" class="form-control lyui-select select">
+																<option value="">请选择</option>
+																<option>电话拒接</option>
+																<option>承诺还款</option>
+																<option>未打通</option>
+																<option>恶意欺诈</option>
+																<option>联系人告知</option>
+															</select>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<div class="form-group">
+														<label class="col-sm-2 col-sm-offset-1 control-label">
+															<span>备注</span>
+														</label>
+														<div class="col-sm-9">
+															<textarea id="content" class="form-control" rows="4"></textarea>
+														</div>
+													</div>
+												</div>
+												<div class="col-sm-6">
+													<div class="form-group">
+														<label class="col-sm-3 col-sm-offset-2 control-label"></label>
+														<div class="col-sm-7">
+															<button type="button" class="btn btn-primary" onclick="collection()" style="background: #3748AC;">保存</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</form>
+									</div>
+									<div style="padding: 40px 10px;border: 1px solid #eee;margin-top: 20px">
+										<table class="table table-striped toggle-arrow-tiny" data-page-size="14">
+											<thead>
+												<tr>
+													<th style="text-align: center">处理时间</th>
+													<th style="text-align: center">拨打电话</th>
+													<th style="text-align: center">催款对象</th>
+													<th style="text-align: center">催款结果</th>
+													<th style="text-align: center">备注</th>
+													<th style="text-align: center">催款员</th>
+												</tr>
+											</thead>
+											<tbody id="collectionList" align="center">
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--续期订单弹窗 -->
+			<div class="modal inmodal" id="xuqiOrder" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content animated bounceInRight">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">关闭</span>
+							</button>
+							<h4 class="modal-title" id="this_title">续期</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label id="thisId" style="display: none;"></label>
+								<label>续期天数</label> <input type="text" id="days" class="form-control" >
+								<label>总金额</label> <input type="text" id="money" class="form-control" >
+								<label>滞纳金</label> <input type="text" id="money1" class="form-control" >
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" id="sendRider" onclick="xuqiSend()">续期</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--结清订单弹窗 -->
+			<div class="modal inmodal" id="jieQing" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content animated bounceInRight">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span>
+								<span class="sr-only">关闭</span>
+							</button>
+							<h4 class="modal-title" id="this_title2">结清</h4>
+						</div>
+						<div class="modal-body">
+							<div class="form-group">
+								<label id="thisId2" style="display: none;"></label>
+								<label>金额</label> <input type="text" id="money2" class="form-control" >
+								<label>滞纳金</label> <input type="text" id="money3" class="form-control" >
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+							<button type="button" class="btn btn-primary" data-dismiss="modal" id="sendRider2" onclick="over()">结清</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

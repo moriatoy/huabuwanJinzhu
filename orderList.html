@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>贷款记录</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+				$('.footable').footable();
+				$('.footable2').footable();
+			});
+		</script>
+		<script src="js/core.js"></script>
+		<script src="js/orderList.js"></script>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>贷款记录</h5>
+						</div>
+						<div class="ibox-content">
+
+							<!-- 多条件搜索 -->
+							<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+								<style>
+									.form-inline .form-group {
+										margin-right: 12px;
+										margin-bottom: 15px;
+									}
+									
+									.form-inline .btn {
+										margin-bottom: 15px;
+									}
+									
+									.form-group .right {
+										display: inline-block;
+									}
+									
+									@media (max-width: 768px) {
+										.form-group .left {
+											width: 25%;
+										}
+										.form-group .right {
+											width: 70%;
+										}
+										.search-form-items .search-btn {
+											width: 100%;
+										}
+									}
+									.A_price{
+											float: left;
+											margin-left: 20px;
+											margin-top: 22px;
+										}
+										.A_price span{
+											display: inline-block;
+											float: left;
+											width: 60px;
+											font-size: 14px;
+											font-weight: normal;
+											color: #666666;
+											height: 30px;
+											line-height: 30px;
+										}
+										.A_price text{
+											display: inline-block;
+											float: left;
+											border: none;
+											font-size: 18px;
+											color: #f00;
+											height: 30px;
+											line-height: 30px;
+										}
+								</style>
+								<!--
+        如果选项的值是自定义数组(必须定义key为title的元素)需要解析，如果选项的值是常规字符串直接显示
+        此处主要是用来给option定义更多的属性，比如data-ia=1，那么option应为
+        $option = array('title' => 标题, 'data-id' => 1);
+    -->
+
+								<!--
+        如果选项的值是自定义数组(必须定义key为title的元素)需要解析，如果选项的值是常规字符串直接显示
+        此处主要是用来给option定义更多的属性，比如data-ia=1，那么option应为
+        $option = array('title' => 标题, 'data-id' => 1);
+    -->
+                               <a class="btn btn-sm btn-primary" href="javascript:history.go(-1);">返回上一页</a>
+
+							</form>
+							<!--<div><span class="input-group-btn">
+                                <a  style="margin-bottom: -50px;" href="shop_add.html"  class="btn btn-sm btn-primary">新增</a>
+                             </span></div>-->
+						</div>
+						<div class="ibox-content" style="overflow:scroll;">
+
+							<table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>贷款单号</th>
+										<th>姓名</th>
+										<th>手机号码</th>
+										<th>贷款期限</th>
+										<th>借款金额</th>
+										<th>打款金额</th>
+										<th>应还金额</th>
+										<th>实际还款金额</th>
+										<th>打款时间</th>
+										<th>应还款时间</th>
+										<th>实际还款时间</th>
+										<th>审核员</th>
+										<th>放款员</th>
+										<th>催收员</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="thislist">
+								</tbody>
+								<tbody align="center">
+									<tr>
+										<td colspan="14">
+											<div id="pager"></div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

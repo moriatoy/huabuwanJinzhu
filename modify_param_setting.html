@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> </title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+		<link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+		<link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+		<link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<!--
+        	作者：3239867688@qq.com
+        	时间：2017-07-21
+        	描述：颜色规格分类等样式
+        -->
+		<!--<link href="css/style/public.css" />
+		<link href="css/style/reset.css" />
+		<link href="css/style/style.css" />
+		<link href="css/style/wode.css" />
+
+		<script type="text/javascript" src="js/bank.js"></script>-->
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/core.js"></script>
+
+		<!-- jQuery Validation plugin javascript-->
+		<script src="js/plugins/validate/jquery.validate.min.js"></script>
+		<script src="js/plugins/validate/messages_zh.min.js"></script>
+
+		<!-- fileinput -->
+		<script src="js/plugins/fileinput/fileinput.js"></script>
+		<script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+		<!-- 日期layerDate plugin javascript -->
+		<script src="js/plugins/layer/laydate/laydate.js"></script>
+
+		<!-- summernote -->
+		<script src="js/plugins/summernote/summernote.min.js"></script>
+		<script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+		<script src="js/demo/summernote-demo.js"></script>
+		<!-- 自定义js -->
+		<script src="js/modify_param_setting.js"></script>
+		<style>
+			.datainp {
+				width: 200px;
+				height: 30px;
+				border: 1px #ccc solid;
+			}
+			
+			.datep {
+				margin-bottom: 5px;
+			}
+		</style>
+
+	</head>
+
+	<body class="gray-bg">
+		<div class="wrapper wrapper-content" id="modify_param_setting">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5 id="update_add_title">修改贷款设置</h5>
+						</div>
+						<div class="ibox-content">
+							<form class="form-horizontal m-t" id="commentForm">
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>ID：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="id" class="form-control"></span>
+									</div>
+								</div>
+
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>贷款期限：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="limitDays" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>最小额度：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="minBorrowMoney" name="minBorrowMoney" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>最大额度：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="maxBorrowMoney" name="maxBorrowMoney" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>利息(‰)：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="interestPercent" name="interestPercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>平台服务费(%)</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="placeServePercent" name="placeServePercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>信息认证费(%)：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="msgAuthPercent" name="msgAuthPercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>风控服务费(%)</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="riskServePercent" name="riskServePercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>风险准备金(%)：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="riskPlanPercent" name="riskPlanPercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>容限期：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="allowDays" name="allowDays" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>容限期日利率(%)：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="allowPercent" name="allowPercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>逾期日利率(%)：</span>
+        </label>
+									<div class="col-sm-8">
+										<input type="text" class="form-control input text" id="overduePercent" name="overduePercent" value="" placeholder="" required="required">
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>生成时间：</span>
+        </label>
+									<div class="col-sm-8">
+										 <span id="gmtDatetime" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 col-sm-offset-3">
+										<button id="submit_btn" class="btn btn-primary" type="button" onclick="subMsg()">提交</button>
+										<a class="btn btn-danger return" onclick="javascript:history.back(-1);return false;">取消</a>
+										<script type="text/javascript">
+											$('a[type="submit"]').click(function() {
+												if(!$(this).hasClass('ajax-post')) {
+													$("form.form-builder").submit();
+												}
+											});
+										</script>
+									</div>
+								</div>
+
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

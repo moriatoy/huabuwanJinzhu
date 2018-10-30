@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>利率配置</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+				$('.footable').footable();
+				$('.footable2').footable();
+			});
+		</script>
+		<script src="js/core.js"></script>
+		<script src="js/param_setting_list.js"></script>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>利率配置</h5>
+						</div>
+						<!-- 多条件搜索 -->
+						<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+							<style>
+								.form-inline .form-group {
+									margin-right: 12px;
+									margin-bottom: 15px;
+								}
+								
+								.form-inline .btn {}
+								
+								.form-group .right {
+									display: inline-block;
+								}
+								
+								@media (max-width: 768px) {
+									.form-group .left {
+										width: 25%;
+									}
+									.form-group .right {
+										width: 70%;
+									}
+									.search-form-items .search-btn {
+										width: 100%;
+									}
+								}
+							</style>
+							
+							<div class="form-group item_status" style="margin-left: 20px;padding-top: 10px">
+								<label class="left control-label">
+									<span>状态：</span>
+								</label>
+								<div class="right">
+									<select style="height: 32px;" oninput="selectStatus(this.value)" id="status" name="status" class="form-control lyui-select select">
+										<option value=''>请选择：</option>
+										<option value="1">可用</option>
+										<option value="2">已禁用</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group item_status" style="padding-top: 12px">
+								<span class="left control-label">
+									<a hidden="hidden" data="添加利率配置" href="param_add.html" style="float: left;" class="">添加利率配置</a>
+								</span>
+							</div>
+
+						</form>
+						<div class="ibox-content" style="overflow:scroll;">
+						<table class="table table-stripped toggle-arrow-tiny" data-page-size="14" style="width:1500px">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>贷款期限</th>
+										<th>利息(‰)</th>
+										<th>平台服务费(%)</th>
+										<th>信息认证费(%)</th>
+										<th>风控服务费(%)</th>
+										<th>风险准备金(%)</th>
+										<th>容限期</th>
+										<th>容限期日利率(%)</th>
+										<th>逾期日利率(%)</th>
+										<th>生成时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="thislist">
+								</tbody>
+								<tbody>
+                               
+                            </tbody>
+
+							</table>
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title> 正常还款列表</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+		<link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+		<link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css">
+		<link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+		<link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<!--
+        	作者：3239867688@qq.com
+        	时间：2017-07-21
+        	描述：颜色规格分类等样式
+        -->
+		<!--<link href="css/style/public.css" />
+		<link href="css/style/reset.css" />
+		<link href="css/style/style.css" />
+		<link href="css/style/wode.css" />
+
+		<script type="text/javascript" src="js/bank.js"></script>-->
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/core.js"></script>
+
+		<!-- jQuery Validation plugin javascript-->
+		<script src="js/plugins/validate/jquery.validate.min.js"></script>
+		<script src="js/plugins/validate/messages_zh.min.js"></script>
+
+		<!-- fileinput -->
+		<script src="js/plugins/fileinput/fileinput.js"></script>
+		<script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+		<!-- 日期layerDate plugin javascript -->
+		<script src="js/plugins/layer/laydate/laydate.js"></script>
+
+		<!-- summernote -->
+		<script src="js/plugins/summernote/summernote.min.js"></script>
+		<script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+		<script src="js/demo/summernote-demo.js"></script>
+		<!-- 自定义js -->
+		<script src="js/normalrepayment_list_detail.js"></script>
+		<style>
+			.datainp {
+				width: 200px;
+				height: 30px;
+				border: 1px #ccc solid;
+			}
+			
+			.datep {
+				margin-bottom: 5px;
+			}
+		</style>
+
+	</head>
+
+	<body class="gray-bg">
+		<div class="wrapper wrapper-content" id="modify_param_setting">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5 id="update_add_title">正常还款列表</h5>
+						</div>
+						<div class="ibox-content">
+							<form class="form-horizontal m-t" id="commentForm">
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>ID：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="id" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>姓名：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="userName" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>电话：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="phoneNumber" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>贷款单号：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="orderNumber" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>银行名称：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="bankName" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>银行卡号：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="bankCardNum" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>贷款期限：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="limitDays" class="form-control"></span>
+									</div>
+								</div>
+
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>借款金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="borrowMoney" class="form-control"></span>
+										</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>到账金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="realMoney" class="form-control"></span>
+											</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>利息：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="interestMoney" class="form-control"></span>
+											</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>平台服务费</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="placeServePercent" class="form-control"></span>
+										</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>信息认证费：</span>
+        </label>
+									<div class="col-sm-8">
+									<span id="msgAuthPercent" class="form-control"></span>
+											</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>风控服务费</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="riskServePercent" class="form-control"></span>
+											</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>风险准备金：</span>
+        </label>
+									<div class="col-sm-8">
+									<span id="riskPlanPercent" class="form-control"></span>
+												</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>综合费用：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="wateMoney" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>优惠券节省金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="saveMoney" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>应还款金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="needPayMoney" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>实还款金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="realPayMoney" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>申请借款时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="gmtDatetime" class="form-control"></span>
+									</div>
+								</div>
+										<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>放款时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="passTime" class="form-control"></span>
+									</div>
+								</div>
+										<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>打款时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="giveTime" class="form-control"></span>
+									</div>
+								</div>
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>应还款时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="limitPayTime" class="form-control"></span>
+									</div>
+								</div>
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>逾期时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="overDueTime" class="form-control"></span>
+									</div>
+								</div>	
+									<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>实际还款时间：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="realPayTime" class="form-control"></span>
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>逾期天数：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="overDueDays" class="form-control"></span>
+									</div>
+								</div>
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>逾期金额：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="overDueMoney" class="form-control"></span>
+									</div>
+								</div>
+								
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>容限期：</span>
+        </label>
+									<div class="col-sm-8">
+										<span id="allowDays" class="form-control"></span>
+									</div>
+								</div>
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>容限期费用：</span>
+        </label>
+									<div class="col-sm-8">
+											<span id="allowMoney" class="form-control"></span>
+										</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>放款员：</span>
+        </label>
+									<div class="col-sm-8">
+											<span id="auditorName" class="form-control"></span>
+										</div>
+								</div>
+								
+								
+								
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>借款协议：</span>
+        </label>
+									<div class="col-sm-8">
+										<a id="btn1" class="btn btn-primary return" href="">查看</a> 
+									
+									</div>
+								</div>
+								<div class="form-group item_title ">
+									<label class="col-sm-3 control-label">
+        	        	<span>借款服务协议：</span>
+        </label>
+									<div class="col-sm-8">
+										<a id="btn2" class="btn btn-primary return" href="">查看</a> 
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-sm-4 col-sm-offset-3">
+										<!--<button id="submit_btn" class="btn btn-primary" type="button" onclick="subMsg()">提交</button>
+										-->
+										
+										<a class="btn btn-primary return" onclick="javascript:history.back(-1);return false;">关闭</a>  
+									</div>
+								</div>
+
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

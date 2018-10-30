@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>参数设置</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+   
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css" />
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/core.js"></script>
+    <!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h3>参数配置</h3>
+						</div>
+						<div class="ibox-content">
+							<div class="builder-toolbar">
+								<div class="row">
+									<div class="col-xs-12 col-sm-8 button-list clearfix">
+										<p></p>
+										<div class="form-group" >
+											<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;同盾配置</h4>
+											<h6>&nbsp;&nbsp;同盾分数：<input  type="text" id="tongdunfenshu"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;小于等于该值表示通过</h6>
+											&nbsp;&nbsp;<button type="button" onclick="tongdunbaocun()">保存</button>
+										</div>
+										<div class="fengexian" style="height:1px;width:100%;background:#CCCCCC;overflow:hidden;"></div>
+										<p></p>
+										<div class="form-group" >
+											<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;设置额度</h4>
+											<h6>&nbsp;&nbsp;用户额度：<input  type="text" id="money"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</h6>
+											&nbsp;&nbsp;<button type="button" onclick="money()">保存</button>
+										</div>
+										<p></p>
+										<div class="form-group" >
+											<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;年龄</h4>
+											<h6>&nbsp;&nbsp;年龄：<input  type="text" id="nianlin"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</h6>
+											&nbsp;&nbsp;<button type="button" onclick="nianlin()">保存</button>
+										</div>
+										<p></p>
+										<div class="form-group" >
+											<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;芝麻分</h4>
+											<h6>&nbsp;&nbsp;芝麻分：<input  type="text" id="zhimafen"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</h6>
+											&nbsp;&nbsp;<button type="button" onclick="zhimafen()">保存</button>
+										</div>
+										<p></p>
+										<div class="form-group" >
+											<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;手机入网时间</h4>
+											<h6>&nbsp;&nbsp;手机入网时间(月)：<input  type="text" id="shouji"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</h6>
+											&nbsp;&nbsp;<button type="button" onclick="shouji()">保存</button>
+										</div>
+											&nbsp;&nbsp;<h4 style="color: #3399ff;">&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;拒绝地区</h4>
+										<div class="input-group search-form"style="width: 300px;">
+											
+											<input type="text" name="areaName" id="areaName" class="search-input form-control" value="" placeholder="新增拒绝地区" >
+											<span class="input-group-btn"><a class="btn btn-default add-btn" href="javascript:;" data-toggle="modal" data-target="#departmentAdd" onclick="refuseArea();"><i class="fa fa-plus-circle"></i></a></span>
+										</div>
+										
+										<div class="ibox-content" style="overflow:scroll;">
+				
+											<table class="table table-stripped toggle-arrow-tiny"style="min-width: 500px" data-page-size="14">
+												<thead>
+													<tr>
+														<th><input type="checkbox" /></th>
+														<th>编号</th>
+														<th>地区</th>
+														<th>操作</th>
+													</tr>
+												</thead>
+												<tbody id="thislist">
+												</tbody>
+												<tbody>
+													<tr>
+														<td colspan="8">
+															<div id="pager1">
+																
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+				
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="departmentAdd" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<h5 class="modal-title" id="this_title" style="font-size: 20px;"></h5>
+					</div>
+					<div class="modal-body" style="height: 100px;">
+						<div class="row">
+							<label class="col-sm-2 col-sm-offset-1" style="margin-top: 5px">
+								<span>地区：</span>
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control input text" id="region" name="name" value="" placeholder="请输入地区" required="required">
+							</div>
+						</div>
+						<div class="row" style="margin-top: 10px">
+							<label class="col-sm-2 col-sm-offset-1" style="margin-top: 5px">
+								<span>编号：</span>
+							</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control input text" id="number" name="name" value="" placeholder="请输入编号" required="required">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal" href="javascript:history.go(-1);">取消</button>
+
+						<button type="button" class="btn btn-white" onclick="addRefuseArea()">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

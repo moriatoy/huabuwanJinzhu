@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - FooTable</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+     <link rel="stylesheet" href="css/page.css"/>
+   
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+   
+
+    <!-- 自定义js -->
+   <script src="js/content.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('.footable').footable();
+            $('.footable2').footable();
+
+        });
+
+    </script>
+    <script src="js/core.js"></script>
+    <script src="js/user_phone_auto_list.js"></script>
+</head>
+
+<body class="gray-bg">
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>手机号码认证列表</h5>
+                    </div>
+                    <div class="ibox-content">
+
+                        <div class="row">
+                            <div class="col-sm-2">
+                            	<div class="input-group">
+                                    <input id="phone" type="text" placeholder="账号" class="input-sm form-control"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                            	<div class="input-group">
+                                    <input id="realName" type="text" placeholder="姓名" class="input-sm form-control"> 
+                                </div>
+                            </div>
+                            
+                            状态：
+                            <select id="status" name="cid" style="height:31px;border-radius: 3px;border: solid 1px #ddd;" onchange="searchuser()">
+                              <option value="-1">请选择...</option>
+                              <option value="0">未认证</option>
+                              <option value="1">认证成功</option>
+                            </select>
+                            
+                            <button type="button" id="toSearch" class="btn btn-sm btn-primary" style="margin-left:20px ;" onclick="searchuser()"> 搜索</button>
+                            
+                        </div> 
+                        
+						<div class="col-sm-0">
+                            <div class="input-group">
+                              	  人数：
+                                <span id="thiscount"></span>
+                            </div>
+                        </div>
+                        <table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>账号</th>  
+                                    <th>姓名</th>  
+                                    <th>认证手机号</th>                           
+                                    <th>认证时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="thislist">
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td colspan="8">
+                                      <div id="pager"></div>         
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 详情-弹窗 -->
+    <div class="modal inmodal" id="details" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h4 class="modal-title" id="this_title">会员详情</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="thisId" style="display: none;" type="text">
+                        <label>真实姓名</label> <span id="realName_details" class="form-control"></span>
+                        <label>店铺名字</label> <span id="shopName_details" class="form-control"></span>
+                        <label>商店类型</label> <span id="shopType_details" class="form-control"></span>
+                        <label>身份证</label> <span id="idCard_details" class="form-control"></span>
+                        <label>电话</label> <span id="phone_details" class="form-control"></span>
+                        <label>生日</label> <span id="birthday_details" class="form-control"></span>
+                        <label>性别</label> <span id="sex_details" class="form-control"></span>
+                        <label>国家</label> <span id="country_details" class="form-control"></span>
+                        <label>省份</label> <span id="province_details" class="form-control"></span>
+                        <label>市</label> <span id="city_details" class="form-control"></span>
+                        <label>区，县</label> <span id="county_details" class="form-control"></span>
+                        <label>详细地址</label> <span id="addressDetail_details" class="form-control"></span>
+                        <label>认证图片</label><br> <span id="paperUrl_details"></span>
+                        <label>资格认证图片</label><br> <span id="qualificationUrl_details"></span>
+                        <label>证书图片</label><br> <span id="certificateUrl_details"></span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 修改-认证失败原因-弹窗 -->
+    <div class="modal" id="update_fail" tabindex="-1" role="dialog" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h4 class="modal-title" id="this_title">失败原因</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="thisId_update_fail" style="display: none;" type="text">
+                        <label>失败原因</label> <input type="text" id="remark_update_fail" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" >关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="toUpdateFail()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>    
+
+</body>
+</html>

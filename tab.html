@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title> - FooTable</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+				$('.footable').footable();
+				$('.footable2').footable();
+			});
+			//tab
+			$(function() {
+				$('.w_xxtab_tit li').on('click', function() {
+					//获得当前被点击的元素索引值
+					var Index = $(this).index();
+					//给菜单添加选择样式
+					$(this).addClass('jinbi_curr').siblings().removeClass('jinbi_curr');
+					//显示对应的div
+					$('.w_xxtaba').children('div').eq(Index).show().siblings('div').hide();
+
+				});
+			});
+		</script>
+		<script src="js/core.js"></script>
+		<script src="js/main.js"></script>
+		<script src="js/tab.js?v=1.0"></script>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			
+			img,
+			a {
+				border: 0;
+			}
+			
+			.piccon {
+				height: 75px;
+				margin: 100px 0 0 50px;
+			}
+			
+			.piccon li {
+				float: left;
+				padding: 0 10px;
+			}
+			
+			#preview {
+				position: absolute;
+				border: 1px solid #ccc;
+				background: #333;
+				padding: 5px;
+				display: none;
+				color: #fff;
+			}
+		</style>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<a class="btn btn-sm btn-primary" href="javascript:history.go(-1);">返回上一页</a>
+						<!--tab-->
+						<div class="jg_pingjia_tab w_xxtaba" id="gallery">
+							<ul class="clearfix w_xxtab_tit">
+								<li class="jinbi_curr">
+									<a href="javascript:void(0);" >联系人认证</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay12();">身份认证</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay7();">银行卡认证</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay3();">本地通讯录</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay4();">运营商报告</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay0();">淘宝认证</a>
+								</li>
+								<li>
+									<a href="javascript:void(0);" onclick="loadMyEssay8();">支付宝认证</a>
+								</li>
+							</ul>
+							<!--联系人认证-->
+							<div class="w_ddcon">
+								<div class="row">
+									<div class="col-sm-6">
+										
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">姓名：</div>
+											<div class="col-sm-6">
+												<span id="realName"></span>
+											</div>
+										</div>
+										
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">申请时间：</div>
+											<div class="col-sm-6">
+												<span id="gmtDatetime"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">手机账号：</div>
+
+											<div class="col-sm-6">
+												<span id="phone"></span>
+											</div>
+										</div>																						
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人一姓名：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonNameOne"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人一电话：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonPhoneOne"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人一关系：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonRelationOne"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人二姓名：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonNameTwo"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人二电话：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonPhoneTwo"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">联系人关系：</div>
+
+											<div class="col-sm-6">
+												<span id="linkPersonRelationTwo"></span>
+											</div>
+										</div>
+									</div>
+									
+									
+									<div class="col-sm-6">
+
+									</div>
+
+								</div>
+								<div class="row">
+									<div class="col-sm-6">
+
+
+										
+
+
+										<div class="col-sm-6">
+
+										</div>
+
+									</div>
+								</div>
+
+							</div>
+							<!--身份认证-->
+							<div class="w_ddcon"  style="display:none;">
+								<div class="row">
+									<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">姓名：</div>
+										<div class="col-sm-6">
+											<span id="jsname"></span>
+										</div>
+									</div>
+										<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">身份证号码：</div>
+										<div class="col-sm-6">
+											<span id="jsidNumber"></span>
+										</div>
+									</div>
+									<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">相似度：</div>
+										<div class="col-sm-6">
+											<span id="jssimilarity"></span>
+										</div>
+									</div>
+                                    <div class="tab_img row">
+                                        <div class="col-sm-4 tab_left">身份证正面照</div>
+                                        <div class="col-sm-8 ">
+                                            <img style="width: 60%;" src="" id="frontcard"/>
+                                        </div>
+                                    </div>
+                                    <div class="tab_img row">
+                                        <div class="col-sm-4 tab_left">身份证反面照</div>
+                                        <div class="col-sm-8 ">
+                                            <img style="width: 60%;" src="" id="backcard"/>
+                                        </div>
+                                    </div>
+									<div class="tab_img row">
+										<div class="col-sm-4 tab_left">人脸照片</div>
+										<div class="col-sm-8 ">
+											<img style="width: 60%;" src="" id="jsimage"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--银行卡认证-->
+							<div class="w_ddcon"  style="display:none;">
+								<div class="row">
+									<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">卡号：</div>
+										<div class="col-sm-6">
+											<span id="bankcardno"></span>
+										</div>
+									</div>
+										<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">姓名：</div>
+										<div class="col-sm-6">
+											<span id="name"></span>
+										</div>
+									</div>
+										<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">身份证号码：</div>
+										<div class="col-sm-6">
+											<span id="idcardno"></span>
+										</div>
+									</div>
+										<div class="tab_line col-sm-12">
+										<div class="col-sm-4 tab_left">手机号码：</div>
+										<div class="col-sm-6">
+											<span id="bankPhone"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--本地通讯录-->
+							<div class="w_ddcon" style="display:none;">
+							 	<table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+									<thead>
+										<tr>
+											<th>联系人电话</th>
+											<th>联系人姓名</th>
+											<th>关系</th>
+										</tr>
+									</thead>
+									<tbody id="thislist3">
+									</tbody>
+									<tbody align="center">
+										<tr>
+											<td colspan="4">
+												<div id="pager3"></div>
+											</td>
+										</tr>
+									</tbody>
+                        		</table>
+							</div>
+							<!--运营商报告-->
+							<div class="w_ddcon" style="display:none;">
+								<table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+									<thead>
+										<tr>
+		                                    <th>手机号</th>  
+		                                    <th>号码归属地</th>  
+		                                    <th>通话时长</th>     
+		                                    <th>通话费用</th>  
+		                                    <th>通话类型</th> 
+		                                    <th>主被叫</th>
+		                                    <th>通话日期</th>
+										</tr>
+									</thead>
+									<tbody id="thislist4">
+									</tbody>
+									<tbody align="center">
+										<tr>
+											<td colspan="7">
+												<div id="pager4"></div>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+							<!-- 淘宝认证-->
+							<div class="w_ddcon"  style="display:none;">
+								<div class="row">
+									<div class="col-sm-6 col-sm-offset-3" style="padding: 0 40px;">
+										<div style="font-size: 14px;padding-bottom: 10px">淘宝数据</div>
+										<div>
+											<label>邮箱：</label>
+											<span id="email2"></span>
+										</div>
+										<div>
+											<label>信用分：</label>
+											<span id="zhima"></span>
+											<label style="padding-left: 10px">花呗：</label>
+											<span id="huabei"></span>
+											<label style="padding-left: 10px">借呗：</label>
+											<span id="jiebei"></span>
+										</div>
+										<div>
+											<label>收货手机：</label>
+											<span id="mobiles"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--支付宝-->
+                        	<div class="w_ddcon"  style="display:none;">
+								<div class="row">
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">支付宝账号：</div>
+											<div class="col-sm-6">
+												<span id="userName2"></span>
+											</div>
+										</div>
+										<div class="tab_line col-sm-12">
+											<div class="col-sm-4 tab_left">支付宝密码：</div>
+											<div class="col-sm-6">
+												<span id="userPassword"></span>
+											</div>
+										</div>
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">真实姓名：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="realName2"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">绑定手机号：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="userMobile"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">身份证号：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="identityCode"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">是否实名认证：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="verified"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">余额宝：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="assetsYuEbao"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">花呗额度：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="huabeiQuota"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">花呗余额：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="huabeiBalance"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">花呗下期还款：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="huabeiNextRepaymentAmount"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+										<!--<div class="tab_line col-sm-12">-->
+											<!--<div class="col-sm-4 tab_left">邮箱：</div>-->
+											<!--<div class="col-sm-6">-->
+												<!--<span id="email"></span>-->
+											<!--</div>-->
+										<!--</div>-->
+								</div>
+							</div>
+													
+							<div class="w_ddcon" style="display:none;">
+								<table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+									<thead>
+										<tr> 
+											<th>ID</th>  
+		                                    <th>风险名称</th>
+		                                    <th>风险分</th>
+		                                    <th>订单号码</th>
+		                                    <th>生成时间</th> 
+										</tr>
+									</thead>
+									<tbody id="thislist11">
+									</tbody>
+									<tbody align="center">
+										<tr>
+											<td colspan="7">
+												<div id="pager11"></div>
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+
+</html>

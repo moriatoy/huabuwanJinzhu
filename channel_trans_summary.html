@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>渠道转换率汇总</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="css/page.css" />
+
+	<!-- 全局js -->
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+
+	<!-- 自定义js -->
+	<script src="js/content.js?v=1.0.0"></script>
+	<script>
+        $(document).ready(function() {
+            $('.footable').footable();
+            $('.footable2').footable();
+        });
+	</script>
+	<script src="js/core.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/channel_trans_summary.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>渠道转换率汇总</h5>
+				</div>
+				<div class="ibox-content">
+					<div class="row">
+						<!-- 多条件搜索 -->
+						<form class="form form-inline search-form-items" method="get" action="">
+							<style>
+								.form-inline .form-group {
+									margin-right: 12px;
+									margin-bottom: 15px;
+								}
+								
+								.form-inline .btn {
+									margin-bottom: 15px;
+								}
+								
+								.form-group .right {
+									display: inline-block;
+								}
+								
+								@media (max-width: 768px) {
+									.form-group .left {
+										width: 25%;
+									}
+									.form-group .right {
+										width: 70%;
+									}
+									.search-form-items .search-btn {
+										width: 100%;
+									}
+								}
+							</style>
+							<!-- <div class="form-group item_status " style="padding-top: 10px;">
+								<label class="left control-label">
+						              <span>状态：</span>
+						        </label>
+								<div class="right">
+									<select oninput="selectOrdersStatus(this.value)" id="authStatus" name="auth_status" class="form-control lyui-select select" style="font-size: 13px">
+										<option value=''>全部：</option>
+										<option value="0">未认证</option>
+										<option value="1">认证成功</option>
+									</select>
+
+								</div>
+							</div>
+							<div class="input-group search-form" style="padding-bottom: 15px;">
+								<input type="text" name="phoneNumber" id="phoneNumber" class="search-input form-control" value="" placeholder="请输入电话号码" onkeyup="EnterSearchList();">
+							</div> -->
+							<div class="input-group search-form">
+								<input type="text" name="channelName" id="channelName" class="search-input form-control" value="" placeholder="代理商">
+								<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#channelName" onclick="channel_trans_summary.searchList();"><i class="fa fa-search"></i></a></span>
+							</div>
+							<div class="input-group search-form" style="margin-left: 16px">
+								<span class="input-group-btn"><a hidden="hidden" data="导出" class="" href="#channelName" onclick="channel_trans_summary.exportFun();">导出</a></span>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="ibox-content" style="overflow:scroll;">
+					<table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+						<thead>
+						<tr>
+							<th>渠道</th>
+							<th>H5点击总数</th>
+							<th>H5注册总数</th>
+							<th>APP下载激活总数</th>
+
+							<th>个人信息</th>
+							<th>身份认证</th>
+							<th>手机认证</th>
+							<th>银行卡认证</th>
+							<th>淘宝认证</th>
+							<!--<th>认证通过总数</th>-->
+							<th>申请订单总数</th>
+							<th>放款订单总数</th>
+							<th>还款订单总数</th>
+							<th>坏账率</th>
+							<!--<th>首逾比例</th>-->
+							<th>还款总金额</th>
+						</tr>
+						</thead>
+						<tbody id="thislist">
+						</tbody>
+						<tbody align="center">
+						<tr>
+							<td colspan="14">
+								<div id="pager"></div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

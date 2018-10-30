@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>我的催款客户</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+				$('.footable').footable();
+				$('.footable2').footable();
+			});
+		</script>
+		<script src="js/core.js"></script>
+		<script src="js/my_loan_list.js"></script>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>我的催款客户</h5>
+						</div>
+						<div class="ibox-content">
+
+							<!-- 多条件搜索 -->
+							<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+								<style>
+									.form-inline .form-group {
+										margin-right: 12px;
+										margin-bottom: 15px;
+									}
+									
+									.form-inline .btn {
+										margin-bottom: 15px;
+									}
+									
+									.form-group .right {
+										display: inline-block;
+									}
+									
+									@media (max-width: 768px) {
+										.form-group .left {
+											width: 25%;
+										}
+										.form-group .right {
+											width: 90%;
+										}
+										.search-form-items .search-btn {
+											width: 100%;
+										}
+									}
+									
+									.A_price {
+										float: left;
+										margin-left: 20px;
+										margin-top: 22px;
+									}
+									
+									.A_price span {
+										display: inline-block;
+										float: left;
+										width: 90px;
+										font-size: 14px;
+										font-weight: normal;
+										color: #666666;
+										height: 30px;
+										line-height: 30px;
+									}
+									
+									.A_price text {
+										display: inline-block;
+										float: left;
+										border: none;
+										font-size: 18px;
+										color: #f00;
+										height: 30px;
+										line-height: 30px;
+									}
+								</style>
+								<!--
+        如果选项的值是自定义数组(必须定义key为title的元素)需要解析，如果选项的值是常规字符串直接显示
+        此处主要是用来给option定义更多的属性，比如data-ia=1，那么option应为
+        $option = array('title' => 标题, 'data-id' => 1);
+    -->
+
+								<!--
+        如果选项的值是自定义数组(必须定义key为title的元素)需要解析，如果选项的值是常规字符串直接显示
+        此处主要是用来给option定义更多的属性，比如data-ia=1，那么option应为
+        $option = array('title' => 标题, 'data-id' => 1);
+    -->
+								<div class="form-group item_status " style="padding-top: 13px;">
+									<label class="left control-label">
+                        <span>状态：</span>
+        </label>
+									<div class="right">
+										<select oninput="selectOrdersStatus(this.value)" id="orderStatus" name="orderStatus" style="font-size: 13px;" class="form-control lyui-select select">
+											<option value="">全部：</option>
+											<option value="4">容限期中</option>
+											<option value="5">已超出容限期</option>
+											<option value="6">已还款</option>
+										</select>
+
+									</div>
+								</div>
+								<div class="form-group item_create_time " style="padding-top: 10px;">
+									<label class="left control-label">
+                        <span>应还款时间：</span>
+        </label>
+									<div class="right">
+										<div class="input-group">
+											<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+											<input type="text" id="applyTime" name="applyTime" class="form-control input dateranger" value="" placeholder="应还款时间">
+										</div>
+										<link rel="stylesheet" href="lingyun/lingyun/daterangepicker.css">
+										<script src="lingyun/lingyun/moment.min.js"></script>
+										<script src="lingyun/lingyun/daterangepicker.js"></script>
+										<script type="text/javascript">
+											$(function() {
+												// 初始化日期范围插件
+												$('#applyTime').daterangepicker({
+													"showDropdowns": true,
+													"autoApply": false,
+													// "dateLimit": {
+													//     "days": 365 * 100
+													// },
+													"linkedCalendars": false,
+													"opens": 'right',
+													"ranges": {
+														"一周内": [
+															moment().subtract(6, 'days'),
+															moment()
+														],
+														"一月内": [
+															moment().subtract(29, 'days'),
+															moment()
+														],
+														"本月内": [
+															moment().startOf('month'),
+															moment().endOf('month')
+														],
+														"上个月": [
+															moment().subtract(1, 'month').startOf('month'),
+															moment().subtract(1, 'month').endOf('month')
+														]
+													},
+													autoUpdateInput: false,
+													locale: {
+														format: 'YYYY-MM-DD',
+														separator: ' - ',
+														applyLabel: '确定',
+														cancelLabel: '取消',
+														fromLabel: '从',
+														toLabel: '到',
+														customRangeLabel: '日期范围',
+														daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+														monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+														firstDay: 1
+													},
+													"minDate": "YYYY-MM-DD",
+													"maxDate": "YYYY-MM-DD"
+												}, function(start, end, label) {
+													console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + " (predefined range: " + label + ")");
+												});
+
+												$('#applyTime').on('apply.daterangepicker', function(ev, picker) {
+													$(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+												});
+
+												$('#applyTime').on('cancel.daterangepicker', function(ev, picker) {
+													$(this).val('');
+												});
+											})
+										</script>
+									</div>
+
+									<!--<div class="input-group search-form" ">
+										<span class="input-group-btn" style="padding-top: 7px;"><a class="btn btn-default search-btn" href="#applyTime" onclick="searchList();"><i class="fa fa-search"></i></a></span>
+									</div>-->
+								</div>
+
+								<div class="input-group search-form" style="padding-bottom: 15px;">
+									<input type="text" name="phoneNumber" id="phoneNumber" class="search-input form-control" value="" placeholder="请输入电话号码" onkeyup="EnterSearchList();">
+								</div>
+
+								<div class="input-group search-form">
+									<input type="text" name="userName" id="userName" class="search-input form-control" value="" placeholder="请输入姓名" onkeyup="EnterSearchList();">
+									<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList();"><i class="fa fa-search"></i></a></span>
+								</div>
+
+							</form>
+							<!--<div><span class="input-group-btn">
+                                <a  style="margin-bottom: -50px;" href="shop_add.html"  class="btn btn-sm btn-primary">新增</a>
+                             </span></div>-->
+						</div>
+						<div class="ibox-content" style="overflow:scroll;">
+
+							<table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+								<thead>
+									<tr>
+										<th><input type="checkbox" onclick="selectAll(this)"/></th>
+										<th>ID</th>
+										<th>贷款单号</th>
+										<th>姓名</th>
+										<th>电话</th>
+										<th>逾期天数</th>
+										<th>贷款期限</th>
+										<th>借款金额</th>
+										<th>打款金额</th>
+										<th>应还金额</th>
+										<th>打款时间</th>
+										<th>应还款时间</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="thislist">
+								</tbody>
+								<tbody align="center">
+									<tr>
+										<td colspan="8">
+											<div id="pager"></div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal inmodal" id="sendmessage" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+						<h5 class="modal-title" id="this_title" style="font-size: 20px;">发送短信催款内容</h5>
+					</div>
+					<div class="modal-body">
+						<div class="form-group">
+							<textarea resize: none id="content" cols="50" rows="2"></textarea>
+
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="addRecord" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+						<h5 class="modal-title" id="this_title1" style="font-size: 20px;">记录催款过程</h5>
+					</div>
+					<div class="modal-body">
+						<div class="form-group" id="recordold">
+							
+							
+
+						</div>
+
+						<div class="form-group">
+							<textarea resize: none id="content1" cols="50" rows="2"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" onclick="jilubaocun();">保存</button>
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="xieshanghuankuan" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+						<h5 class="modal-title" id="this_title1" style="font-size: 20px;">协商还款</h5>
+					</div>
+					<div class="modal-body">
+						<div class="input-group search-form">
+							<input type="text" name="xieshangM" id="xieshangM" class="search-input form-control" value="" placeholder="请输入还款金额" onkeyup="EnterSearchList();">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" onclick="bufenhuankuan();">部分还款</button>
+						<button type="button" class="btn btn-white" onclick="jieqinhuankuan();">结清还款</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

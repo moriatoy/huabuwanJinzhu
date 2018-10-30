@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>超级管理员充值</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="css/page.css" />
+
+	<!-- 全局js -->
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+
+	<!-- 自定义js -->
+	<script src="js/content.js?v=1.0.0"></script>
+	<script src="js/core.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/adminRecharge.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>超级管理员充值</h5>
+				</div>
+				<style>
+					.list-mor {
+						padding: 30px 0;
+					}
+					.list-mor > ul {
+						list-style: none;
+					}
+					.list-mor > ul > li {
+						font-size: 16px;
+						padding: 16px;
+					}
+					.list-mor > ul > li > span {
+						padding-right: 30px;
+					}
+				</style>
+				<div class="list-mor">
+					<ul id="tishiList"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--当前订单弹窗 -->
+<div class="modal inmodal" id="Recharge" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content animated bounceInRight">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">
+					<span aria-hidden="true">&times;</span>
+					<span class="sr-only">关闭</span>
+				</button>
+				<h4 class="modal-title" id="this_title">充值</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label id="thisId" style="display: none;"></label>
+					<input type="text" id="money" class="form-control" placeholder="请输入金额">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+				<button type="button" class="btn btn-primary" data-dismiss="modal" id="sendRider" onclick="recharge()">确认</button>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

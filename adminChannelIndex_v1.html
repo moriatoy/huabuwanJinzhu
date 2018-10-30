@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - FooTable</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css"/>
+    
+   	<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="time/css/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="time/dist/css/bootstrap-datepicker3.css">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<script type="text/javascript" src="time/dist/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="time/dist/locales/bootstrap-datepicker.zh-CN.min.js" charset="UTF-8"></script>
+	<script type="text/javascript">
+		$(function(){
+
+		})
+	</script>
+
+	<!-- echarts -->
+	<script src="js/echarts/echarts.min.js"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+
+    <!-- 自定义js --> 
+    <script src="js/content.js?v=1.0.0"></script>
+    <script>
+		//tab
+		$(function () {
+		   $('.w_xxtab_tit li').on('click',function(){
+				//获得当前被点击的元素索引值
+				var Index = $(this).index();
+				//给菜单添加选择样式
+				$(this).addClass('jinbi_curr').siblings().removeClass('jinbi_curr');
+				//显示对应的div
+				$('.w_xxtaba').children('div').eq(Index).show().siblings('div').hide();
+		   
+		   });
+		});
+
+    </script>
+    <script src="js/core.js"></script>
+    <script src="js/adminChannelIndex1.js"></script>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row row-sm">
+                	<div class="row" style="min-height:100px;margin-top: 10px;">
+						<div class="col-md-5">
+							<h3>请选择一个日期：</h3>
+							<div class="input-group date datepicker">
+							    <input type="text" id="gmtDatetime" class="form-control">	
+							    <div class="input-group-addon">
+							        <span class="glyphicon glyphicon-th "></span>
+							    </div>							   
+							</div>
+						</div>
+						<div class="row" style="margin-top: 55px;">						
+							<a onclick="init()"  class="btn btn-sm btn-primary">查询</a>
+						</div>
+					</div>
+					
+                            <div class="col-xs-3 tab_title">
+                                <div class="panel padder-v item" style="background:#ff88c2;">
+                                    <div id="channelCount1" class="h1 text-fff">0</div>
+                                    <span class="text-fff">今日新增注册人数</span>
+                                    <img src="img/tab01.png">
+                                </div>
+                            </div>
+                            <div class="col-xs-3 tab_title">
+                                <div  class="panel padder-v item" style="background:#33ccff;">
+                                    <div id="channelCount2" class="h1 text-fff">0</div>
+                                    <span class="text-fff">今日认证通过人数</span>
+                                    <img src="img/tab03.png">
+                                </div>
+                            </div>
+                            <div  class="col-xs-3 tab_title">
+                                <div class="panel padder-v item" style="background:#00aa55;">
+                                    <div id="channelCount3" class="h1 text-fff">0</div>
+                                    <span class="text-fff">今日申请订单数</span> 
+                                    <img src="img/tab03.png">
+                                </div>
+                            </div>
+                            <div  class="col-xs-3 tab_title">
+                                <div class="panel padder-v item" style="background:#00ddaa;">
+                                    <div id="channelCount4" class="h1 text-fff">0</div>
+                                    <span class="text-fff">今日放款订单数</span>
+                                    <img src="img/tab03.png">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                	<div class="col-sm-12 tab_table">
+                        <table class="table text-center table-bordered" data-page-size="8">
+                            <tbody>
+                                <tr>
+                                    <td class="tab_hui">总注册会员数</td>
+                                    <td id="memberCount" class="tab_hui">0</td>                                    
+                                </tr>
+                                <tr>
+                                    <td class="tab_zi">总申请订单数</td>
+                                    <td id="orderCount" >0</td>                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

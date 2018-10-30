@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title> - FooTable</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css"/>
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- echarts -->
+	<script src="js/echarts/echarts.min.js"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.1"></script>
+    <script>
+        $(document).ready(function() {
+            $('.footable').footable();
+            $('.footable2').footable();
+        });
+		//tab
+		$(function () {
+		   $('.w_xxtab_tit li').on('click',function(){
+				//获得当前被点击的元素索引值
+				var Index = $(this).index();
+				//给菜单添加选择样式
+				$(this).addClass('jinbi_curr').siblings().removeClass('jinbi_curr');
+				//显示对应的div
+				$('.w_xxtaba').children('div').eq(Index).show().siblings('div').hide();
+		   
+		   });
+		});
+
+    </script>
+    <script src="js/core.js"></script>
+    <script src="js/index1.js"></script>
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row row-sm">
+                    <div class="col-xs-2 tab_title">
+                        <div class="panel padder-v item" style="background:#ff88c2;">
+                            <div id="userAllAddCount" class="h1 text-fff">0</div>
+                            <span class="text-fff">今日新增客户</span>
+                            <img src="img/tab01.png">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 tab_title">
+                        <div class="panel padder-v item" style="background:#ff88c2;">
+                            <div id="userAddCount" class="h1 text-fff">0</div>
+                            <span class="text-fff">今日新增认证客户</span>
+                            <img src="img/tab01.png">
+                        </div>
+                    </div>
+                    <div class="col-xs-2 tab_title">
+                        <div  class="panel padder-v item" style="background:#33ccff;">
+                            <div id="orderPassUserCount" class="h1 text-fff">0</div>
+                            <span class="text-fff">今日已审核放贷客户</span>
+                            <img src="img/tab02.png">
+                        </div>
+                    </div>
+                    <div  class="col-xs-2 tab_title">
+                        <div class="panel padder-v item" style="background:#00aa55;">
+                            <div id="moneyOutAll" class="h1 text-fff">0</div>
+                            <span class="text-fff">今日放款金额</span>
+                            <img src="img/tab03.png">
+                        </div>
+                    </div>
+                    <div  class="col-xs-2 tab_title">
+                        <div class="panel padder-v item" style="background:#00ddaa;">
+                            <div id="moneyBackAll" class="h1 text-fff">0</div>
+                            <span class="text-fff">今日还款金额</span>
+                            <img src="img/tab04.png">
+                        </div>
+                    </div>
+                    <div  class="col-xs-2 tab_title">
+                        <div class="panel padder-v item" style="background:#FF9900;padding: 13px 20px">
+                            <div id="overduePer1st" class="h1 text-fff" style="font-size:20px;">0</div>
+                            <span class="text-fff">首次逾期</span>
+                            <div id="newOverduePer1st" class="h1 text-fff" style="font-size:20px;">0</div>
+                            <span class="text-fff">新增订单首次逾期</span>
+                            <img src="img/tab05.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="panel padder-v item" style="background:#19C1D0;">
+                    <div class="text-ddd" id="totalLoan"></div>
+                    <div class="text-ddd">放款总额</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel padder-v item" style="background:#597C8E;">
+                    <div class="text-ddd" id="daiShou"></div>
+                    <div class="text-ddd">待收总额</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="panel padder-v item" style="background:#25BCA6;">
+                    <div class="text-ddd" id="shiShou"></div>
+                    <div class="text-ddd">已还总额</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#19C1D0;">
+                    <div class="text-ddd" id="todayDaiShou">0</div>
+                    <div class="text-ddd">当天待收</div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#597C8E;">
+                    <div class="text-ddd" id="threeDayDaiShou">0</div>
+                    <div class="text-ddd">三日内到期</div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#E26A6C;">
+                    <div class="text-ddd" id="overduThreeDay"></div>
+                    <div class="text-ddd">逾期1~3天</div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#E26A6C;">
+                    <div class="text-ddd" id="overduSevenDay"></div>
+                    <div class="text-ddd">逾期3~7天</div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#E26A6C;">
+                    <div class="text-ddd" id="overduFifteenDay"></div>
+                    <div class="text-ddd">逾期7~15天</div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="panel padder-v item" style="background:#E26A6C;">
+                    <div class="text-ddd" id="overduOtherDay"></div>
+                    <div class="text-ddd">逾期15天以上</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

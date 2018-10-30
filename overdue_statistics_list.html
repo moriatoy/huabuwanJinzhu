@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>催收统计</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css" />
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/footable/footable.all.min.js"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+    <script>
+        $(document).ready(function() {
+            $('.footable').footable();
+            $('.footable2').footable();
+        });
+    </script>
+    <script src="js/core.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/overdue_statistics_list.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>催收统计</h5>
+                </div>
+                <div class="ibox-content">
+
+                    <!-- 多条件搜索 -->
+                    <form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+                        <style>
+                            .form-inline .form-group {
+                                /*margin-right: 12px;*/
+                                /*margin-bottom: 15px;*/
+                            }
+
+                            .form-inline .btn {
+                                margin-bottom: 15px;
+                            }
+
+                            .item_center {
+                                margin-left: 60px;
+                                margin-right: 60px;
+                            }
+                            .input-group {
+                                margin-bottom: 10px;
+                                /*margin-right: 20px;*/
+                            }
+                            .input-group .search-input {
+                                border-radius: 5px!important;
+                            }
+                            .input-group > input {
+                                border: 1px solid #E5E6E7;
+                            }
+                            .input-group > .input {
+                                border-radius: 5px;
+                            }
+                            .input-group-addon {
+                                border-top-right-radius: 5px;
+                                border-bottom-right-radius: 5px;
+                            }
+
+                            .form-group .right {
+                                display: inline-block;
+                            }
+
+                            @media (max-width: 768px) {
+                                .form-group .left {
+                                    width: 25%;
+                                }
+                                .form-group .right {
+                                    width: 90%;
+                                }
+                                .search-form-items .search-btn {
+                                    width: 100%;
+                                }
+                                .item_center {
+                                    margin-left: 0;
+                                    margin-right: 0;
+                                }
+                            }
+
+                            .A_price {
+                                float: left;
+                                margin-left: 20px;
+                                margin-top: 22px;
+                            }
+
+                            .A_price span {
+                                display: inline-block;
+                                float: left;
+                                width: 90px;
+                                font-size: 14px;
+                                font-weight: normal;
+                                color: #666666;
+                                height: 30px;
+                                line-height: 30px;
+                            }
+
+                            .A_price text {
+                                display: inline-block;
+                                float: left;
+                                border: none;
+                                font-size: 18px;
+                                color: #f00;
+                                height: 30px;
+                                line-height: 30px;
+                            }
+                        </style>
+                        <div class="form-group item_create_time " style="padding-top: 10px;">
+                            <div class="right">
+                                <div class="input-group">
+                                    <input type="text" id="applyTime" name="applyTime" class="form-control input dateranger" value="" placeholder="时间">
+                                    <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                </div>
+                                <div class="input-group search-form">
+                                    <span class="input-group-btn" style="padding-top: 6px;"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList();">搜索</a></span>
+                                </div>
+                                <!--<div class="input-group" style="vertical-align: middle">-->
+                                    <!--<a class="btn btn-default" onclick="searchList()">搜索</a>-->
+                                <!--</div>-->
+                                <link rel="stylesheet" href="lingyun/lingyun/daterangepicker.css">
+                                <script src="lingyun/lingyun/moment.min.js"></script>
+                                <script src="lingyun/lingyun/daterangepicker.js"></script>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        // 初始化日期范围插件
+                                        $('#applyTime').daterangepicker({
+                                            "showDropdowns": true,
+                                            "autoApply": false,
+                                            // "dateLimit": {
+                                            //     "days": 365 * 100
+                                            // },
+                                            "linkedCalendars": false,
+                                            "opens": 'right',
+                                            "ranges": {
+                                                "一周内": [
+                                                    moment().subtract(7, 'days'),
+                                                    moment()
+                                                ],
+                                                "一月内": [
+                                                    moment().subtract(29, 'days'),
+                                                    moment()
+                                                ],
+                                                "本月内": [
+                                                    moment().startOf('month'),
+                                                    moment().endOf('month')
+                                                ],
+                                                "上个月": [
+                                                    moment().subtract(1, 'month').startOf('month'),
+                                                    moment().subtract(1, 'month').endOf('month')
+                                                ]
+                                            },
+                                            autoUpdateInput: false,
+                                            locale: {
+                                                format: 'YYYY-MM-DD',
+                                                separator: ' - ',
+                                                applyLabel: '确定',
+                                                cancelLabel: '取消',
+                                                fromLabel: '从',
+                                                toLabel: '到',
+                                                customRangeLabel: '日期范围',
+                                                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                                                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                                firstDay: 1
+                                            },
+                                            "minDate": "YYYY-MM-DD",
+                                            "maxDate": "YYYY-MM-DD"
+                                        }, function(start, end, label) {
+                                            console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + " (predefined range: " + label + ")");
+                                        });
+
+                                        $('#applyTime').on('apply.daterangepicker', function(ev, picker) {
+                                            $(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+                                        });
+
+                                        $('#applyTime').on('cancel.daterangepicker', function(ev, picker) {
+                                            $(this).val('');
+                                        });
+                                    })
+                                </script>
+                            </div>
+                        </div>
+
+                        <div style="float: right;">
+                            <div style="margin-top: 20px;" hidden="hidden" name="导出Excel(外)">
+                                <button type="button"  class="btn btn-primary exportFile" style="margin-left:20px;" onclick="exportFile()">导出Excel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="ibox-content" style="overflow:scroll;">
+
+                    <table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+                        <thead>
+                        <tr>
+                            <!--<th><input type="checkbox" onclick="selectAll(this)"/></th>-->
+                            <th>ID</th>
+                            <th>时间</th>
+                            <th>分配人员</th>
+                            <th style="text-align: center">退回订单</th>
+                            <th style="text-align: center">分配的单数</th>
+                            <th style="text-align: center">结清单数</th>
+                            <th style="text-align: center">结清收到金额</th>
+                            <th style="text-align: center">续期单数</th>
+                            <th style="text-align: center">续期收到金额</th>
+                            <th style="text-align: center">未催回订单</th>
+                            <th style="text-align: center">催回率</th>
+                            <th style="text-align: center; width:140px">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="thislist">
+                        </tbody>
+                        <tbody align="center">
+                        <tr>
+                            <td colspan="8">
+                                <div id="pager"></div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

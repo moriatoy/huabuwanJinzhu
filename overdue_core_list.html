@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>催收中心</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <link rel="stylesheet" href="css/page.css" />
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+    <!-- 分页js -->
+    <script type="text/javascript" src="js/jquery.page.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/content.js?v=1.0.0"></script>
+    <script src="js/core.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/overdue_core_list.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>催收中心</h5>
+                </div>
+                <div class="ibox-content" style="padding: 0 20px 0 20px;">
+                    <!-- 多条件搜索 -->
+                    <form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+                        <style>
+                            .input-group {
+                                margin-bottom: 10px;
+                                margin-right: 20px;
+                            }
+                            .input-group .search-input {
+                                border-radius: 5px!important;
+                            }
+                            .input-group > input {
+                                border: 1px solid #E5E6E7;
+                            }
+                            .input-group > .input {
+                                border-radius: 5px;
+                            }
+                            .input-group-addon {
+                                border-top-right-radius: 5px;
+                                border-bottom-right-radius: 5px;
+                            }
+                            /*标签页*/
+                            .nav-tabs>li{
+                                margin-bottom: -2px;
+                                border-radius: 0;
+                            }
+                            .nav-tabs > li > a {
+                                padding: 10px 40px;
+                                border-radius: 0;
+                            }
+                            .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+                                border-color: #fff;
+                                color: #7266ba;
+                                border-bottom: 2px solid #7266ba;
+                            }
+                            .nav-tabs > li > a:hover, .nav-tabs > li > a:focus{
+                                color: #7266ba;
+                                background: none;
+                                border-color: #fff;
+                                border-bottom-color: #ddd;
+                            }
+                            .tab-content {
+                                padding-top: 10px;
+                            }
+                            /*折叠面板*/
+                            .panel-group .panel{
+                                border-radius: 0;
+                            }
+                            .panel-group .panel+.panel{
+                                margin-top: -1px;
+                            }
+                            .accordion-toggle::after {
+                                color: rgb(170, 170, 170);
+                                content: "收起 \f0de";
+                                display: block;
+                                float: right;
+                                font-family: FontAwesome;
+                                font-size: 10px;
+                                line-height: 16px;
+                                position: relative;
+                            }
+                            .accordion-toggle.collapsed:after {
+                                content: "展开 \f0dd";
+                            }
+                            /*=====*/
+
+                            .form-group .right {
+                                display: inline-block;
+                            }
+
+                            @media (max-width: 768px) {
+                                .form-group .left {
+                                    width: 25%;
+                                }
+                                .form-group .right {
+                                    width: 90%;
+                                }
+                                .search-form-items .search-btn {
+                                    width: 100%;
+                                }
+                                .item_center {
+                                    margin-left: 0;
+                                    margin-right: 0;
+                                }
+                            }
+                            #thislist > tr {
+                                cursor: pointer;
+                            }
+                            #number {
+                                color: red;
+                                font-size: 18px;
+                            }
+                            /*通讯录*/
+                            #mailBtn {
+                                height: 400px;
+                                text-align: center;
+                                line-height: 400px;
+                            }
+                            #mail {
+                                height: 466px;
+                                display: none;
+                                overflow-y: auto;
+                            }
+                            #mail::-webkit-scrollbar {
+                                width: 2px;
+                                border-radius: 2px;
+                            }
+                            .image {
+                                width: 30%;
+                                border: 1px solid #eee;
+                            }
+                            .image > img {
+                                width: 100%;
+                            }
+                            .image > div {
+                                padding: 10px;
+                            }
+                            .tips {
+                                color: rgb(255, 128, 0);
+                                font-size: 12px;
+                                font-weight: 100;
+                            }
+                            #state {
+                                overflow: hidden;
+                            }
+                            #state > li {
+                                float: left;
+                                list-style: none;
+                                padding: 2px 10px;
+                                margin: 2px 4px;
+                                background: #f3f3f3;
+                                border-radius: 6px;
+                                color: rgba(0,0,0,.65);
+                                border: 1px solid #aaa;
+                                cursor: pointer;
+                            }
+                            #state > .ative {
+                                background: rgb(135, 208, 104);
+                                color: #fff;
+                            }
+                        </style>
+                        <div class="form-group item_status item_center">
+                            <label>姓名：</label>
+                            <div class="input-group search-form" style="width: 160px;margin-left: 0">
+                                <input type="text" name="userName" id="userName" class="search-input form-control" value="" placeholder="请输入姓名">
+                            </div>
+                        </div>
+                        <div class="form-group item_status item_center">
+                            <label>手机号：</label>
+                            <div class="input-group search-form item_center" style="width: 160px">
+                                <input type="text" name="phoneNumber" id="phoneNumber" class="search-input form-control" value="" placeholder="请输入手机号">
+                            </div>
+                        </div>
+                        <div class="form-group item_status item_center">
+                            <label>状态：</label>
+                            <div class="input-group form-group">
+                                <select id="orderStatus" name="orderStatus" style="font-size: 13px;width: 120px; border:1px solid #E5E6E7;border-radius: 0" class="form-control lyui-select select">
+                                    <option value="">全部：</option>
+                                    <option>失联</option>
+                                    <option>疑难</option>
+                                    <option>承诺</option>
+                                    <option>跳票</option>
+                                    <option>家人代偿</option>
+                                    <option>忘记还款</option>
+                                    <option>欺诈</option>
+                                    <option>易催</option>
+                                    <option>难催-过度负债</option>
+                                    <option>难催-转告</option>
+                                    <option>难催-态度恶劣</option>
+                                    <option>难催-无还款意愿</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group item_status item_center">
+                            <label>逾期天数：</label>
+                            <div class="input-group form-group">
+                                <input type="text" id="day" name="day" class="form-control input dateranger" value="" placeholder="逾期天数">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group item_status item_center">
+                            <label>下次跟进时间：</label>
+                            <div class="input-group form-group">
+                                <input type="text" id="gmtDatetime" name="gmtDatetime" class="form-control input dateranger" value="" placeholder="下次跟进时间">
+                                <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            </div>
+                        </div>
+                        <div class="form-group item_status item_center">
+                            <div class="input-group form-group">
+                                <button type="button" class="btn btn-primary exportFile" onclick="searchList()"><span class="glyphicon glyphicon-search"></span> 搜索</button>
+                            </div>
+                            <div class="input-group form-group">
+                                <span class="input-group-btn"><a class="btn btn-default search-btn" onclick="reset();"><span class="glyphicon glyphicon-refresh"></span></a></span>
+                            </div>
+                            <div class="input-group form-group">
+                                <button type="button"  class="btn btn-primary exportFile" onclick="exportFile()"><span class="glyphicon glyphicon-log-out"></span> 导出Excel</button>
+                            </div>
+                        </div>
+
+                        <!--<div style="float: right;">-->
+                            <!--<div style="margin-top: 10px;" hidden="hidden" name="导出Excel">-->
+                                <!--<button type="button"  class="btn btn-primary exportFile" style="margin-left:20px ;" onclick="exportFile()">导出Excel</button>-->
+                            <!--</div>-->
+                            <!--<div class="input-group search-form" style="margin-top: 0">-->
+                                <!--<span class="input-group-btn"><a class="btn btn-default search-btn" onclick="searchList()">搜索</a></span>-->
+                                <!--<span class="input-group-btn"><a class="btn btn-default search-btn" onclick="reset();">重置</a></span>-->
+                            <!--</div>-->
+                            <!--<div style="margin: 10px 0;text-align: center">-->
+                                <!--<span id="number">总数：</span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div>
+                            <link rel="stylesheet" href="lingyun/lingyun/daterangepicker.css">
+                            <script src="lingyun/lingyun/moment.min.js"></script>
+                            <script src="lingyun/lingyun/daterangepicker.js"></script>
+                            <script type="text/javascript">
+                                $(function() {
+                                    // 初始化日期范围插件
+                                    $('#gmtDatetime').daterangepicker({
+                                        "showDropdowns": true,
+                                        "autoApply": false,
+                                        // "dateLimit": {
+                                        //     "days": 365 * 100
+                                        // },
+                                        "linkedCalendars": false,
+                                        "opens": 'right',
+                                        "ranges": {
+                                            "一周内": [
+                                                moment().subtract(6, 'days'),
+                                                moment()
+                                            ],
+                                            "一月内": [
+                                                moment().subtract(29, 'days'),
+                                                moment()
+                                            ],
+                                            "本月内": [
+                                                moment().startOf('month'),
+                                                moment().endOf('month')
+                                            ],
+                                            "上个月": [
+                                                moment().subtract(1, 'month').startOf('month'),
+                                                moment().subtract(1, 'month').endOf('month')
+                                            ]
+                                        },
+                                        autoUpdateInput: false,
+                                        locale: {
+                                            format: 'YYYY-MM-DD',
+                                            separator: ' - ',
+                                            applyLabel: '确定',
+                                            cancelLabel: '取消',
+                                            fromLabel: '从',
+                                            toLabel: '到',
+                                            customRangeLabel: '日期范围',
+                                            daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                                            monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                            firstDay: 1
+                                        },
+                                        "minDate": "YYYY-MM-DD",
+                                        "maxDate": "YYYY-MM-DD"
+                                    }, function(start, end, label) {
+                                        console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + " (predefined range: " + label + ")");
+                                    });
+
+                                    $('#gmtDatetime').on('apply.daterangepicker', function(ev, picker) {
+                                        $(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+                                    });
+
+                                    $('#gmtDatetime').on('cancel.daterangepicker', function(ev, picker) {
+                                        $(this).val('');
+                                    });
+                                })
+                            </script>
+                        </div>
+                        <!--<div hidden="hidden" name="分配">-->
+                            <!--<div class="form-group">-->
+                                <!--<div class="form-group item_status " style="padding-top: 10px;width: 210px">-->
+                                    <!--<a style="height: 30px; line-height: 28px; margin-top: 8px" name="分配" href="javascript:;" data-toggle="modal" class="btn btn-primary btn-block btn-xs" data-target="#jsFenpeiMultiple" onclick="fenpei2()">分配</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="ibox-content" style="border: 0; padding: 0 20px 0 20px;">
+                            <div style="overflow: hidden">
+                                <div style="float: left;padding-top: 3px;">
+                                    <span id="number">总数：</span>
+                                </div>
+                                <div style="float: right">
+                                    <button type="button" name="分配" data-toggle="modal" data-target="#jsFenpeiMultiple" class="btn btn-primary exportFile" onclick="fenpei2()"><span class="glyphicon glyphicon-indent-left"></span> 分配</button>
+                                </div>
+                            </div>
+                            <table class="table table-bordered table-hover toggle-arrow-tiny" data-page-size="14">
+                                <thead>
+                                <tr >
+                                    <th><input type="checkbox" onclick="selectAll(this)"/></th>
+                                    <th>ID</th>
+                                    <th style="text-align: center">姓名</th>
+                                    <th style="text-align: center">逾期时间</th>
+                                    <th style="text-align: center">跟进</th>
+                                    <th style="text-align: center">状态</th>
+                                    <th style="text-align: center">分配</th>
+                                </tr>
+                                </thead>
+                                <tbody id="thislist"></tbody>
+                            </table>
+                            <table class="table table-stripped toggle-arrow-tiny">
+                                <tbody align="center">
+                                <tr>
+                                    <td colspan="8" style="border-top: 0">
+                                        <div id="pager"></div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div style="padding-right: 20px;">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">基本信息</a></li>
+                                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">通讯录</a></li>
+                                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">运营商</a></li>
+                                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">详细信息</a></li>
+                            </ul>
+                            <button type="button" class="btn btn-primary exportFile" style="float: right; margin-top: -36px;"  data-toggle="modal" data-target="#stateMultiple" onclick="Initialization()"><span class="glyphicon glyphicon-wrench"></span> 操作</button>
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <!--基本信息-->
+                                <div role="tabpanel" class="tab-pane active" id="home">
+                                    <div class="row">
+                                        <div class="col-xs-6" style="padding-right: 2px">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">社会关系(紧急联系人)</div>
+                                                <div class="panel-body" style="padding: 0;">
+                                                    <table class="table table-bordered toggle-arrow-tiny" data-page-size="14"  style="margin-bottom: 0;">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>称谓</th>
+                                                                <th>输入称谓</th>
+                                                                <th>关系</th>
+                                                                <th>电话号码</th>
+                                                                <th style="text-align: center">电话</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="contactsList"></tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6" style="padding-left: 2px">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">账单详情</div>
+                                                <div class="panel-body" style="padding: 0">
+                                                    <table class="table table-bordered toggle-arrow-tiny" data-page-size="14" style="margin-bottom: 0">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>账单日</th>
+                                                            <th>本金+利息+罚息/未还</th>
+                                                            <th>应还总额</th>
+                                                            <th>逾期天数</th>
+                                                            <th>是否展期</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="billList">
+                                                            <tr>
+                                                                <td>1期/2018-10-14</td>
+                                                                <td>
+                                                                    1500+10.5+65.32<br>
+                                                                    1575.82
+                                                                </td>
+                                                                <td>1575.82</td>
+                                                                <td>3天</td>
+                                                                <td>否</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <div style="border: 1px solid #ddd;padding: 20px;border-radius:4px;">
+                                                <div style="padding-bottom: 10px">跟进记录 <span data-toggle="modal" data-target="#remarkMultiple" style="color: #ec5853;cursor: pointer" onclick="Initialization(3)">&nbsp;新增催记</span></div>
+                                                <div class="panel-group" id="remark" role="tablist" aria-multiselectable="true" style="margin-bottom: 0">
+                                                    <div class="panel panel-default" style="border-top-left-radius: 6px;border-top-right-radius: 6px">
+                                                        <div class="panel-heading" role="tab" id="followUp">
+                                                            <h4 class="panel-title">
+                                                                <a class="accordion-toggle" role="button" data-toggle="collapse" href="#followOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                    跟进条数
+                                                                    <span class="tips">&nbsp;&nbsp;条数:<span id="tiaoshu"></span></span>
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="followOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="followUp">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>跟进人</th>
+                                                                        <th>跟进时间</th>
+                                                                        <th>操作</th>
+                                                                        <th>操作内容</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody id="followList"></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading" role="tab" id="conversation">
+                                                            <h4 class="panel-title">
+                                                                <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#followTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                    通话记录
+                                                                    <span class="tips">&nbsp;&nbsp;条数:<span id="tiaoshu2"></span></span>
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="followTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="conversation">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>联系人称呼</th>
+                                                                        <th>与客户关系</th>
+                                                                        <th>手机号码</th>
+                                                                        <th>跟进人</th>
+                                                                        <th>跟进时间</th>
+                                                                        <th>内容</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody id="conversationList"></tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default" style="border-bottom-left-radius: 6px;border-bottom-right-radius: 6px">
+                                                        <div class="panel-heading" role="tab" id="shortMessage">
+                                                            <h4 class="panel-title">
+                                                                <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#followThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                    短信记录
+                                                                    <span class="tips">&nbsp;&nbsp;暂无数据</span>
+                                                                </a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="followThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="shortMessage">
+                                                            <div class="panel-body">
+                                                                <table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>联系人称呼</th>
+                                                                        <th>与客户关系</th>
+                                                                        <th>手机号码</th>
+                                                                        <th>跟进人</th>
+                                                                        <th>跟进时间</th>
+                                                                        <th>内容</th>
+                                                                    </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td colspan="6" style="text-align: center"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;暂无数据</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">通讯录</div>
+                                        <div class="panel-body" style="padding: 0;">
+                                            <div id="mail">
+                                                <table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>姓名</th>
+                                                            <th>电话</th>
+                                                            <th>最后联系时间</th>
+                                                            <th>次数</th>
+                                                            <th>备注</th>
+                                                            <th style="text-align: center">电话</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="mailList"></tbody>
+                                                </table>
+                                            </div>
+                                           <div id="mailBtn">
+                                               <button type="button" class="btn btn-primary exportFile" style="" onclick="mailList()">点击查看通讯录</button>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--运营商-->
+                                <div role="tabpanel" class="tab-pane" id="messages">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">手机运营商信息</div>
+                                        <div class="panel-body">
+                                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="margin-bottom: 0;">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle" role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                                高频联系人记录
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                        <div class="panel-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingTwo">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                                                运营商商户记录数
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                        <div class="panel-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="headingThree">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                                                运营商呼入呼出记录
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                                        <div class="panel-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--详细信息-->
+                                <div role="tabpanel" class="tab-pane" id="settings">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">个人信息</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div>
+                                                        <label for="name">姓名：</label>
+                                                        <span id="name"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="phone">手机号：</label>
+                                                        <span id="phone"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="marriage">婚姻：</label>
+                                                        <span id="marriage"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">QQ：</label>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="address">详细地址：</label>
+                                                        <span id="address"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>
+                                                        <label for="idNumber">身份证号：</label>
+                                                        <span id="idNumber"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="education">学历：</label>
+                                                        <span id="education"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="nativePlace">籍贯：</label>
+                                                        <span id="nativePlace"></span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">所在地：</label>
+                                                        <span>-</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">居住时长：</label>
+                                                        <span>-</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">照片审核</div>
+                                        <div class="panel-body" style="padding: 0;">
+                                            <div class="panel-group" id="photo" role="tablist" aria-multiselectable="true" style="margin-bottom: 0;">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="photoPositive">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle" role="button" data-toggle="collapse" href="#photoOne" aria-expanded="true" aria-controls="photoOne">
+                                                                身份证正面
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="photoOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="photoPositive">
+                                                        <div class="panel-body">
+                                                            <div class="image" id="just">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="photoBack">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#photoTwo" aria-expanded="false" aria-controls="photoTwo">
+                                                                身份证反面
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="photoTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="photoBack">
+                                                        <div class="panel-body">
+                                                            <div class="image" id="back">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading" role="tab" id="photoLife">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle collapsed" role="button" data-toggle="collapse" href="#photoThree" aria-expanded="false" aria-controls="photoThree">
+                                                                生活照
+                                                                <span class="glyphicon glyphicon-info-sign"></span>
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="photoThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="photoLife">
+                                                        <div class="panel-body">
+                                                            <div class="image" id="daily">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">职业信息</div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-6">
+                                                    <div>
+                                                        <label for="">所在单位：</label>
+                                                        <span>暂无</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">详细地址：</label>
+                                                        <span>暂无</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">职业：</label>
+                                                        <span>--</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">发薪日：</label>
+                                                        <span>--</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6">
+                                                    <div>
+                                                        <label for="">单位地址：</label>
+                                                        <span>暂无</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">单位电话：</label>
+                                                        <span>暂无</span>
+                                                    </div>
+                                                    <div>
+                                                        <label for="">月收入：</label>
+                                                        <span>--</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">申请记录</div>
+                                        <div class="panel-body" style="padding: 0">
+                                            <table class="table table-bordered toggle-arrow-tiny" data-page-size="14" style="margin-bottom: 0">
+                                                <thead>
+                                                <tr>
+                                                    <th>订单号</th>
+                                                    <th>申请时间</th>
+                                                    <th>金额</th>
+                                                    <th>天数</th>
+                                                    <th>状态</th>
+                                                    <th>产品类型</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="recordList"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal inmodal" id="sendmessage" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h5 class="modal-title" id="this_title" style="font-size: 20px;">发送短信催款内容</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <textarea resize: none id="content" cols="50" rows="2"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--分配弹框-->
+<div class="modal inmodal" id="jsFenpeiMultiple" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h5 class="modal-title" id="this_title1" style="font-size: 20px;">分配催款员</h5>
+            </div>
+            <div class="modal-body">
+                <div class="input-group search-form">
+                    <form>
+                        <select id="jsfenPeiSelect">
+                        </select>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal" onclick="fenpeiqueren2();">确定</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--催记弹框-->
+<div class="modal inmodal" id="remarkMultiple" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h5 class="modal-title" style="font-size: 20px;">添加催记</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">称呼：</span>
+                        <input type="text" class="form-control" id="inputName" placeholder="请输入称呼" style="border-radius: 0">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">关系：</span>
+                        <input type="text" class="form-control" id="inputRelation" placeholder="请输入关系" style="border-radius: 0">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">手机：</span>
+                        <input type="text" class="form-control" id="inputPhone" placeholder="请输入手机" style="border-radius: 0">
+                    </div>
+                    <div class="input-group">
+                        <textarea class="form-control" id="inputContent" style="resize:none;" cols="100" rows="4" placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn1" class="btn btn-white" onclick="remarkFun(1);">确定</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--状态弹框-->
+<div class="modal inmodal" id="stateMultiple" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">关闭</span>
+                </button>
+                <h5 class="modal-title" style="font-size: 20px;">改变状态</h5>
+            </div>
+            <div class="modal-body">
+                <div>状态列表：</div>
+                <ul id="state">
+                    <li onclick="state('失联',0)">失联</li>
+                    <li onclick="state('疑难',1)">疑难</li>
+                    <li onclick="state('承诺',2)">承诺</li>
+                    <li onclick="state('跳票',3)">跳票</li>
+                    <li onclick="state('家人代偿',4)">家人代偿</li>
+                    <li onclick="state('忘记还款',5)">忘记还款</li>
+                    <li onclick="state('欺诈',6)">欺诈</li>
+                    <li onclick="state('易催',7)">易催</li>
+                    <li onclick="state('难催-过度负债',8)">难催-过度负债</li>
+                    <li onclick="state('难催-转告',9)">难催-转告</li>
+                    <li onclick="state('难催-态度恶劣',10)">难催-态度恶劣</li>
+                    <li onclick="state('难催-无还款意愿',11)">难催-无还款意愿</li>
+                </ul>
+                <div class="form-group">
+                    <div class="input-group">
+                        <textarea class="form-control" id="inputContent2" style="resize:none;" cols="100" rows="4" placeholder="请输入内容"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btn2" class="btn btn-white" onclick="remarkFun(2);">确定</button>
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

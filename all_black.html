@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>黑名单列表</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+
+				$('.footable').footable();
+				$('.footable2').footable();
+
+			});
+		</script>
+
+		<script src="js/core.js"></script>
+		<script src="js/all_black.js"></script>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>黑白名单列表</h5>
+						</div>
+						<div class="ibox-content">
+							<!-- 顶部工具栏按钮 -->
+							<div class="builder-toolbar">
+								<div class="row">
+									<!-- 工具栏按钮 -->
+									<!-- 搜索框 -->
+								</div>
+							</div>
+							<div class="row">
+								<!-- 多条件搜索 -->
+								<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+									<style>
+										.form-inline .form-group {
+											margin-right: 12px;
+											margin-bottom: 15px;
+										}
+										
+										.form-inline .btn {
+											margin-bottom: 15px;
+										}
+										
+										.form-group .right {
+											display: inline-block;
+										}
+										
+										@media (max-width: 768px) {
+											.form-group .left {
+												width: 25%;
+											}
+											.form-group .right {
+												width: 70%;
+											}
+											.search-form-items .search-btn {
+												width: 100%;
+											}
+										}
+										
+										.A_price {
+											float: left;
+											margin-left: 20px;
+											margin-top: 22px;
+										}
+										
+										.A_price span {
+											display: inline-block;
+											float: left;
+											width: 80px;
+											font-size: 14px;
+											font-weight: normal;
+											color: #666666;
+											height: 30px;
+											line-height: 30px;
+										}
+										
+										.A_price text {
+											display: inline-block;
+											float: left;
+											border: none;
+											font-size: 18px;
+											color: #f00;
+											height: 30px;
+											line-height: 30px;
+										}
+
+										/*标签页*/
+										.nav-tabs>li{
+											margin-bottom: -2px;
+											border-radius: 0;
+										}
+										.nav-tabs > li > a {
+											padding: 10px 40px;
+											border-radius: 0;
+										}
+										.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+											border-color: #fff;
+											color: #7266ba;
+											border-bottom: 2px solid #7266ba;
+										}
+										.nav-tabs > li > a:hover, .nav-tabs > li > a:focus{
+											color: #7266ba;
+											background: none;
+											border-color: #fff;
+											border-bottom-color: #ddd;
+										}
+										.tab-content {
+											padding-top: 10px;
+										}
+										.tab-content .form-inline input {
+											border: 1px solid #eee;
+											-webkit-border-radius: 8px;
+											-moz-border-radius: 8px;
+											border-radius: 8px;
+										}
+									</style>
+
+								</form>
+							</div>
+							<div style="padding-right: 20px;">
+								<ul class="nav nav-tabs" role="tablist">
+									<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">手机白名单</a></li>
+									<li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">身份证白名单</a></li>
+									<li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">身份证黑名单</a></li>
+								</ul>
+								<div class="tab-content">
+									<!--基本信息-->
+									<div role="tabpanel" class="tab-pane active" id="home">
+										<div class="row">
+											<div class="col-xs-12">
+												<div style="border: 1px solid #ddd;padding: 20px;border-radius:4px;">
+													<form class="form form-inline search-form-items">
+														<div class="input-group search-form">
+															<input type="text" name="userName" id="idCard" class="search-input form-control" value="" placeholder="请输入手机号">
+															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList();"><i class="fa fa-search"></i></a></span>
+														</div>
+													</form>
+													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+														<thead>
+														<tr>
+															<th>ID</th>
+															<th>手机</th>
+															<th>时间</th>
+														</tr>
+														</thead>
+														<tbody id="followList"></tbody>
+													</table>
+													<table class="table table-stripped toggle-arrow-tiny">
+														<tbody align="center">
+														<tr>
+															<td colspan="8" style="border-top: 0">
+																<div id="pager"></div>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div role="tabpanel" class="tab-pane" id="profile">
+										<div class="row">
+											<div class="col-xs-12">
+												<div style="border: 1px solid #ddd;padding: 20px;border-radius:4px;">
+													<form class="form form-inline search-form-items">
+														<div class="input-group search-form">
+															<input type="text" name="userName" id="idCard2" class="search-input form-control" value="" placeholder="请输入身份证号">
+															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList2();"><i class="fa fa-search"></i></a></span>
+														</div>
+													</form>
+													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+														<thead>
+														<tr>
+															<th>ID</th>
+															<th>身份证</th>
+															<th>时间</th>
+														</tr>
+														</thead>
+														<tbody id="followList2"></tbody>
+													</table>
+													<table class="table table-stripped toggle-arrow-tiny">
+														<tbody align="center">
+														<tr>
+															<td colspan="8" style="border-top: 0">
+																<div id="pager2"></div>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--身份证黑名单-->
+									<div role="tabpanel" class="tab-pane" id="messages">
+										<div class="row">
+											<div class="col-xs-12">
+												<div style="border: 1px solid #ddd;padding: 20px;border-radius:4px;">
+													<form class="form form-inline search-form-items">
+														<div class="input-group search-form">
+															<input type="text" name="userName" id="idCard3" class="search-input form-control" value="" placeholder="请输入身份证号">
+															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList3();"><i class="fa fa-search"></i></a></span>
+														</div>
+													</form>
+													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
+														<thead>
+														<tr>
+															<th>ID</th>
+															<th>身份证</th>
+														</tr>
+														</thead>
+														<tbody id="followList3"></tbody>
+													</table>
+													<table class="table table-stripped toggle-arrow-tiny">
+														<tbody align="center">
+														<tr>
+															<td colspan="8" style="border-top: 0">
+																<div id="pager3"></div>
+															</td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+</html>

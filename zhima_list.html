@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>芝麻授权认证</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+<link href="css/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+<!-- 全局js -->
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+
+
+<script src="js/core.js"></script>
+<body>
+<div>
+    <div>
+        <div class="text-center">
+            <h3>芝麻授权认证</h3>
+        </div>
+        <div id="toolbar" style="position: relative;left:36px;top:0px;">
+            <div class="my-container">
+                <label class="myLabel-content">姓名：</label>
+                <div class="myText-content">
+                    <input id="userName" type="text" class="form-control" placeholder="请输入姓名">
+                </div>
+            </div>
+            <div class="my-container">
+                <label class="myLabel-content">身份证号码：</label>
+                <div class="myText-content">
+                    <input id="idCard" type="text" class="form-control" placeholder="请输入身份证号码">
+                </div>
+            </div>
+            <div class="my-container">
+                <label class="myLabel-content">芝麻分（含以上）：</label>
+                <div class="myText-content">
+                    <input id="score" type="text" class="form-control" placeholder="请输入芝麻分">
+                </div>
+            </div>
+            <div class="myBtn-content">
+                <button id="dosearch" type="button" class="btn btn-primary">搜索</button>
+            </div>
+        </div>
+        <table id="loadTable"/>
+    </div>
+</div>
+
+
+<!--bootstrap-table-->
+<script src="js/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<script src="js/zhima_list.js"></script>
+
+
+</body>
+
+</html>

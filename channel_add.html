@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>添加管理员</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/core.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+
+     <!-- fileinput -->
+    <script src="js/plugins/fileinput/fileinput.js"></script>
+    <script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+    
+	<!-- summernote -->
+    <script src="js/plugins/summernote/summernote.min.js"></script>
+    <script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="js/demo/summernote-demo.js"></script>	
+    
+    <!-- 自定义js -->
+    <script src="js/channel_add.js"></script>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">       
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="commentForm">
+                            <style>
+                                input {
+                                    border: 1px solid #ccc !important;
+                                }
+                            </style>
+                            <div class="form-group" id="thisType">
+                            	<!--<div id="title_div" class="form-group" >-->
+	                                <!--<label class="col-sm-3 control-label">渠道商名称</label>-->
+	                                <!--<div class="col-sm-6">-->
+	                                    <!--<input id="name" name="name" minlength="2" type="text" class="form-control">-->
+	                                <!--</div>-->
+                            	<!--</div>-->
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">账号</label>
+	                                <div class="col-sm-6">
+	                                    <input id="loginName" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="linkUrlDiv" class="form-group" hidden="hidden">
+	                                <label class="col-sm-3 control-label">推广链接</label>
+	                                <div class="col-sm-6">
+	                                    <input id="linkUrl" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">分成利润比例</label>
+	                                <div class="col-sm-6">
+	                                    <input id="proportion" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div id="passwdDiv" class="form-group" >
+	                                <label class="col-sm-3 control-label">密码</label>
+	                                <div class="col-sm-6">
+	                                    <input id="password" name="name" minlength="2" type="password" class="form-control">
+	                                </div>
+                            	</div>
+	                            <div class="form-group">
+	                                <div class="col-sm-4 col-sm-offset-3">
+	                                    <button class="btn btn-primary" type="button" onclick="release()" >提交</button>
+	                                </div>
+	                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>        
+    
+</body>
+
+</html>

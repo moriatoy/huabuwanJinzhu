@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>还款统计</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+	<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+	<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+	<link href="css/animate.css" rel="stylesheet">
+	<link href="css/style.css?v=4.1.0" rel="stylesheet">
+	<link rel="stylesheet" href="css/page.css" />
+
+	<!-- 全局js -->
+	<script src="js/jquery.min.js?v=2.1.4"></script>
+	<script src="js/bootstrap.min.js?v=3.3.6"></script>
+	<script src="js/plugins/footable/footable.all.min.js"></script>
+
+	<!-- 分页js -->
+	<script type="text/javascript" src="js/jquery.page.js"></script>
+
+	<!-- 自定义js -->
+	<script src="js/content.js?v=1.0.0"></script>
+	<script>
+        $(document).ready(function() {
+            $('.footable').footable();
+            $('.footable2').footable();
+        });
+	</script>
+	<script src="js/core.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/recive_list.js"></script>
+</head>
+
+<body class="gray-bg">
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>应收款项</h5>
+				</div>
+				<div class="ibox-content">
+
+					<!-- 多条件搜索 -->
+					<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+						<style>
+							.form-inline .form-group {
+								margin-right: 12px;
+								margin-bottom: 15px;
+							}
+
+							.form-inline .btn {
+								margin-bottom: 15px;
+							}
+
+							.form-group .right {
+								display: inline-block;
+							}
+
+							@media (max-width: 768px) {
+								.form-group .left {
+									width: 25%;
+								}
+								.form-group .right {
+									width: 70%;
+								}
+								.search-form-items .search-btn {
+									width: 100%;
+								}
+							}
+							.A_price{
+								float: left;
+								margin-left: 20px;
+								margin-top: 22px;
+							}
+							.A_price span{
+								display: inline-block;
+								float: left;
+								width: 60px;
+								font-size: 14px;
+								font-weight: normal;
+								color: #666666;
+								height: 30px;
+								line-height: 30px;
+							}
+							.A_price text{
+								display: inline-block;
+								float: left;
+								border: none;
+								font-size: 18px;
+								color: #f00;
+								height: 30px;
+								line-height: 30px;
+							}
+							#papercount{
+                                color: #f00;
+                                font-size: 18px;
+                                font-weight: normal;
+							}
+						</style>
+						<div class="form-group item_create_time search-form" >
+							<label class="left control-label">
+								<span>开始时间：</span>
+							</label>
+							<div class="right">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input type="text" id="begin" name="begin" class="form-control input dateranger" value="" placeholder="放款时间">
+								</div>
+								<link rel="stylesheet" href="lingyun/lingyun/daterangepicker.css">
+								<script src="lingyun/lingyun/moment.min.js"></script>
+								<script src="lingyun/lingyun/daterangepicker.js"></script>
+								<script type="text/javascript">
+                                    $(function() {
+                                        // 初始化日期范围插件
+                                        $('#begin').daterangepicker({
+                                            "showDropdowns": true,
+                                            "autoApply": false,
+                                            // "dateLimit": {
+                                            //     "days": 365 * 100
+                                            // },
+                                            "linkedCalendars": false,
+                                            "opens": 'right',
+                                            "ranges": {
+                                                "一周内": [
+                                                    moment().subtract(6, 'days'),
+                                                    moment()
+                                                ],
+                                                "一月内": [
+                                                    moment().subtract(29, 'days'),
+                                                    moment()
+                                                ],
+                                                "本月内": [
+                                                    moment().startOf('month'),
+                                                    moment().endOf('month')
+                                                ],
+                                                "上个月": [
+                                                    moment().subtract(1, 'month').startOf('month'),
+                                                    moment().subtract(1, 'month').endOf('month')
+                                                ]
+                                            },
+                                            autoUpdateInput: false,
+                                            locale: {
+                                                format: 'YYYY-MM-DD',
+                                                separator: ' - ',
+                                                applyLabel: '确定',
+                                                cancelLabel: '取消',
+                                                fromLabel: '从',
+                                                toLabel: '到',
+                                                customRangeLabel: '日期范围',
+                                                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                                                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                                firstDay: 1
+                                            },
+                                            "minDate": "YYYY-MM-DD",
+                                            "maxDate": "YYYY-MM-DD"
+                                        }, function(start, end, label) {
+                                            console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + " (predefined range: " + label + ")");
+                                        });
+
+                                        $('#begin').on('apply.daterangepicker', function(ev, picker) {
+                                            $(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+                                        });
+
+                                        $('#begin').on('cancel.daterangepicker', function(ev, picker) {
+                                            $(this).val('');
+                                        });
+                                    })
+								</script>
+							</div>
+                        </div>
+                        <div class="form-group item_create_time search-form" >
+							<label class="left control-label">
+								<span>结束时间：</span>
+							</label>
+							<div class="right">
+								<div class="input-group">
+									<div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+									<input type="text" id="orderend" name="orderend" class="form-control input dateranger" value="" placeholder="到期日">
+								</div>
+								<link rel="stylesheet" href="lingyun/lingyun/daterangepicker.css">
+								<script src="lingyun/lingyun/moment.min.js"></script>
+								<script src="lingyun/lingyun/daterangepicker.js"></script>
+								<script type="text/javascript">
+                                    $(function() {
+                                        // 初始化日期范围插件
+                                        $('#orderend').daterangepicker({
+                                            "showDropdowns": true,
+                                            "autoApply": false,
+                                            // "dateLimit": {
+                                            //     "days": 365 * 100
+                                            // },
+                                            "linkedCalendars": false,
+                                            "opens": 'right',
+                                            "ranges": {
+                                                "一周内": [
+                                                    moment().subtract(6, 'days'),
+                                                    moment()
+                                                ],
+                                                "一月内": [
+                                                    moment().subtract(29, 'days'),
+                                                    moment()
+                                                ],
+                                                "本月内": [
+                                                    moment().startOf('month'),
+                                                    moment().endOf('month')
+                                                ],
+                                                "上个月": [
+                                                    moment().subtract(1, 'month').startOf('month'),
+                                                    moment().subtract(1, 'month').endOf('month')
+                                                ]
+                                            },
+                                            autoUpdateInput: false,
+                                            locale: {
+                                                format: 'YYYY-MM-DD',
+                                                separator: ' - ',
+                                                applyLabel: '确定',
+                                                cancelLabel: '取消',
+                                                fromLabel: '从',
+                                                toLabel: '到',
+                                                customRangeLabel: '日期范围',
+                                                daysOfWeek: ['日', '一', '二', '三', '四', '五', '六'],
+                                                monthNames: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+                                                firstDay: 1
+                                            },
+                                            "minDate": "YYYY-MM-DD",
+                                            "maxDate": "YYYY-MM-DD"
+                                        }, function(start, end, label) {
+                                            console.log("New date range selected: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + " (predefined range: " + label + ")");
+                                        });
+
+                                        $('#orderend').on('apply.daterangepicker', function(ev, picker) {
+                                            $(this).val(picker.startDate.format('YYYY-MM-DD') + '~' + picker.endDate.format('YYYY-MM-DD'));
+                                        });
+
+                                        $('#orderend').on('cancel.daterangepicker', function(ev, picker) {
+                                            $(this).val('');
+                                        });
+                                    })
+								</script>
+							</div>
+						</div>
+						<div class="input-group search-form" style="padding-bottom: 15px;">
+							<input type="text" name="mobile" id="jsmobile" class="search-input form-control" value="" placeholder="请输入手机号" onkeyup="">
+						</div>
+						<div class="input-group search-form" style="padding-bottom: 15px;">
+							<input type="text" name="name" id="jsname" class="search-input form-control" value="" placeholder="请输入客户姓名" onkeyup="">
+						</div>
+						<div class="input-group search-form" style="padding-bottom: 15px;">
+							<input type="text" name="name" id="jsorder" class="search-input form-control" value="" placeholder="请输入订单号">
+						</div>
+						<div class="form-group item_status " style="padding-top: 13px;">
+							<label class="left control-label">
+								<span>订单状态：</span>
+							</label>
+							<div class="right">
+								<select  id="jstype" name="jstype" style="font-size: 13px;" class="form-control lyui-select select">
+									<option value="0">全部</option>
+                                    <option value="1">未到期</option>
+									<option value="2">当日到期</option>
+									<option value="3">逾期</option>                                    
+								</select>
+							</div>
+						</div>
+						<div class="input-group search-form">
+							<button type="button"  class="btn btn-sm btn-primary" style="margin-left:20px ;" onclick="recive.searchList()"> 搜索</button>
+							<button type="button"  class="btn btn-sm btn-primary exportFile" style="margin-left:20px ;" onclick="recive.exportFile()">导出Excel</button>
+                        </div>
+                        <div class="A_price" style="float:right;">
+                            <span>共<strong id="papercount">0</strong>条</span>
+                            <span>总金额</span>
+                            <text id="totalMoney">0</text>  
+                        </div>
+					</form>
+					<!--<div><span class="input-group-btn">
+                        <a  style="margin-bottom: -50px;" href="shop_add.html"  class="btn btn-sm btn-primary">新增</a>
+                     </span></div>-->
+				</div>
+				<div class="ibox-content" style="overflow:scroll;">
+
+					<table class="table table-stripped toggle-arrow-tiny" style="min-width:1300px" data-page-size="14">
+						<thead>
+						<tr>
+							<th>ID</th>
+							<th>客户手机</th>
+							<th>客户姓名</th>
+							<th>收款单号</th>
+							<th>银行卡号</th>
+							<th>借款期限</th>
+							<th>借款金额</th>
+							<th>打款金额</th>
+							<th>管理费</th>
+							<th>待支付金额</th>
+                            <th>放款时间</th>
+							<th>开始时间</th>                            
+                            <th>结束时间</th>
+							<th>状态</th>
+							<th>逾期天数</th>
+                            <th>逾期金额</th> 
+                            <th>审核人</th>
+							<th>放款人</th>                           
+						</tr>
+						</thead>
+						<tbody id="thislist">
+						</tbody>
+						<tbody align="center">
+						<tr>
+							<td colspan="14">
+                                <div>
+                                   <div id="pager"></div> 
+                                </div>
+                                
+                            </td>
+						</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+
+</html>

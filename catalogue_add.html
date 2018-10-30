@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>发布知识</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/plugins/summernote/summernote.css" rel="stylesheet">
+    <link href="css/plugins/webuploader/webuploader.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/fileinput/fileinput.css" rel="stylesheet" type="text/css" />
+    <link href="css/demo/webuploader-demo.css" rel="stylesheet" type="text/css" >
+    <link href="css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+    <link href="css/plugins/switchery/switchery.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/core.js"></script>
+
+    <!-- jQuery Validation plugin javascript-->
+    <script src="js/plugins/validate/jquery.validate.min.js"></script>
+    <script src="js/plugins/validate/messages_zh.min.js"></script>
+
+     <!-- fileinput -->
+    <script src="js/plugins/fileinput/fileinput.js"></script>
+    <script src="js/plugins/fileinput/fileinput_locale_zh.js"></script>
+    
+	<!-- summernote -->
+    <script src="js/plugins/summernote/summernote.min.js"></script>
+    <script src="js/plugins/summernote/summernote-zh-CN.js"></script>
+    <script src="js/demo/summernote-demo.js"></script>	
+    
+    <!-- 自定义js -->
+    <script src="js/catalogue_add.js"></script>
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content">       
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                	<div class="ibox-title">
+                        <h3 style="padding-top: 7px; display:inline;" id="update_add_title">功能目录添加
+                    	<a style="margin-left: 100px;" id="back" class="btn btn-sm btn-primary" onclick="window.history.go(-1)"> 返回</a>
+                    </h3>
+                    </div>
+                    <div class="ibox-content">
+                        <form class="form-horizontal m-t" id="commentForm">
+                            <div class="form-group" id="thisType">
+                            	
+                            	<div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">一级目录名称</label>
+	                                <div class="col-sm-5">
+	                                    <input id="firstText" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div class="form-group" style="margin-bottom: 120px;">
+	                                <div class="col-sm-4 col-sm-offset-3">
+	                                    <button class="btn btn-primary" type="button" onclick="release1()" >提交</button>
+	                                </div>
+	                            </div>
+	                            <div id="" class="form-group" >
+                            		<input id="thisId" type="text" hidden="hidden" />
+	                                <label class="col-sm-3 control-label">一级目录</label>
+	                                <div class="col-sm-8">
+		                                <select id="firstCatalogue1" name="" style="height:31px;border-radius: 3px;border: solid 1px #ddd;">
+		                                  <option value="-1">请选择</option>		
+	                                    </select>
+	                                </div>	                                
+                            	</div>  
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">二级目录名称</label>
+	                                <div class="col-sm-5">
+	                                    <input id="secondText" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div class="form-group" style="margin-bottom: 120px;">
+	                                <div class="col-sm-4 col-sm-offset-3">
+	                                    <button class="btn btn-primary" type="button" onclick="release2()" >提交</button>
+	                                </div>
+	                            </div>
+	                            <div id="" class="form-group" >
+                            		<input id="thisId" type="text" hidden="hidden" />
+	                                <label class="col-sm-3 control-label">一级目录</label>
+	                                <div class="col-sm-8">
+		                                <select id="firstCatalogue2" name="" style="height:31px;border-radius: 3px;border: solid 1px #ddd;" onchange="selectOne(this.value)" >
+		                                  <option value="-1">请选择</option>		
+	                                    </select>
+	                                </div>	                                
+                            	</div>  
+                            	<div id="" class="form-group" >
+                            		<input id="thisId" type="text" hidden="hidden" />
+	                                <label class="col-sm-3 control-label">二级目录</label>
+	                                <div class="col-sm-8">
+		                                <select id="secondCatalogue" name="" style="height:31px;border-radius: 3px;border: solid 1px #ddd;" >
+		                                  <option value="-1">请选择</option>			
+	                                    </select>
+	                                </div>	                                
+                            	</div>
+	                            <div id="title_div" class="form-group" >
+	                                <label class="col-sm-3 control-label">功能</label>
+	                                <div class="col-sm-5">
+	                                    <input id="thirdText" name="name" minlength="2" type="text" class="form-control">
+	                                </div>
+                            	</div>
+                            	<div class="form-group">
+	                                <div class="col-sm-4 col-sm-offset-3">
+	                                    <button class="btn btn-primary" type="button" onclick="release3()" >提交</button>
+	                                </div>
+	                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    </div>        
+    
+</body>
+
+</html>
