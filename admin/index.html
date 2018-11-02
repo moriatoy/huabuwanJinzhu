@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>天天花后台管理</title>
+
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+   
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico"> 
+    <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css?v=4.1.0" rel="stylesheet">
+    <!-- 全局js -->
+    <script src="js/jquery.min.js?v=2.1.4"></script>
+    <script src="js/bootstrap.min.js?v=3.3.6"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/plugins/layer/layer.min.js"></script>
+
+    <!-- 自定义js -->
+    <script src="js/hAdmin.js?v=4.1.0"></script>
+    <script src="js/core.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+    <div id="wrapper">
+        <!--左侧导航开始-->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="nav-close"><i class="fa fa-times-circle"></i>
+            </div>
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs" style="font-size:20px;text-align: center;">
+                                         <strong class="font-bold">天天花后台管理</strong>
+                                    </span>
+                                </span>
+                            </a>
+                        </div>                                               
+                    </li>
+                    <li class="nav-header">                                                     
+                        <div class="col-md-8 text-center" id="admin_img_user_name">                              
+                        </div>
+                    </li>
+                    <li class="line dk"></li>
+                    <li name="系统设置与角色管理" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_6"  href="">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">系统设置与角色管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li style="display: none;" name="参数设置">
+                                <a class="J_menuItem" href="config.html" id="menu_44">参数设置</a>
+                            </li>
+                           	<li style="display: none;" name="利率设置">
+                                <a class="J_menuItem" href="param_setting_list.html" id="menu_44">利率设置</a>
+                           	</li>
+                            <li style="display: none;" name="系统管理员">
+                                <a class="J_menuItem" href="admin_list.html" id="menu_44">系统管理员</a>
+                            </li>
+                            <li style="display: none;" name="角色列表" style="display: none;">
+                                <a class="J_menuItem" href="role_jurisdiction_list.html" id="menu_44">角色列表</a>
+                            </li>
+                            <li style="display: none;" name="部门列表" style="display: none;">
+                                <a class="J_menuItem" href="department_list.html" id="menu_44">部门列表</a>
+                            </li>
+                            <li style="display: none;" name="金主列表" style="display: none;">
+                                <a class="J_menuItem" href="department_list.html" id="menu_44">金主列表</a>
+                            </li>
+                            <li style="display: none;" name="登录日志" style="display: none;">
+                                <a class="J_menuItem" href="admin_login_records.html" id="menu_44">登录日志</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li name="渠道商管理" style="display: none;">
+                        <a id="menu_6"  href="">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">渠道商管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                           <li name="渠道商列表" style="display: none;">
+                                <a class="J_menuItem" href="channel_list.html" id="menu_44">渠道商列表</a>
+                           <li>
+                            <li name="渠道转换率详情" style="display: none;">
+                                <a class="J_menuItem" href="channel_trans.html" id="menu_44">渠道转换率详情</a>
+                           <li>
+                           <li name="渠道转换率汇总" style="display: none;">
+                                <a class="J_menuItem" href="channel_trans_summary.html" id="menu_44">渠道转换率汇总</a>
+                           <li>
+                            <li name="渠道逾期明细" style="display: none;">
+                                <a class="J_menuItem" href="channel_trans_overdue.html" id="menu_44">渠道逾期明细</a>
+                            <li>
+                        </ul>
+                    </li>
+                    <li name="会员列表" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_2" class="J_menuItem" href="hot_locan_list.html">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label" >会员管理</span>
+                        </a>
+                    </li>
+                    <li name="审核管理" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_4" href="">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">审核管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li style="display: none;" name="待放款管理">
+                                <a class="J_menuItem" href="to_passmoney_list.html" id="menu_14">待放款管理</a>
+                            </li>
+                            <li style="display: none;" name="风控拒绝">
+                                <a class="J_menuItem" href="apply_fail_list.html" id="menu_47">风控拒绝</a>
+                            </li>
+                            <li style="display: none;" name="放款记录">
+                                <a class="J_menuItem" href="all_loan_list.html" id="menu_47">放款记录</a>
+                            </li>
+                            <li style="display: none;" name="正常还款">
+                                <a class="J_menuItem" href="normalrepayment_list.html" id="menu_47">正常还款</a>
+                            </li>
+                            <li style="display: none;" name="审核统计" >
+                                <a class="J_menuItem" href="overdue_examine_list.html" id="menu_46">审核统计</a>
+                            </li>
+                            <li style="display: none;" name="恢复名单">
+                                <a class="J_menuItem" href="loan_apply_list.html" id="menu_47">恢复名单</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li  name="催款管理"  style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_5"  href="#">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">催款管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li  name="正常待还款客户" style="display: none;">
+                                <a class="J_menuItem" href="normal_topay_list.html" id="menu_19">正常待还款客户</a>
+                            </li>
+                            <li  name="逾期待催款客户" style="display: none;">
+                                <a class="J_menuItem" href="overdue_topay_list.html" id="menu_20">逾期待催款客户</a>
+                            </li>
+                            <li name="催收中心" style="display: none;">
+                                <a class="J_menuItem" href="overdue_core_list2.html" id="menu_20">催收中心</a>
+                            </li>
+                            <li name="催收统计" style="display: none;">
+                                <a class="J_menuItem" href="overdue_statistics_list.html" id="menu_20">催收统计</a>
+                            </li>
+                            <li  name="黑名单" style="display: none;">
+                                <a class="J_menuItem" href="all_black_list.html" id="menu_20">黑名单</a>
+                            </li>
+                        </ul>
+                    </li>
+                     <li name="数据统计" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_6"  href="">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">数据统计</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                        	<li  name="统计报表" style="display: none;">
+                                <a class="J_menuItem" href="index_v1.html" id="menu_44">统计报表</a>
+                            </li>
+                            <li  name="放款对账" style="display: none;">
+                                <a class="J_menuItem" href="lianlian_list.html" id="menu_45">放款对账</a>
+                            </li>
+                            <li  name="还款统计" style="display: none;">
+                                <a class="J_menuItem" href="repayment_list.html" id="menu_45">还款统计</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li name="充值管理" onclick="secondLevel(this)">
+                        <a id="menu_6"  href="">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">充值管理</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li  name="超级管理员充值" style="display: none;">
+                                <a class="J_menuItem" href="adminRecharge.html" id="menu_44">超级管理员充值</a>
+                            </li>
+                            <li  name="金主充值" style="display: none;">
+                                <a class="J_menuItem" href="goldLordRecharge.html" id="menu_44">金主充值</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li name="数据修复" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_6" class="J_menuItem" href="data_restore.html">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">数据修复</span>
+                        </a>
+                    </li>
+                    <li name="黑白名单查询" style="display: none;" onclick="secondLevel(this)">
+                        <a id="menu_6" class="J_menuItem" href="all_black.html">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">黑白名单查询</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--左侧导航结束-->
+        <!--右侧部分开始-->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-info " href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="nav navbar-top-links navbar-left">
+                            <li class="dropdown" >
+                                <h3 style="padding: 14px;color: #E2E4E8;"> 欢迎&nbsp;&nbsp;&nbsp;<span id="nick_"></span></a></h3>
+                            </li>
+                        </ul>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                        	<h3 style="padding: 15px;"><a style="font-size: 16px;color: #E2E4E8;" href="javascript:;" onclick="loginout()">退出登陆</a></h3>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+            <div id="alertNow" style="padding-top: 16px;padding-left: 6px;padding-right: 12px;display: none">
+                <div style="margin-bottom: 0" class="alert alert-danger" role="alert"><span class="glyphicon glyphicon-alert"></span>&nbsp;&nbsp;您的额度已经低于300元，为了不影响你的业务流程，请及时联系我们工作人员充值</div>
+            </div>
+            <div class="row J_mainContent" id="content-main">
+                <iframe id="J_iframe" width="100%" height="100%" src="" frameborder="0" data-id="index_v1.html" seamless></iframe>
+            </div>
+        </div>
+        <!--右侧部分结束-->
+    </div>
+    <!-- 修改个人信息-弹窗 -->
+    <div class="modal inmodal" id="updatePassword" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h4 class="modal-title" id="this_title">修改个人信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input id="adminId"  type="text">
+                        <label>旧密码</label>
+                        <input id="oldPassword" type="password" placeholder="请输入旧密码" class="form-control">
+                        <label>新密码</label>
+                        <input id="password" type="password" placeholder="请输入新密码" class="form-control">
+                        <label>确认密码</label>
+                        <input id="aginPassword" type="password" placeholder="请再次输入密码" class="form-control">
+                        <label>账号</label>
+                        <input id="userName" type="text" placeholder="请输入新账号" class="form-control">
+                        <label>昵称</label>
+                        <input id="nick" type="text" placeholder="请输入新昵称" class="form-control">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="toUpdatePassword()">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

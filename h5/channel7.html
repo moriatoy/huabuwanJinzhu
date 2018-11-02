@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover"/>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="" /> 
+<meta name="description" content=""/>
+<title>天天花</title>
+<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+<link type="text/css" href="css/reset2.css" rel="stylesheet" />
+<link type="text/css" href="css/mui.css" rel="stylesheet" />
+<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+<style>
+    body{
+    	height: auto !important;
+        background:url('./images/background.png?t=20180707') no-repeat center center/cover;
+    }
+	#container{
+		width: 10rem;
+		min-height: 100%;
+		padding: .8rem .4rem;
+		margin: 0 auto;
+	}
+	.mybanner img{
+		width: 8.8rem;
+	}
+	.container-sub{
+		/*padding: 0 .2rem;*/
+		padding: .8rem 0;
+	}
+	.container-sub img {
+		width: 100%;
+	}
+	#formbox{
+	    width: 9.2rem;	
+	    margin-top: .3rem;
+	    background-color: rgba(255,255,255,.54);
+	    border-radius:20px;
+	    padding: .65rem .57rem;
+	}
+	input{
+		width: 8.05rem;
+		height: 1.07rem;
+		font-size: 14px;
+		color: #666;
+		/*background-color:rgba(255,255,255,0.7) !important;*/
+	}
+	.phone-code{
+		position: relative;
+	}
+	.phone-code span{
+		position: absolute;
+		display: inline-block;
+		top: 6px;
+		right: .25rem;
+		font-size: 14px;
+		color: #fff;
+		cursor: pointer;
+		z-index: 1000;
+		background-color: #FF4B6B;
+		padding: 4px 10px;
+		border-radius: 14px;
+	}
+	.phone-code .codetxt{
+		font-weight: normal;
+	}
+	.phone-code.disabled span{
+		color: #fff;
+	}
+	.goRegister{
+		font-size: 17px;
+		background-color: #FF4B6B !important;
+		color: #fff !important;
+		border-radius: 12px;
+	}
+	strong{
+		display: inline-block;
+	}
+</style>
+</head>
+
+<body>
+
+<div id="container">
+    <div class="container-sub">
+	    <div class="mybanner">
+	        <img src="./images/channel5.png?t=20180707" alt="零花钱包背景图">
+	    </div>
+    </div>
+	<form  id="formbox">
+		<input type="text" id="phone" placeholder="请输入您的手机号码" autocomplete="new-password"/>
+		<div class="phone-code">
+		    <input type="text" id="phone-code" placeholder="请输入手机验证码" autocomplete="new-password" maxlength="4" />
+		    <span><strong class="codetxt" onclick="getCode()">获取验证码</strong></span>
+		</div>
+		<input type="password" id="password" placeholder="请设置登录密码" autocomplete="new-password"/>
+		<input type="button" class="goRegister" onclick="goRegister()" value="马上拿钱">
+	</form>
+</div>
+
+<!-- 自定义js -->
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/mui.min.js"></script>
+<script src="js/core.js"></script>
+<script src="js/md5.js"></script>
+<script src="js/channel7.js?v=1.2"></script>
+</body>
+</html>

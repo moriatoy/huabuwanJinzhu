@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>会员列表</title>
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+
+		<link rel="shortcut icon" href="favicon.ico">
+		<link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+		<link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
+		<link href="css/plugins/footable/footable.core.css" rel="stylesheet">
+
+		<link href="css/animate.css" rel="stylesheet">
+		<link href="css/style.css?v=4.1.0" rel="stylesheet">
+		<link rel="stylesheet" href="css/page.css" />
+
+		<!-- 全局js -->
+		<script src="js/jquery.min.js?v=2.1.4"></script>
+		<script src="js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="js/plugins/footable/footable.all.min.js"></script>
+
+		<!-- 分页js -->
+		<script type="text/javascript" src="js/jquery.page.js"></script>
+
+		<!-- 自定义js -->
+		<script src="js/content.js?v=1.0.0"></script>
+		<script>
+			$(document).ready(function() {
+
+				$('.footable').footable();
+				$('.footable2').footable();
+
+			});
+		</script>
+		<script src="js/common.js"></script>
+		<script src="js/core.js"></script>
+		<script src="js/hot_locan_list.js"></script>
+	</head>
+
+	<body class="gray-bg">
+
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>会员列表</h5>
+						</div>
+						<div class="ibox-content">
+
+							<!-- 顶部工具栏按钮 -->
+							<div class="builder-toolbar">
+								<div class="row">
+									<!-- 工具栏按钮 -->
+
+									<!-- 搜索框 -->
+								</div>
+							</div>
+
+							<div class="row">
+
+								<!-- 多条件搜索 -->
+								<form class="form form-inline search-form-items" method="get" action="/admin.php?s=/shop/store_cate/index/store_id/3.html">
+									<style>
+										.form-inline .form-group {
+											margin-right: 12px;
+											margin-bottom: 15px;
+										}
+										
+										.form-inline .btn {
+											margin-bottom: 15px;
+										}
+										
+										.form-group .right {
+											display: inline-block;
+										}
+										
+										@media (max-width: 768px) {
+											.form-group .left {
+												width: 25%;
+											}
+											.form-group .right {
+												width: 70%;
+											}
+											.search-form-items .search-btn {
+												width: 100%;
+											}
+										}
+										/*拉黑弹框*/
+										.list {
+											list-style: none;
+											overflow: hidden;
+										}
+										.list > li {
+											float: left;
+											background: #fff;
+											border: 1px solid #eee;
+											-webkit-border-radius: 6px;
+											-moz-border-radius: 6px;
+											border-radius: 12px;
+											padding: 2px 6px;
+											margin: 0 6px;
+											cursor: pointer;
+										}
+									</style>
+									<!---->
+									<div class="form-group item_status " style="padding-top: 10px;padding-left: 20px" >
+										<label class="left control-label">
+                        					<span>状态：</span>
+        								</label>
+										<div class="right">
+											<select oninput="selectOrdersStatus(this.value)" id="authStatus" name="auth_status" class="form-control lyui-select select" style="font-size: 13px">
+												<option value=''>全部：</option>
+												<option value="0">未认证</option>
+												<option value="1">认证成功</option>
+											</select>
+										</div>
+									</div>
+									<div class="input-group search-form" style="padding-bottom: 15px;">
+										<input type="text" name="phoneNumber" id="phoneNumber" class="search-input form-control" value="" placeholder="请输入电话号码" onkeyup="EnterSearchList();">
+									</div>
+									<div class="input-group search-form">
+										<input type="text" name="userName" id="userName" class="search-input form-control" value="" placeholder="请输入姓名" onkeyup="EnterSearchList();">
+										<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList();"><i class="fa fa-search"></i></a></span>
+									</div>
+								</form>
+								<!--<div><span class="input-group-btn">
+                                <a  style="margin-bottom: -50px;" href="shop_add.html"  class="btn btn-sm btn-primary">新增</a>
+                             </span></div>-->
+							</div>
+
+							<table class="table table-stripped toggle-arrow-tiny" style="font-size: 12px;  border-spacing:5px;  " data-page-size="8">
+								<thead>
+									<tr>
+										<th><input type="checkbox" /></th>
+										<th>ID</th>
+										<th>姓名</th>
+										<th>手机号码</th>
+										<th>申请日期</th>  
+										<th>身份状态</th>
+										<th>原因</th>
+										<th>认证分数</th>
+										<th>认证状态</th>
+										<th>来源</th>
+										<th>操作</th>
+									</tr>
+								</thead>
+								<tbody id="thislist">
+								</tbody>
+								<tbody>
+									<tr>
+										<td colspan="8">
+											<div id="pager"></div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="updateMoney" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">关闭</span>
+						</button>
+						<h5 class="modal-title" id="this_title1" style="font-size: 20px;">修改额度</h5>
+					</div>
+					<div class="modal-body">
+						<div class="input-group search-form">
+							<form>
+								额度：<input id="oldMoney" disabled="disabled">&nbsp;&nbsp;&nbsp;
+								新额度：<input id="newMoney" name="money">
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal" onclick="updateMoney();">确定</button>
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="jujueMultiple" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">关闭</span>
+						</button>
+						<h5 class="modal-title" id="this_title2" style="font-size: 20px;">拉黑</h5>
+					</div>
+					<div class="modal-body">
+						<div class="input-group search-form" style="width: 100%;">
+							<input type="hidden" id="userId">
+							<textarea style="resize:none;width:100%;height:200px;border-radius: 12px" id="reason" class="form-control" placeholder="请输入拉黑的理由！"></textarea>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" data-dismiss="modal" onclick="jujueFun();">确定</button>
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal inmodal" id="bankCard" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content animated bounceInRight">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span>
+							<span class="sr-only">关闭</span>
+						</button>
+						<h5 class="modal-title" id="this_title" style="font-size: 20px;">修改银行卡</h5>
+					</div>
+					<div class="modal-body">
+						<div class="form-group item_status" style="width: 100%;">
+							<input type="text" id="bankCardNumber" class="form-control" placeholder="请输入银行卡" style="margin: 20px 0">
+							<input type="text" id="bankCardName" class="form-control" placeholder="请输入银行名称">
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-white" onclick="bankCardFun();">确定</button>
+						<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
