@@ -27,7 +27,6 @@ function loadMyEssay(id) {
 				} else if(da.status == 1) {
 					status = "已认证"
 				}
-
 				$('#userName').html(da.userName);
 				$('#qqNum').html(da.qqNum);
 				$('#address').html(da.address);

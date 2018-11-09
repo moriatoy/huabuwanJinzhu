@@ -115,70 +115,77 @@ function searchList() {
 }
 
 // 获取详细信息
+var clicktag = 0;
 function change(index) {
-    $.ajax({
-        url: urlcore + "/api/collection/statistics/listOne?id=" + $("#thislist").children(".footable-even").eq(index).children().eq(0).text(),
-        type: "get",
-        async: 'false',
-        dataType: 'json',
-        contentType: "application/json;charset=utf-8",
-        success: function(data) {
-            if ($("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class") === "glyphicon glyphicon-triangle-top") {
-                $("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class","glyphicon glyphicon-triangle-bottom");
-                let thislist =
-                    '<tr>' +
-                    '   <td colspan="12" style="padding: 0;">' +
-                    '       <table class="table table-bordered toggle-arrow-tiny" style="margin-bottom: 35px;">' +
-                    '           <thead style="visibility: hidden">' +
-                    '               <tr>' +
-                    '                   <th>ID</th>' +
-                    '                   <th>时间</th>' +
-                    '                   <th>分配人员</th>' +
-                    '                   <th style="text-align: center">退回订单</th>' +
-                    '                   <th style="text-align: center">分配的单数</th>' +
-                    '                   <th style="text-align: center">结清单数</th>' +
-                    '                   <th style="text-align: center">结清收到金额</th>' +
-                    '                   <th style="text-align: center">续期单数</th>' +
-                    '                   <th style="text-align: center">续期收到金额</th>' +
-                    '                   <th style="text-align: center">未催回订单</th>' +
-                    '                   <th style="text-align: center">催回率</th>' +
-                    '                   <th style="text-align: center; width:140px">操作</th>' +
-                    '               </tr>' +
-                    '           </thead>' +
-                    '           <tbody></tbody>' +
-                    '       </table>' +
-                    '   </td>' +
-                    '</tr>';
-                $("#thislist").children(".footable-even").eq(index).after(thislist);
-                $.each(data.data, function(i, n) {
-                    var list =
-                        '<tr class="footable-even active" style="display:table-row;">' +
-                        '   <td class="footable-visible">' + n.id + '</td>' +
-                        '   <td class="footable-visible">' + n.endTime + '</td>' +
-                        '   <td class="footable-visible">' + n.name + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.tuiHuiOrderCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.totalOrderCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.finishOrderCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + format(n.jieQingMoney) + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.xuqiOrderCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + format(n.xuqiMoney) + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.noFinishOrderCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.recoveryRate*100 + '%</td>' +
-                        '   <td class="footable-visible footable-last-column" style="text-align: center">' +
-
+    if ($("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class") === "glyphicon glyphicon-triangle-top") {
+        if (clicktag == 0) {
+            clicktag = 1;
+            setTimeout(function() {
+                clicktag = 0
+            }, 500);
+            $.ajax({
+                url: urlcore + "/api/collection/statistics/listOne?id=" + $("#thislist").children(".footable-even").eq(index).children().eq(0).text(),
+                type: "get",
+                async: 'false',
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                success: function(data) {
+                    $("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class","glyphicon glyphicon-triangle-bottom");
+                    let thislist =
+                        '<tr>' +
+                        '   <td colspan="12" style="padding: 0;">' +
+                        '       <table class="table table-bordered toggle-arrow-tiny" style="margin-bottom: 35px;">' +
+                        '           <thead style="visibility: hidden">' +
+                        '               <tr>' +
+                        '                   <th>ID</th>' +
+                        '                   <th>时间</th>' +
+                        '                   <th>分配人员</th>' +
+                        '                   <th style="text-align: center">退回订单</th>' +
+                        '                   <th style="text-align: center">分配的单数</th>' +
+                        '                   <th style="text-align: center">结清单数</th>' +
+                        '                   <th style="text-align: center">结清收到金额</th>' +
+                        '                   <th style="text-align: center">续期单数</th>' +
+                        '                   <th style="text-align: center">续期收到金额</th>' +
+                        '                   <th style="text-align: center">未催回订单</th>' +
+                        '                   <th style="text-align: center">催回率</th>' +
+                        '                   <th style="text-align: center; width:140px">操作</th>' +
+                        '               </tr>' +
+                        '           </thead>' +
+                        '           <tbody></tbody>' +
+                        '       </table>' +
                         '   </td>' +
                         '</tr>';
-                    $("#thislist").children(".footable-even").eq(index).next().children().children().children("tbody").append(list);
-                });
-            } else {
-                $("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class","glyphicon glyphicon-triangle-top");
-                $("#thislist").children(".footable-even").eq(index).next().remove();
-            }
-        },
-        error: function() {
-            alert("error");
+                    $("#thislist").children(".footable-even").eq(index).after(thislist);
+                    $.each(data.data, function(i, n) {
+                        var list =
+                            '<tr class="footable-even active" style="display:table-row;">' +
+                            '   <td class="footable-visible">' + n.id + '</td>' +
+                            '   <td class="footable-visible">' + n.endTime + '</td>' +
+                            '   <td class="footable-visible">' + n.name + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.tuiHuiOrderCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.totalOrderCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.finishOrderCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + format(n.jieQingMoney) + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.xuqiOrderCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + format(n.xuqiMoney) + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.noFinishOrderCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.recoveryRate*100 + '%</td>' +
+                            '   <td class="footable-visible footable-last-column" style="text-align: center">' +
+
+                            '   </td>' +
+                            '</tr>';
+                        $("#thislist").children(".footable-even").eq(index).next().children().children().children("tbody").append(list);
+                    });
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
         }
-    });
+    } else {
+        $("#thislist").children(".footable-even").eq(index).children().eq(11).children("span").attr("class","glyphicon glyphicon-triangle-top");
+        $("#thislist").children(".footable-even").eq(index).next().remove();
+    }
 }
 
 // 导出

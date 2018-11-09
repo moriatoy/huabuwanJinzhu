@@ -46,7 +46,6 @@ function loadMyEssay(limitPayTime) {
             contentType: "application/json;charset=utf-8",
             success: function(data) {
                 if (data.success === true) {
-                    console.log(data.data)
                     $.each(data.data, function(i, n) {
                         var thislist =
                             '<tr class="footable-even" onclick="change(\''+i+'\')" style="display: table-row;">' +
@@ -131,63 +130,68 @@ function searchList() {
 }
 
 // 获取详细信息
+var clicktag = 0;
 function change(index) {
-    $.ajax({
-        url: urlcore + "/api/audit/statistics/listOne?id=" + $("#thislist").children(".footable-even").eq(index).children().eq(0).text(),
-        type: "get",
-        async: 'false',
-        dataType: 'json',
-        contentType: "application/json;charset=utf-8",
-        success: function(data) {
-            if ($("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class") === "glyphicon glyphicon-triangle-top") {
-                $("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class","glyphicon glyphicon-triangle-bottom");
-                let thislist =
-                    '<tr>' +
-                    '   <td colspan="12" style="padding: 0;">' +
-                    '       <table class="table table-bordered toggle-arrow-tiny" style="margin-bottom: 35px;">' +
-                    '           <thead style="visibility: hidden">' +
-                    '               <tr>' +
-                    '                   <th style="width: 200px;">时间</th>' +
-                    '                   <th>审核人员</th>' +
-                    '                   <th style="text-align: center">分配的单数</th>' +
-                    '                   <th style="text-align: center">放款的单数</th>' +
-                    '                   <th style="text-align: center">拒绝的单数</th>' +
-                    '                   <th style="text-align: center">逾期未还</th>' +
-                    '                   <th style="text-align: center">逾期未还率</th>' +
-                    '                   <th style="text-align: center; width:60px"></th>' +
-                    '               </tr>' +
-                    '           </thead>' +
-                    '           <tbody></tbody>' +
-                    '       </table>' +
-                    '   </td>' +
-                    '</tr>';
-                $("#thislist").children(".footable-even").eq(index).after(thislist);
-                $.each(data.data, function(i, n) {
-                    var list =
-                        '<tr class="footable-even active" style="display:table-row;">' +
-                        '   <td class="footable-visible">' + n.startTime + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>' +
-                        '   <td class="footable-visible">' + n.loanName + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.distributionCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.loanCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.rfuseCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.overDuCount + '</td>' +
-                        '   <td class="footable-visible" style="text-align: center">' + n.overduRate*100 + '%</td>' +
-                        '   <td class="footable-visible footable-last-column" style="text-align: center">' +
-
+    if ($("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class") === "glyphicon glyphicon-triangle-top") {
+        if (clicktag == 0) {
+            clicktag = 1;
+            setTimeout(function() {
+                clicktag = 0
+            }, 500);
+            $.ajax({
+                url: urlcore + "/api/audit/statistics/listOne?id=" + $("#thislist").children(".footable-even").eq(index).children().eq(0).text(),
+                type: "get",
+                async: 'false',
+                dataType: 'json',
+                contentType: "application/json;charset=utf-8",
+                success: function(data) {
+                    $("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class","glyphicon glyphicon-triangle-bottom");
+                    let thislist =
+                        '<tr>' +
+                        '   <td colspan="12" style="padding: 0;">' +
+                        '       <table class="table table-bordered toggle-arrow-tiny" style="margin-bottom: 35px;">' +
+                        '           <thead style="visibility: hidden">' +
+                        '               <tr>' +
+                        '                   <th style="width: 200px;">时间</th>' +
+                        '                   <th>审核人员</th>' +
+                        '                   <th style="text-align: center">分配的单数</th>' +
+                        '                   <th style="text-align: center">放款的单数</th>' +
+                        '                   <th style="text-align: center">拒绝的单数</th>' +
+                        '                   <th style="text-align: center">逾期未还</th>' +
+                        '                   <th style="text-align: center">逾期未还率</th>' +
+                        '                   <th style="text-align: center; width:60px"></th>' +
+                        '               </tr>' +
+                        '           </thead>' +
+                        '           <tbody></tbody>' +
+                        '       </table>' +
                         '   </td>' +
                         '</tr>';
-                    $("#thislist").children(".footable-even").eq(index).next().children().children().children("tbody").append(list);
-                });
-            } else {
-                $("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class","glyphicon glyphicon-triangle-top");
-                $("#thislist").children(".footable-even").eq(index).next().remove();
-            }
-        },
-        error: function() {
-            alert("error");
+                    $("#thislist").children(".footable-even").eq(index).after(thislist);
+                    $.each(data.data, function(i, n) {
+                        var list =
+                            '<tr class="footable-even active" style="display:table-row;">' +
+                            '   <td class="footable-visible">' + n.startTime + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>' +
+                            '   <td class="footable-visible">' + n.loanName + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.distributionCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.loanCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.rfuseCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.overDuCount + '</td>' +
+                            '   <td class="footable-visible" style="text-align: center">' + n.overduRate*100 + '%</td>' +
+                            '   <td class="footable-visible footable-last-column" style="text-align: center">' +
+                            '   </td>' +
+                            '</tr>';
+                        $("#thislist").children(".footable-even").eq(index).next().children().children().children("tbody").append(list);
+                    });
+                },
+                error: function() {
+                    alert("error");
+                }
+            });
         }
-    });
-
+    } else {
+        $("#thislist").children(".footable-even").eq(index).children().eq(8).children("span").attr("class","glyphicon glyphicon-triangle-top");
+        $("#thislist").children(".footable-even").eq(index).next().remove();
+    }
 
     // var tr = document.createElement("tr");
     // var td = document.createElement("td");

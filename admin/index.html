@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit">
 
-    <title>天天花后台管理</title>
+    <title>A+后台管理</title>
 
     <meta name="keywords" content="">
     <meta name="description" content="">
@@ -30,7 +30,7 @@
     <!-- 自定义js -->
     <script src="js/hAdmin.js?v=4.1.0"></script>
     <script src="js/core.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/index.js?v=0.1"></script>
 </head>
 
 <body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
@@ -46,7 +46,7 @@
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                 <span class="clear">
                                     <span class="block m-t-xs" style="font-size:20px;text-align: center;">
-                                         <strong class="font-bold">天天花后台管理</strong>
+                                         <strong class="font-bold" id="titleBox">A+后台管理</strong>
                                     </span>
                                 </span>
                             </a>
@@ -79,8 +79,8 @@
                             <li style="display: none;" name="部门列表" style="display: none;">
                                 <a class="J_menuItem" href="department_list.html" id="menu_44">部门列表</a>
                             </li>
-                            <li style="display: none;" name="金主列表" style="display: none;">
-                                <a class="J_menuItem" href="department_list.html" id="menu_44">金主列表</a>
+                            <li style="display: none;" name="金主账号管理" style="display: none;">
+                                <a class="J_menuItem" href="goldLord_list.html" id="menu_44">金主账号管理</a>
                             </li>
                             <li style="display: none;" name="登录日志" style="display: none;">
                                 <a class="J_menuItem" href="admin_login_records.html" id="menu_44">登录日志</a>
@@ -106,6 +106,9 @@
                             <li name="渠道逾期明细" style="display: none;">
                                 <a class="J_menuItem" href="channel_trans_overdue.html" id="menu_44">渠道逾期明细</a>
                             <li>
+                            <li  name="逾期统计" style="display: none;">
+                                <a class="J_menuItem" href="be_overdue.html" id="menu_46">逾期统计</a>
+                            </li>
                         </ul>
                     </li>
                     <li name="会员列表" style="display: none;" onclick="secondLevel(this)">
@@ -183,7 +186,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li name="充值管理" onclick="secondLevel(this)">
+                    <li name="充值管理" style="display: none;" onclick="secondLevel(this)">
                         <a id="menu_6"  href="">
                             <i class="fa fa-edit"></i>
                             <span class="nav-label">充值管理</span>
@@ -193,8 +196,8 @@
                             <li  name="超级管理员充值" style="display: none;">
                                 <a class="J_menuItem" href="adminRecharge.html" id="menu_44">超级管理员充值</a>
                             </li>
-                            <li  name="金主充值" style="display: none;">
-                                <a class="J_menuItem" href="goldLordRecharge.html" id="menu_44">金主充值</a>
+                            <li  name="商户充值" style="display: none;">
+                                <a class="J_menuItem" href="goldLordRecharge.html" id="menu_44">商户充值</a>
                             </li>
                         </ul>
                     </li>

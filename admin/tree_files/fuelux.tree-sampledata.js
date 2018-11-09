@@ -44,7 +44,7 @@ tree_data['系统设置与角色管理']['additionalParameters'] = {
         '系统管理员' : {name: '系统管理员', type: 'folder'},
         '角色列表' : {name: '角色列表', type: 'folder'},
         '部门列表' : {name: '部门列表', type: 'folder'},
-        '金主列表' : {name: '金主列表', type: 'folder'},
+        '金主账号管理' : {name: '金主账号管理', type: 'folder'},
         '登录日志' : {name: '登录日志', type: 'folder'}
 	}
 }
@@ -53,7 +53,8 @@ tree_data['渠道商管理']['additionalParameters'] = {
         '渠道商列表' : {name: '渠道商列表', type: 'folder'},
         '渠道转换率详情' : {name: '渠道转换率详情', type: 'folder'},
         '渠道转换率汇总' : {name: '渠道转换率汇总', type: 'folder'},
-        '渠道逾期明细' : {name: '渠道逾期明细', type: 'folder'}
+        '渠道逾期明细' : {name: '渠道逾期明细', type: 'folder'},
+        '逾期统计' : {name: '逾期统计', type: 'folder'}
     }
 }
 tree_data['会员管理']['additionalParameters'] = {
@@ -96,7 +97,7 @@ tree_data['数据修复']['additionalParameters'] = {
 
 tree_data['充值管理']['additionalParameters'] = {
     'children' : {
-        '金主充值' : {name: '金主充值', type: 'folder'},
+        '商户充值' : {name: '商户充值', type: 'folder'},
         '超级管理员充值' : {name: '超级管理员充值', type: 'folder'}
     }
 }

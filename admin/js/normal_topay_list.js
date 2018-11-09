@@ -43,80 +43,80 @@ function loadMyEssay(limitPayTime,name,phoneNumber){
 	});
 }
 function init(pageNo) {
-		window.sessionStorage.setItem("limitPayTime",limitPayTime);
-		document.getElementById("applyTime").value = limitPayTime;
-		window.sessionStorage.setItem("name",name);
-    	document.getElementById("userName").value = name;
-		window.sessionStorage.setItem("phoneNumber",phoneNumber);
-    	document.getElementById("phoneNumber").value = phoneNumber;
-		window.sessionStorage.setItem("page",pageNo);
-		$("#thislist").html("");
-		$.ajax({
-			url: urlcore + "/api/loanOrder/userSelectLoanOrder?limitPayTime=" + limitPayTime + "&name=" + name + "&phone=" + phoneNumber+ "&currentPage=" + pageNo+"&status=3",
-			type: "get",
-			async:'false',
-			dataType: 'json',
-			contentType: "application/json;charset=utf-8",
-			success: function(data) {
-        	if(data.success == true) {
-					$.each(data.data.pageDto.list, function(i, n) {				    
-						var id = n.id;
-						var disabled = "";
-						var dd ="";
-					    if(n.pressMoneyMan == null && n.pressCharge == null){
-					    	dd="待分配";
-					    }else if(n.pressMoneyMan != null){
-					    	dd="已分配";
-					    	disabled ="disabled";
-					    }else{
-					    	dd="可分配";
-					    }
-					    var backHtml = "";
-						if($.trim(n.pressCharge) != ''){
-							backHtml ='<a hidden="hidden" class="" name="退回" href="javascript:;" onclick="reback('+n.id+')">退回</a>&nbsp;';
-						}
-						var thislist =
-							'<tr class="footable-even" style="display: table-row;">' +
-							'<td class="footable-visible"><input type="checkbox" '+disabled+' value="'+n.id+'" name="selectcheck" /></th>'+
-							'<td class="footable-visible">' + n.id + '</td>' +
-							'<td class="footable-visible">' + n.lianPayNum + '</td>' +
-							'<td class="footable-visible">' + n.user.userName + '</td>' +
-							'<td class="footable-visible">' + n.user.phone + '</td>' +
-							'<td class="footable-visible">' + n.limitDays + '</td>' +
-							'<td class="footable-visible">' + n.borrowMoney + '</td>' +
-							'<td class="footable-visible">' + n.realMoney + '</td>' +
-							'<td class="footable-visible">' + n.needPayMoney + '</td>' +
-							'<td class="footable-visible">' + n.giveTime + '</td>' +
-							'<td class="footable-visible">' + n.limitPayTime+ '</td>' +
-							'<td class="footable-visible">' + dd+ '</td>' +
-							'<td class="footable-visible">' + common.showTextFormatter(n.pressMoneyManName)+ '</td>' +
-							'<td class="footable-visible footable-last-column">'+
-								backHtml+
-								'<a hidden="hidden" class="" name="查看认证信息" href="tab.html?id='+n.userId+'&userName='+escape(n.user.userName)+'&phone='+n.user.phone+ '&orderId=' +n.id +'" >查看认证信息</a>&nbsp;'+
-								'<a hidden="hidden" class="" name="详情" href="normal_topay_list_detail.html?id='+n.id+'" >详情</a>&nbsp;'+
-								'<a hidden="hidden" class="" name="记录" href="javascript:;" data-toggle="modal" data-target="#addRecord" onclick="addRecord('+id+')">记录</a>&nbsp;'+
-								'<a hidden="hidden" class="" name="结清"  href="javascript:;" data-toggle="modal" data-target="#jieQing" onclick="over(' + id + ')">结清</a>&nbsp;'+
-                            	// '<a hidden="hidden" class="" name="续期"  href="javascript:;"  onclick="continueDate(' + id + ')">续期七天</a>&nbsp;'+
-							 	'<a hidden="hidden" class="" name="续期" href="javascript:;" data-toggle="modal" data-target="#xuqiOrder" onclick="xuqi(' + id + ')">续期</a></td>'+
-							'</tr>';
-						$('#thislist').append(thislist);
-						
-					});
-					$.each(arrayTitle, function(i,k) {
-						$('a[name="'+k+'"]').attr("hidden",false).attr("class","btn btn-primary btn-xs");
-					});
-					$('#totalMoney').text(data.data.borrowMoney);
-					$('#totalPeople').text(data.data.pageDto.total);
-					$("#pager").pager({
-						pagenumber: pageNo,
-						pagecount: data.data.pageDto.pages,
-						totalcount: data.data.pageDto.total,
-						buttonClickCallback: PageClick
-					});
-					
-			      if(data.code == 'OVERTIME') {
-					var thisUrl = window.location.href;
+	window.sessionStorage.setItem("limitPayTime",limitPayTime);
+	document.getElementById("applyTime").value = limitPayTime;
+	window.sessionStorage.setItem("name",name);
+	document.getElementById("userName").value = name;
+	window.sessionStorage.setItem("phoneNumber",phoneNumber);
+	document.getElementById("phoneNumber").value = phoneNumber;
+	window.sessionStorage.setItem("page",pageNo);
+	$("#thislist").html("");
+	$.ajax({
+		url: urlcore + "/api/loanOrder/userSelectLoanOrder?limitPayTime=" + limitPayTime + "&name=" + name + "&phone=" + phoneNumber+ "&currentPage=" + pageNo+"&status=3",
+		type: "get",
+		async:'false',
+		dataType: 'json',
+		contentType: "application/json;charset=utf-8",
+		success: function(data) {
+			if(data.success == true) {
+				$.each(data.data.pageDto.list, function(i, n) {
+					var id = n.id;
+					var disabled = "";
+					var dd ="";
+					if(n.pressMoneyMan == null && n.pressCharge == null){
+						dd="待分配";
+					}else if(n.pressMoneyMan != null){
+						dd="已分配";
+						disabled ="disabled";
+					}else{
+						dd="可分配";
+					}
+					var backHtml = "";
+					if($.trim(n.pressCharge) != ''){
+						backHtml ='<a hidden="hidden" class="" name="退回" href="javascript:;" onclick="reback('+n.id+')">退回</a>&nbsp;';
+					}
+					var thislist =
+						'<tr class="footable-even" style="display: table-row;">' +
+						'<td class="footable-visible"><input type="checkbox" '+disabled+' value="'+n.id+'" name="selectcheck" /></th>'+
+						'<td class="footable-visible">' + n.id + '</td>' +
+						'<td class="footable-visible">' + n.lianPayNum + '</td>' +
+						'<td class="footable-visible">' + n.user.userName + '</td>' +
+						'<td class="footable-visible" style="display: none;text-align: center">' + n.user.phone + '</td>' +
+						'<td class="footable-visible" style="text-align: center">' + n.user.phone.substr(0, 3) + '****' + n.user.phone.substr(7) + '</td>' +
+						'<td class="footable-visible">' + n.limitDays + '</td>' +
+						'<td class="footable-visible">' + n.borrowMoney + '</td>' +
+						'<td class="footable-visible">' + n.realMoney + '</td>' +
+						'<td class="footable-visible">' + n.needPayMoney + '</td>' +
+						'<td class="footable-visible">' + n.giveTime + '</td>' +
+						'<td class="footable-visible">' + n.limitPayTime+ '</td>' +
+						'<td class="footable-visible">' + dd+ '</td>' +
+						'<td class="footable-visible">' + common.showTextFormatter(n.pressMoneyManName)+ '</td>' +
+						'<td class="footable-visible footable-last-column">'+
+							backHtml+
+							'<a hidden="hidden" class="" name="查看认证信息" href="tab.html?id='+n.userId+'&userName='+escape(n.user.userName)+'&phone='+n.user.phone+ '&orderId=' +n.id +'" >查看认证信息</a>&nbsp;'+
+							'<a hidden="hidden" class="" name="详情" href="normal_topay_list_detail.html?id='+n.id+'" >详情</a>&nbsp;'+
+							'<a hidden="hidden" class="" name="记录" href="javascript:;" data-toggle="modal" data-target="#addRecord" onclick="addRecord('+id+')">记录</a>&nbsp;'+
+							'<a hidden="hidden" class="" name="结清"  href="javascript:;" data-toggle="modal" data-target="#jieQing" onclick="over(' + id + ')">结清</a>&nbsp;'+
+							// '<a hidden="hidden" class="" name="续期"  href="javascript:;"  onclick="continueDate(' + id + ')">续期七天</a>&nbsp;'+
+							'<a hidden="hidden" class="" name="续期" href="javascript:;" data-toggle="modal" data-target="#xuqiOrder" onclick="xuqi(' + id + ')">续期</a></td>'+
+						'</tr>';
+					$('#thislist').append(thislist);
 
+				});
+				$.each(arrayTitle, function(i,k) {
+					$('a[name="'+k+'"]').attr("hidden",false).attr("class","btn btn-primary btn-xs");
+				});
+				$('#totalMoney').text(data.data.borrowMoney);
+				$('#totalPeople').text(data.data.pageDto.total);
+				$("#pager").pager({
+					pagenumber: pageNo,
+					pagecount: data.data.pageDto.pages,
+					totalcount: data.data.pageDto.total,
+					buttonClickCallback: PageClick
+				});
+
+				if(data.code == 'OVERTIME') {
+					var thisUrl = window.location.href;
 					if(thisUrl.indexOf('login.html') <= -1) {
 						top.window.location.href = "login.html";
 					}
@@ -128,17 +128,36 @@ function init(pageNo) {
 						$('#thiscount').text(0);
 					}
 				}
-				}
+				for (var i = 0; i < $("#thislist").children().length; i++) {
+					var thisCLick = $("#thislist").children().eq(i);
+                    thisCLick.children().eq(5).hover(function(){
+                        $(this).hide();
+                        $(this).prev().show();
+						$(this).prev().hover(function() {
 
-			},
-			error: function() {
-				alert("error");
+                        },function(){
+                            $(this).hide();
+                            $(this).next().show();
+                        })
+					});
+                    // thisCLick.children().eq(4).hover(function(){
+						// console.log("aaaa")
+                    // },function(){
+                    //     $(this).show();
+                    //     $(this).next().hide();
+                    // })
+				}
 			}
-		});
-	}
-	PageClick = function(pageclickednumber) {
-		init(pageclickednumber);
-	}
+
+		},
+		error: function() {
+			alert("error");
+		}
+	});
+}
+PageClick = function(pageclickednumber) {
+	init(pageclickednumber);
+};
 //	续期七天
 function continueDate(id){
     if($.trim(id) == ''){

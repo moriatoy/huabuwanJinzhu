@@ -6,6 +6,34 @@ var totalPeople=0;
 var totalMoney = 0;
 var orderId = getvl('orderId');
 var jName = getCookie('Jname');
+
+
+var sessTime = window.sessionStorage.getItem("gmtDatetime");
+if (sessTime === "null" || sessTime === null) {
+    gmtDatetime = "";
+} else {
+    gmtDatetime = window.sessionStorage.getItem("gmtDatetime");
+}
+var sessName = window.sessionStorage.getItem("name");
+if (sessName === "null" || sessName === null) {
+    name = "";
+} else {
+    name = window.sessionStorage.getItem("name");
+}
+var sessNumber = window.sessionStorage.getItem("phone");
+if (sessNumber === "null" || sessNumber === null) {
+    phone = "";
+} else {
+    phone = window.sessionStorage.getItem("phone");
+}
+var sessPage = window.sessionStorage.getItem("page");
+if (sessPage === "null" || sessPage === null) {
+    currentPage = 1;
+} else {
+    currentPage = window.sessionStorage.getItem("page");
+}
+
+
 //我的权限数组
 var arrayTitle = new Array; 
 loadMyEssay();
@@ -19,6 +47,16 @@ function loadMyEssay(){
 	});
 
 	function init(pageNo) {
+
+        window.sessionStorage.setItem("gmtDatetime",gmtDatetime);
+        document.getElementById("applyTime").value = gmtDatetime;
+        window.sessionStorage.setItem("name",name);
+        document.getElementById("userName").value = name;
+        window.sessionStorage.setItem("phone",phone);
+        document.getElementById("phoneNumber").value = phone;
+        window.sessionStorage.setItem("page",pageNo);
+        currentPage = pageNo;
+
 		$("#thislist").html("");
 		$.ajax({
 			url: urlcore + "/api/loanOrder/userSelectLoanOrder?gmtDatetime=" + gmtDatetime + "&name=" + name + "&phone=" + phone + "&currentPage=" + pageNo+"&status=" + 7,
@@ -57,6 +95,7 @@ function loadMyEssay(){
 							'<tr class="footable-even" style="display: table-row;">' +
 							'<td class="footable-visible"><input type="checkbox" /></td>' +
 							'<td class="footable-visible">' + n.id + '</td>' +
+                            '<td class="footable-visible">' + n.user.channelName + '</td>' +
 							'<td class="footable-visible">' + n.lianPayNum + '</td>' +
 							'<td class="footable-visible">' + userName + '</td>' +
 							'<td class="footable-visible">' + phone + '</td>' +
@@ -196,19 +235,20 @@ function findMyCatalogue() {
 
 function thisRecover(id) {
 	if(confirm("您确定要恢复该用户到待审核界面么？")){
+
 		$.ajax({
 			url: urlcore + "/api/user/thisRecover?id="+id,
 			type: "get",
 			dataType: 'json',
 			contentType: "application/json;charset=utf-8",
 			success:function(data){
-			     loadMyEssay('','','');
+                loadMyEssay();
 			},
 			error:function() {
 				/* Act on the event */
 				alert("error");
 			}
-		});	
+		});
 	}
 }
 

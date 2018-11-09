@@ -78,6 +78,7 @@ function loadMyEssay(){
 							'<tr class="footable-even" style="display: table-row;'+addRedColor+'">' +
 							'<td class="footable-visible"><input type="checkbox" name="selectcheck" value="'+n.id+'"/></td>' +
 							'<td class="footable-visible">' + n.id + '</td>' +
+                            '<td class="footable-visible">' + n.user.channelName + '</td>' +
 							'<td class="footable-visible">' + n.lianPayNum + '</td>' +
 							'<td class="footable-visible">' + userName + '</td>' +
 							'<td class="footable-visible">' + phone + '</td>' +

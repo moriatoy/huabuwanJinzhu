@@ -28,7 +28,7 @@
 		<script type="text/javascript" src="js/jquery.page.js"></script>
 
 		<!-- 自定义js -->
-		<script src="js/content.js?v=1.0.0"></script>
+		<script src="js/content.js?v=1.0.1"></script>
 		<script>
 			$(document).ready(function() {
 
@@ -164,6 +164,8 @@
 														<div class="input-group search-form">
 															<input type="text" name="userName" id="idCard" class="search-input form-control" value="" placeholder="请输入手机号">
 															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList();"><i class="fa fa-search"></i></a></span>
+															<input type="file" id="file" name="file" style="display:none" onchange="UpladFile()"/>
+															<span style="padding-left:20px" class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="fileClick();">上传手机白名单</a></span>
 														</div>
 													</form>
 													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
@@ -197,6 +199,8 @@
 														<div class="input-group search-form">
 															<input type="text" name="userName" id="idCard2" class="search-input form-control" value="" placeholder="请输入身份证号">
 															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList2();"><i class="fa fa-search"></i></a></span>
+															<input type="file" id="file2" name="file" style="display:none" onchange="UpladFile2()"/>
+															<span style="padding-left:20px" class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="fileClick2();">上传身份证白名单</a></span>
 														</div>
 													</form>
 													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">
@@ -231,6 +235,8 @@
 														<div class="input-group search-form">
 															<input type="text" name="userName" id="idCard3" class="search-input form-control" value="" placeholder="请输入身份证号">
 															<span class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="searchList3();"><i class="fa fa-search"></i></a></span>
+															<input type="file" id="file3" name="file" style="display:none" onchange="UpladFile3()"/>
+															<span style="padding-left:20px" class="input-group-btn"><a class="btn btn-default search-btn"  href="#userName" onclick="fileClick3();">上传身份证黑名单</a></span>
 														</div>
 													</form>
 													<table class="table table-bordered toggle-arrow-tiny" data-page-size="14">

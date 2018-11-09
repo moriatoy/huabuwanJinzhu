@@ -112,7 +112,7 @@ function loadMyEssay(gmtDatetime,name,phone){
 								'<a hidden="hidden" name="查看认证信息" style="'+btnRedColor+'" class="" href="tab.html?id=' + n.userId + '&userName=' +escape(userName)  + '&phone=' + phone + '&orderId=' +n.id+ '" >查看认证信息</a>&nbsp;'+
 								'<a hidden="hidden" name="查看老用户" class="" href="javascript:;" data-toggle="modal" data-target="#oldMsg" onclick="selectOld('+n.userId+')">查看老用户</a>&nbsp;'+
 								'<a hidden="hidden" name="详情" class="" href="loan_apply_list_detail.html?id='+id+'" >详情</a>&nbsp;'+
-                                '<a hidden="hidden" name="自动打款" class="" href="javascript:;"  onclick="passMoney(' + id + ')">自动打款</a>&nbsp;'+
+                                '<a hidden="hidden" name="自动打款" class="" href="javascript:;"  onclick="passMoney(' + id + ')">富友打款</a>&nbsp;'+
 								'<a hidden="hidden" name="同意" class="" href="javascript:;"  onclick="thisAgree(' + id + ')">同意</a>&nbsp;'+
 								'<a hidden="hidden" name="拒绝" class="" href="javascript:;" data-toggle="modal" data-target="#jujueMultiple" onclick="thisRefuse(' + id + ')">拒绝</a>&nbsp;'+
 								'<a hidden="hidden" name="手动打款" class="" href="javascript:;"  onclick="manMoney(' + id + ')">手动打款</a>&nbsp;'+
@@ -209,31 +209,51 @@ function manMoney(id) {
     }
 }
 function passMoney(id) {
-	
-	if(confirm("您确定自动打款吗？")) {
-		$.ajax({
-            // url: urlcore + "/api/user/payOrder?id=" + id,
-            url: urlcore + "/api/user/payOrderChan?id=" + id,
-			// url: urlcore + "/api/lianpay/tradepayapi/receiveNotify?orderId=" + id,
-			type: "get",
-			dataType: 'json',
-			contentType: "application/json;charset=utf-8",
-			success: function(data) {
-			    if($.trim(data.ret_msg) != ''){
+	if(confirm("您确定富友打款吗？")) {
+        $.ajax({
+            url: urlcore + "/api/user/payFuyou?id=" + id,
+            type: "get",
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            success: function(data) {
+                if($.trim(data.ret_msg) != ''){
                     alert(data.ret_msg);
                 }else if($.trim(data.msg) != ''){
                     alert(data.msg);
                 }
-				loadMyEssay('','','');
-				//countPeopleMoney('','','');
-				location.reload()
-			},
-			error: function() {
-				/* Act on the event */
-				console.log(data.ret_msg);
-				alert(data.ret_msg);
-			}
-		});
+                // loadMyEssay('','','');
+                //countPeopleMoney('','','');
+                // location.reload()
+            },
+            error: function() {
+                alert(data.ret_msg);
+            }
+        });
+
+
+		// $.ajax({
+         //    // url: urlcore + "/api/user/payOrder?id=" + id,
+         //    url: urlcore + "/api/user/payOrderChan?id=" + id,
+		// 	// url: urlcore + "/api/lianpay/tradepayapi/receiveNotify?orderId=" + id,
+		// 	type: "get",
+		// 	dataType: 'json',
+		// 	contentType: "application/json;charset=utf-8",
+		// 	success: function(data) {
+		// 	    if($.trim(data.ret_msg) != ''){
+         //            alert(data.ret_msg);
+         //        }else if($.trim(data.msg) != ''){
+         //            alert(data.msg);
+         //        }
+		// 		loadMyEssay('','','');
+		// 		//countPeopleMoney('','','');
+		// 		// location.reload()
+		// 	},
+		// 	error: function() {
+		// 		/* Act on the event */
+		// 		console.log(data.ret_msg);
+		// 		alert(data.ret_msg);
+		// 	}
+		// });
 	}
 }
 

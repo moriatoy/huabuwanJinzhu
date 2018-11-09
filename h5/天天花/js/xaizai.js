@@ -5,41 +5,43 @@ $(function(){
     }
     var partnerTag = getQueryString("partnerTag");
     $.get(urlcore + "/api/h5/version?partnerTag="+partnerTag,function(data){
-        // var type = getMobileType();
-        // var array = [];
-        // for (var i = 0; i < data.data.length; i++) {
-        //     if (type === "iOS") {
-        //         if (data.data[i].os === 1) {
-        //             array.push(data.data[i]);
-        //         }
-        //     } else if (type === "And") {
-        //
-        //         if (data.data[i].os === 2) {
-        //             array.push(data.data[i]);
-        //         }
-        //     }
-        // }
-        // var edition = getQueryString("edition");
-        var max =  "";
-        // if (edition === "used") {
-        //     max = array[0].version > array[1].version ? array[1].url : array[0].url
-        // } else {
-        //     console.log(array[0].version)
-        //     max = array[0].version < array[1].version ? array[1].url : array[0].url;
-        //     console.log(max)
-        // }
+        console.log(data)
+        var type = getMobileType();
+        var array = [];
+        for (var i = 0; i < data.data.length; i++) {
+            if (type === "iOS") {
+                if (data.data[i].os === 1) {
+                    array.push(data.data[i]);
+                }
+            } else if (type === "And") {
 
-        var u = navigator.userAgent;
-        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-        if (isiOS) {
-            max = data.data[0].url;
-        } else if (isAndroid) {
-            max = data.data[1].url;
+                if (data.data[i].os === 2) {
+                    array.push(data.data[i]);
+                }
+            }
+        }
+        var edition = getQueryString("edition");
+        var max =  "";
+        if (array.length > 1) {
+            if (edition === "used") {
+                max = array[0].version > array[1].version ? array[1] : array[0]
+            } else {
+                max = array[0].version < array[1].version ? array[1] : array[0]
+            }
+        } else {
+            max = array[0]
         }
 
-        url = decodeURIComponent(max);
-        console.log(url)
+        // var u = navigator.userAgent;
+        // var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        // var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        // if (isiOS) {
+        //     max = data.data[0].url;
+        // } else if (isAndroid) {
+        //     max = data.data[1].url;
+        // }
+
+        url = decodeURIComponent(max.url);
     },"json");
 });
 function getQueryString(name) {

@@ -56,6 +56,13 @@ function getOneAdmin1() {
 				if (data.data.roleId !== 1) {
                     alertFun();
                 }
+                if (data.data.partnerId === 13) {
+                    $("#titleBox").text("天天花后台管理");
+                    $("title").text("天天花后台管理");
+				} else if (data.data.partnerId === 14) {
+                    $("#titleBox").text("钱袋宝后台管理");
+                    $("title").text("钱袋宝后台管理");
+				}
 			} else if (data.code == 'OVERTIME'){
 				var thisUrl = window.location.href;
 				if (thisUrl.indexOf('login.html') <= -1) {

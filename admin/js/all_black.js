@@ -148,7 +148,96 @@ function searchList3() {
     currentPage3 = 1;
     loadMyEssay3($("#idCard3").val())
 }
-
+function fileClick() {
+    $("#file").click();
+}
+function UpladFile() {
+    var fileObj = document.getElementById("file").files[0]; // js 获取文件对象
+    var url =  urlcore + "/api/user/roster/phoneVip/import"; // 接收上传文件的后台地址
+    var form = new FormData(); // FormData 对象
+    form.append("file", fileObj); // 文件对象
+    $.ajax({
+        type: "POST", // 数据提交类型
+        url: url, // 发送地址
+        data: form, //发送数据
+        async: true, // 是否异步
+        processData: false, //processData 默认为false，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data
+        contentType: false, //
+        success: function(data) {
+            $("#file").val("");
+            if(data.success == true) {
+                alert("上传手机白名单成功");
+                loadMyEssay($("#idCard").val());
+            } else {
+                alert(data.msg);
+            }
+        },
+        error: function() {
+            $("#file").val("");
+            alert("上传失败");
+        }
+    });
+}
+function fileClick2() {
+    $("#file2").click();
+}
+function UpladFile2() {
+    var fileObj = document.getElementById("file2").files[0]; // js 获取文件对象
+    var url =  urlcore + "/api/user/roster/cardVip/import"; // 接收上传文件的后台地址
+    var form = new FormData(); // FormData 对象
+    form.append("file", fileObj); // 文件对象
+    $.ajax({
+        type: "POST", // 数据提交类型
+        url: url, // 发送地址
+        data: form, //发送数据
+        async: true, // 是否异步
+        processData: false, //processData 默认为false，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data
+        contentType: false, //
+        success: function(data) {
+            $("#file2").val("");
+            if(data.success == true) {
+                alert("上传身份证白名单成功");
+                loadMyEssay2($("#idCard").val());
+            } else {
+                alert(data.msg);
+            }
+        },
+        error: function() {
+            $("#file2").val("");
+            alert("上传失败");
+        }
+    });
+}
+function fileClick3() {
+    $("#file3").click();
+}
+function UpladFile3() {
+    var fileObj = document.getElementById("file3").files[0]; // js 获取文件对象
+    var url =  urlcore + "/api/user/roster/black/import"; // 接收上传文件的后台地址
+    var form = new FormData(); // FormData 对象
+    form.append("file", fileObj); // 文件对象
+    $.ajax({
+        type: "POST", // 数据提交类型
+        url: url, // 发送地址
+        data: form, //发送数据
+        async: true, // 是否异步
+        processData: false, //processData 默认为false，当设置为true的时候,jquery ajax 提交的时候不会序列化 data，而是直接使用data
+        contentType: false, //
+        success: function(data) {
+            $("#file3").val("");
+            if(data.success == true) {
+                alert("上传身份证黑名单成功");
+                loadMyEssay3($("#idCard").val());
+            } else {
+                alert(data.msg);
+            }
+        },
+        error: function() {
+            $("#file3").val("");
+            alert("上传失败");
+        }
+    });
+}
 // 时间格式化
 function timeVal(val) {
     if (val != null) {
