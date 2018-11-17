@@ -107,7 +107,7 @@ font-family:"微软雅黑","sans-serif"'>用户注册协议</span></p>
 font-family:"微软雅黑","sans-serif"'>一、总则</span></p>
 
     <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
-19.0pt;layout-grid-mode:both;text-autospace:none'><span lang=EN-US style='font-size:13.0pt;font-family:"Helvetica Neue"'>1.1 </span><span style='font-size:13.0pt;font-family:"微软雅黑","sans-serif"'><span class="name">天天花</span>的所有权和运营权归<span class="address">杭州</span><span class="name">天天花</span>科技有限公司所有。</span></p>
+19.0pt;layout-grid-mode:both;text-autospace:none'><span lang=EN-US style='font-size:13.0pt;font-family:"Helvetica Neue"'>1.1 </span><span style='font-size:13.0pt;font-family:"微软雅黑","sans-serif"'><span class="name">天天花</span>的所有权和运营权归<span class="company">杭州天天花科技有限公司</span>所有。</span></p>
 
     <p class=MsoNormal style='margin-bottom:0cm;margin-bottom:.0001pt;line-height:
 19.0pt;layout-grid-mode:both;text-autospace:none'><span lang=EN-US
@@ -404,12 +404,17 @@ font-family:"微软雅黑","sans-serif"'>五、隐私保护</span></p>
                 for (var i = 0; i < name.length; i++) {
                     name[i].textContent = "钱袋宝"
                 }
-                document.getElementsByClassName("address")[0].textContent = "福州"
+                document.getElementsByClassName("company")[0].textContent = "福州钱袋宝网络科技有限公司";
             } else if (partnerTag === "6adff0b46ad341ffb1db01bbba6523db") {
                 for (var i = 0; i < name.length; i++) {
                     name[i].textContent = "天天花"
                 }
-                document.getElementsByClassName("address")[0].textContent = "杭州"
+                document.getElementsByClassName("company")[0].textContent = "杭州天天花科技有限公司";
+            } else if (partnerTag === "849c3a5a59df4e0bab79e61de950df00") {
+                for (var i = 0; i < name.length; i++) {
+                    name[i].textContent = "及时雨"
+                }
+                document.getElementsByClassName("company")[0].textContent = "慈溪祥隆信息科技有限公司";
             }
 
         }

@@ -4,6 +4,7 @@ var phone='';
 var currentPage=1;
 var totalPeople=0;
 var totalMoney = 0;
+var fourthBorrowMoney = 0;
 var jName = getCookie('Jname');
 var orderId = '';
 //我的权限数组
@@ -112,10 +113,10 @@ function loadMyEssay(gmtDatetime,name,phone){
 								'<a hidden="hidden" name="查看认证信息" style="'+btnRedColor+'" class="" href="tab.html?id=' + n.userId + '&userName=' +escape(userName)  + '&phone=' + phone + '&orderId=' +n.id+ '" >查看认证信息</a>&nbsp;'+
 								'<a hidden="hidden" name="查看老用户" class="" href="javascript:;" data-toggle="modal" data-target="#oldMsg" onclick="selectOld('+n.userId+')">查看老用户</a>&nbsp;'+
 								'<a hidden="hidden" name="详情" class="" href="loan_apply_list_detail.html?id='+id+'" >详情</a>&nbsp;'+
-                                '<a hidden="hidden" name="自动打款" class="" href="javascript:;"  onclick="passMoney(' + id + ')">富友打款</a>&nbsp;'+
-								'<a hidden="hidden" name="同意" class="" href="javascript:;"  onclick="thisAgree(' + id + ')">同意</a>&nbsp;'+
+                                '<a hidden="hidden" name="自动打款" class="" href="javascript:;"  onclick="passMoney(' + id + ',' + i + ')">富友打款</a>&nbsp;'+
+								'<a hidden="hidden" name="同意" class="" href="javascript:;"  onclick="thisAgree(' + id +','+ i + ')">同意</a>&nbsp;'+
 								'<a hidden="hidden" name="拒绝" class="" href="javascript:;" data-toggle="modal" data-target="#jujueMultiple" onclick="thisRefuse(' + id + ')">拒绝</a>&nbsp;'+
-								'<a hidden="hidden" name="手动打款" class="" href="javascript:;"  onclick="manMoney(' + id + ')">手动打款</a>&nbsp;'+
+								'<a hidden="hidden" name="手动打款" class="" href="javascript:;"  onclick="manMoney(' + id +','+ i + ')">手动打款</a>&nbsp;'+
                             	'<a hidden="hidden" class="" name="修改额度" href="javascript:;" data-toggle="modal" data-target="#updateMoney" onclick="updateMoneyUI('+n.userId+')">修改额度</a></td>'+
 								'</td>' +
 							'</tr>';
@@ -181,9 +182,9 @@ function checkAuthDetails(id) {
 }
 
 
-function manMoney(id) {
-
+function manMoney(id,index) {
     if (confirm("您确定打款吗？")) {
+        $("#thislist").children().eq(index).children().eq(14).children("a").eq(7).attr('disabled',"true");
         $.ajax({
             //url: urlcore + "/api/user/payOrder?id=" + id,
 			url: urlcore + "/api/lianpaymanul/tradepayapi/receiveNotify?orderId=" + id,
@@ -208,8 +209,9 @@ function manMoney(id) {
         });
     }
 }
-function passMoney(id) {
+function passMoney(id,index) {
 	if(confirm("您确定富友打款吗？")) {
+        $("#thislist").children().eq(index).children().eq(14).children("a").eq(4).attr('disabled',"true");
         $.ajax({
             url: urlcore + "/api/user/payFuyou?id=" + id,
             type: "get",
@@ -436,6 +438,30 @@ function findMyCatalogue(){
 }
 function updateMoneyUI(id){
     userId = id;
+    // $.ajax({
+    //     url: urlcore + "/api/partner/getPartner",
+    //     type: "get",
+    //     dataType: 'json',
+    //     contentType: "application/json;charset=utf-8",
+    //     success:function(data){
+    //         if(data.data && data.data.fourthBorrowMoney){
+    //             fourthBorrowMoney = data.data.fourthBorrowMoney
+    //             $('#newMoney').val(data.data.fourthBorrowMoney);
+    //         }
+    //     }
+    // });
+    $.ajax({
+        url: urlcore + "/api/paramSetting/selectOne",
+        type: "get",
+        dataType: 'json',
+        contentType: "application/json;charset=utf-8",
+        success:function(data){
+            if(data.data && data.data.maxBorrowMoney){
+                fourthBorrowMoney = data.data.maxBorrowMoney;
+                $('#newMoney').val(data.data.maxBorrowMoney);
+            }
+        }
+    });
 }
 function updateMoney(){
     var money = $("#newMoney").val();
@@ -445,6 +471,10 @@ function updateMoney(){
     }
     if(isNaN(money)){
         alert("金额必须为数字");
+        return false;
+    }
+    if(Number(money) > Number(fourthBorrowMoney)){
+        alert("金额不能大于"+fourthBorrowMoney);
         return false;
     }
     $.ajax({
@@ -476,7 +506,6 @@ function fenpeiHuangKuan(id){
 
                     thislist = thislist +
                         '<option value="'+n.id+'">'+n.userName+'</option>';
-
                 });
                 $("#jsfenpeiSelect").html(thislist);
             }

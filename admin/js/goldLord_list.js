@@ -3,68 +3,68 @@ var jName = getCookie('Jname');
 var arrayTitle = new Array;
 
 $(function(){
-	loadMyEssay();
+    loadMyEssay();
 });
 
 
-function loadMyEssay() {		
-	$(document).ready(function() {
+function loadMyEssay() {
+    $(document).ready(function() {
         findMyCatalogue();
-	    init(1);
-	});
-	//默认加载  
-	function init(pageNo){
-		//获取用户信息列表
-		$("#thislist").html("");
-		$.ajax({
-			url: urlcore + "/api/partner/getPartnerList",
-			type: "get",
-			dataType: 'json',
-			contentType: "application/json;charset=utf-8",
-			success:function(data){
-				if (data.success == true) {
-					//i表示在data中的索引位置，n表示包含的信息的对象
-					$.each(data.data,function(i,n){
-						var id=n.id;
-						var thislist =
-							'<tr>'+
-							'	<td class="footable-visible">'+n.id+'</td>'+
-							'   <td class="footable-visible">'+n.partnerName+'</td>'+
-							// '	<td class="footable-visible footable-last-column">'+
-							// '		<a class="btn btn-primary btn-xs" onclick="configure(' + id + ')" >配置</a>'+
-							// '	</td>'+
-							'</tr>';
-						$('#thislist').append(thislist);
-					});
+        init(1);
+    });
+    //默认加载
+    function init(pageNo){
+        //获取用户信息列表
+        $("#thislist").html("");
+        $.ajax({
+            url: urlcore + "/api/partner/getPartnerList",
+            type: "get",
+            dataType: 'json',
+            contentType: "application/json;charset=utf-8",
+            success:function(data){
+                if (data.success == true) {
+                    //i表示在data中的索引位置，n表示包含的信息的对象
+                    $.each(data.data,function(i,n){
+                        var id=n.id;
+                        var thislist =
+                            '<tr>'+
+                            '	<td class="footable-visible">'+n.id+'</td>'+
+                            '   <td class="footable-visible">'+n.partnerName+'</td>'+
+                            // '	<td class="footable-visible footable-last-column">'+
+                            // '		<a class="btn btn-primary btn-xs" onclick="configure(' + id + ')" >配置</a>'+
+                            // '	</td>'+
+                            '</tr>';
+                        $('#thislist').append(thislist);
+                    });
                     $.each(arrayTitle, function(i,k) {
                         $('a[name="'+k+'"]').attr("hidden",false).attr("class","btn btn-primary btn-xs");
                         $('a[data="'+k+'"]').attr("class","btn btn-sm btn-primary");
                     });
-				} else if (data.code == 'OVERTIME'){
-					var thisUrl = window.location.href;
-					if (thisUrl.indexOf('login.html') <= -1) {
-						top.window.location.href="login.html";
-					}
+                } else if (data.code == 'OVERTIME'){
+                    var thisUrl = window.location.href;
+                    if (thisUrl.indexOf('login.html') <= -1) {
+                        top.window.location.href="login.html";
+                    }
 
-				} else {
-					if (data.msg != '空数据') {
-						alert(data.msg)
-					}else{
-						$('#thiscount').text(0);
-					}
-				}
+                } else {
+                    if (data.msg != '空数据') {
+                        alert(data.msg)
+                    }else{
+                        $('#thiscount').text(0);
+                    }
+                }
 
-			},
-			error:function() {
-				/* Act on the event */
-				alert("error");
-			}
-		});
-	}
-	//回调函数  
-	PageClick = function(pageclickednumber) {  
-	    init(pageclickednumber); 
-	}
+            },
+            error:function() {
+                /* Act on the event */
+                alert("error");
+            }
+        });
+    }
+    //回调函数
+    PageClick = function(pageclickednumber) {
+        init(pageclickednumber);
+    }
 
 }
 function departmentAdd(){
@@ -168,6 +168,42 @@ function departmentAdd(){
         alert("有盾银行卡不能为空！");
         return false;
     }
+
+
+
+    var firstBorrowMoney = $('#firstBorrowMoney').val();
+    if(firstBorrowMoney==''){
+        alert("最低档不能为空！");
+        return false;
+    }
+    var secondBorrowMoney = $('#secondBorrowMoney').val();
+    if(secondBorrowMoney==''){
+        alert("二档不能为空！");
+        return false;
+    }
+    var thirdBorrowMoney = $('#thirdBorrowMoney').val();
+    if(thirdBorrowMoney==''){
+        alert("三档不能为空！");
+        return false;
+    }
+    var fourthBorrowMoney = $('#fourthBorrowMoney').val();
+    if(fourthBorrowMoney==''){
+        alert("最高档不能为空！");
+        return false;
+    }
+    var userEdu = $('#userEdu').val();
+    if(userEdu==''){
+        alert("提额不能为空！");
+        return false;
+    }
+    var vipEdu = $('#vipEdu').val();
+    if(vipEdu==''){
+        alert("白名单用户初始额度不能为空！");
+        return false;
+    }
+    var phone = $("#phone").val();
+    var wx = $("#wx").val();
+
     var partnerName = $('#partnerName').val();
     if(partnerName==''){
         alert("账号昵称不能为空！");
@@ -183,11 +219,11 @@ function departmentAdd(){
         alert("密码不能为空！");
         return false;
     }
-	$.ajax({
-		url: urlcore + "/api/partner/addPartner?partnerName="+partnerName+"&notifyUnitMoney="+notifyUnitMoney+"&verificationUnitMoney="+verificationUnitMoney+"&yysUnitMoney="+yysUnitMoney+"&tbUnitMoney="+tbUnitMoney+"&faceUnitMoney="+faceUnitMoney+"&bankUnitMoney="+bankUnitMoney+"&adminName="+adminName+"&password="+password,
-		type: "post",
-		data: JSON.stringify({
-			"limitDays": limitDays,
+    $.ajax({
+        url: urlcore + "/api/partner/addPartner?partnerName="+partnerName+"&notifyUnitMoney="+notifyUnitMoney+"&verificationUnitMoney="+verificationUnitMoney+"&yysUnitMoney="+yysUnitMoney+"&tbUnitMoney="+tbUnitMoney+"&faceUnitMoney="+faceUnitMoney+"&bankUnitMoney="+bankUnitMoney+"&firstBorrowMoney="+firstBorrowMoney+"&secondBorrowMoney="+secondBorrowMoney+"&thirdBorrowMoney="+thirdBorrowMoney+"&fourthBorrowMoney="+fourthBorrowMoney+"&userEdu="+userEdu+"&phone="+phone+"&wx="+wx+"&vipEdu="+vipEdu+"&adminName="+adminName+"&password="+password,
+        type: "post",
+        data: JSON.stringify({
+            "limitDays": limitDays,
             "minBorrowMoney": minBorrowMoney,
             "maxBorrowMoney": maxBorrowMoney,
             "interestPercent": interestPercent,
@@ -199,28 +235,28 @@ function departmentAdd(){
             "allowPercent": allowPercent,
             "overduePercent": overduePercent,
             "gmtDatetime": gmtDatetime
-		}),
-		dataType: 'json',
-		contentType: "application/json;charset=utf-8",
-		success: function(data) {
-			if(data.success == true) {
-				alert('新增成功');
+        }),
+        dataType: 'json',
+        contentType: "application/json;charset=utf-8",
+        success: function(data) {
+            if(data.success == true) {
+                alert('新增成功');
                 loadMyEssay();
-			} else if(data.code == 'OVERTIME') {
-				var thisUrl = window.location.href;
-				if(thisUrl.indexOf('login.html') <= -1) {
-					top.window.location.href = "login.html";
-				}
-			} else {
-				alert(data.msg);
-			}
-		},
-		error: function() {
-			alert("error");
-		}
+            } else if(data.code == 'OVERTIME') {
+                var thisUrl = window.location.href;
+                if(thisUrl.indexOf('login.html') <= -1) {
+                    top.window.location.href = "login.html";
+                }
+            } else {
+                alert(data.msg);
+            }
+        },
+        error: function() {
+            alert("error");
+        }
 
-	});
-	
+    });
+
 }
 function configure (id){
     $('#minBorrowMoney').val("1000");
@@ -232,13 +268,19 @@ function configure (id){
     $('#riskPlanPercent').val("5");
     $('#allowDays').val("3");
     $('#allowPercent').val("0");
-   	$('#overduePercent').val("0");
-   	$('#notifyUnitMoney').val("0.05");
+    $('#overduePercent').val("0");
+    $('#notifyUnitMoney').val("0.05");
     $('#verificationUnitMoney').val("0.05");
     $('#yysUnitMoney').val("0.15");
     $('#tbUnitMoney').val("0.3");
     $('#faceUnitMoney').val("0.3");
     $('#bankUnitMoney').val("0.5");
+    $('#firstBorrowMoney').val("800");
+    $('#secondBorrowMoney').val("1000");
+    $('#thirdBorrowMoney').val("1200");
+    $('#fourthBorrowMoney').val("1500");
+    $('#userEdu').val("100");
+    $('#vipEdu').val("1500");
     $('#partnerName').val("");
     $('#adminName').val("");
     $('#password').val("");

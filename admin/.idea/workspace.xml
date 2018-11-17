@@ -17,124 +17,80 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="82" column="66" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
+            <state relative-caret-position="3048">
+              <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="to_passmoney_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/to_passmoney_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="863">
+              <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tab.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tab.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2904">
+              <caret line="121" column="80" selection-start-line="121" selection-start-column="80" selection-end-line="121" selection-end-column="80" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tab.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/tab.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="446" column="52" lean-forward="true" selection-start-line="446" selection-start-column="52" selection-end-line="446" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="to_passmoney_list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/to_passmoney_list.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="807">
+              <caret line="458" column="52" selection-start-line="458" selection-start-column="52" selection-end-line="458" selection-end-column="52" />
               <folding>
-                <element signature="n#style#0;n#li#9;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="e#844#850#1" expanded="true" />
+                <element signature="e#958#964#1" expanded="true" />
+                <element signature="e#1098#1104#1" expanded="true" />
+                <element signature="e#1188#1194#1" expanded="true" />
+                <element signature="e#1286#1292#1" expanded="true" />
+                <element signature="e#1380#1386#1" expanded="true" />
+                <element signature="e#1522#1528#1" expanded="true" />
+                <element signature="e#1619#1625#1" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goldLord_list.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/goldLord_list.html">
+      <file leaf-file-name="hot_locan_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hot_locan_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+            <state relative-caret-position="984">
+              <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goldLord_list.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/goldLord_list.js">
+      <file leaf-file-name="hot_locan_list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/hot_locan_list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all_black.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/all_black.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+            <state relative-caret-position="304">
+              <caret line="169" column="21" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all_black.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/all_black.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="normal_topay_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/normal_topay_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5568">
-              <caret line="232" column="60" selection-start-line="232" selection-start-column="60" selection-end-line="232" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="normal_topay_list.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/normal_topay_list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1776">
-              <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="borrow.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/borrow.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12624">
-              <caret line="693" column="28" selection-start-line="693" selection-start-column="28" selection-end-line="693" selection-end-column="28" />
-              <folding>
-                <element signature="e#3243#3355#0" expanded="true" />
-                <element signature="e#3362#3419#0" expanded="true" />
-                <element signature="e#3448#3560#0" expanded="true" />
-                <element signature="e#3567#3624#0" expanded="true" />
-                <element signature="e#3662#3774#0" expanded="true" />
-                <element signature="e#3781#3838#0" expanded="true" />
-                <element signature="e#3929#4041#0" expanded="true" />
-                <element signature="e#4048#4105#0" expanded="true" />
-                <element signature="e#4258#4370#0" expanded="true" />
-                <element signature="e#4377#4434#0" expanded="true" />
-                <element signature="e#4461#4573#0" expanded="true" />
-                <element signature="e#4643#4699#0" expanded="true" />
-                <element signature="e#4726#4782#0" expanded="true" />
-                <element signature="e#4823#4935#0" expanded="true" />
-                <element signature="e#5005#5061#0" expanded="true" />
-                <element signature="e#5088#5144#0" expanded="true" />
-                <element signature="e#5241#5353#0" expanded="true" />
-                <element signature="e#5423#5479#0" expanded="true" />
-                <element signature="e#5480#5486#1" expanded="true" />
-                <element signature="e#5506#5618#0" expanded="true" />
-                <element signature="e#5625#5682#0" expanded="true" />
-                <element signature="e#5707#5819#0" expanded="true" />
-                <element signature="e#5826#5883#0" expanded="true" />
-                <element signature="e#5991#6103#0" expanded="true" />
-                <element signature="e#6173#6229#0" expanded="true" />
-                <element signature="e#6230#6236#1" expanded="true" />
-                <element signature="e#6256#6368#0" expanded="true" />
-                <element signature="e#6375#6432#0" expanded="true" />
-                <element signature="e#6464#6576#0" expanded="true" />
-                <element signature="e#6583#6640#0" expanded="true" />
-                <element signature="e#6666#6778#0" expanded="true" />
-                <element signature="e#6785#6842#0" expanded="true" />
-                <element signature="e#6870#6982#0" expanded="true" />
-                <element signature="e#7052#7108#0" expanded="true" />
-                <element signature="e#7109#7115#1" expanded="true" />
-                <element signature="e#7135#7247#0" expanded="true" />
-                <element signature="e#7254#7311#0" expanded="true" />
-                <element signature="e#7379#7491#0" expanded="true" />
-                <element signature="e#7498#7555#0" expanded="true" />
-                <element signature="e#47991#48103#0" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="e#599#605#0" expanded="true" />
+                <element signature="e#681#687#0" expanded="true" />
+                <element signature="e#830#836#0" expanded="true" />
+                <element signature="e#930#936#0" expanded="true" />
+                <element signature="e#1079#1085#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,36 +100,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>待放款管理</find>
-      <find>审核</find>
-      <find>style</find>
-      <find>departmentAdd</find>
-      <find>利率设置</find>
-      <find>角色</find>
-      <find>thiscount</find>
+      <find>统计报表</find>
+      <find>text-fff</find>
+      <find>userName</find>
+      <find>jsFenpeiMultiple</find>
+      <find>jsfenPeiSelect</find>
+      <find>fenpei3</find>
+      <find>fenpeiHuangKuan</find>
+      <find>分配</find>
+      <find>selectcheck</find>
+      <find>会员管</find>
+      <find>待放款</find>
+      <find>修改额度</find>
+      <find>拒绝</find>
+      <find>金主</find>
+      <find>wx</find>
+      <find>loadMyEssay0</find>
+      <find>name</find>
+      <find>realName</find>
+      <find>渠道</find>
+      <find>逾期统计</find>
       <find>loadMyEssay</find>
-      <find>审核统计</find>
-      <find>change</find>
-      <find>index</find>
-      <find>渠道转换率汇总</find>
-      <find>渠道转换</find>
-      <find>nick_</find>
-      <find>UpladFile</find>
-      <find>progressFunction</find>
-      <find>uploadFailed</find>
-      <find>currentPage</find>
-      <find>天天花</find>
-      <find>杭州市西湖区古翠路58号213号</find>
-      <find>杭州市西湖区古</find>
-      <find>杭</find>
-      <find>杭州市</find>
-      <find>partner</find>
-      <find>杭州</find>
-      <find>address1</find>
-      <find>address</find>
-      <find>正常待</find>
-      <find>黑白名单</find>
-      <find>金主账号管理</find>
+      <find>searchList</find>
+      <find>#nestable2 .dd-handle</find>
+      <find>furl</find>
+      <find>利率设置</find>
+      <find>selectAllType</find>
+      <find>channelFun</find>
+      <find>newMoney</find>
+      <find>option</find>
+      <find>fourthBorrowMoney</find>
     </findStrings>
     <replaceStrings>
       <replace>&lt;span&gt;天天花&lt;/span&gt;</replace>
@@ -183,33 +139,46 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/js/loan_apply_list.js" />
         <option value="$PROJECT_DIR$/loan_apply_list.html" />
-        <option value="$PROJECT_DIR$/js/apply_fail_list.js" />
-        <option value="$PROJECT_DIR$/apply_fail_list.html" />
-        <option value="$PROJECT_DIR$/js/to_passmoney_list.js" />
         <option value="$PROJECT_DIR$/modify_param_setting.html" />
         <option value="$PROJECT_DIR$/js/overdue_examine_list.js" />
         <option value="$PROJECT_DIR$/js/overdue_statistics_list.js" />
         <option value="$PROJECT_DIR$/overdue_statistics_list.html" />
         <option value="$PROJECT_DIR$/overdue_examine_list.html" />
-        <option value="$PROJECT_DIR$/js/core.js" />
-        <option value="$PROJECT_DIR$/js/channel_trans.js" />
-        <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/channel_trans.html" />
         <option value="$PROJECT_DIR$/js/all_black.js" />
-        <option value="$PROJECT_DIR$/tree_files/fuelux.tree-sampledata.js" />
         <option value="$PROJECT_DIR$/goldLordRecharge.html" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/all_black.html" />
-        <option value="$PROJECT_DIR$/role_add.html" />
-        <option value="$PROJECT_DIR$/js/tab.js" />
+        <option value="$PROJECT_DIR$/js/normal_topay_list.js" />
         <option value="$PROJECT_DIR$/register_msg.html" />
         <option value="$PROJECT_DIR$/borrow.html" />
-        <option value="$PROJECT_DIR$/js/normal_topay_list.js" />
-        <option value="$PROJECT_DIR$/normal_topay_list.html" />
+        <option value="$PROJECT_DIR$/channel_add.html" />
+        <option value="$PROJECT_DIR$/js/index.js" />
+        <option value="$PROJECT_DIR$/js/channel_member_list.js" />
+        <option value="$PROJECT_DIR$/channel_member_list.html" />
+        <option value="$PROJECT_DIR$/js/channel_trans.js" />
+        <option value="$PROJECT_DIR$/channel_trans.html" />
+        <option value="$PROJECT_DIR$/index_v1.html" />
+        <option value="$PROJECT_DIR$/channel_orderList.html" />
+        <option value="$PROJECT_DIR$/js/channel_orderList.js" />
+        <option value="$PROJECT_DIR$/js/apply_fail_list.js" />
+        <option value="$PROJECT_DIR$/js/apply_fail_list2.js" />
+        <option value="$PROJECT_DIR$/apply_fail_list2.html" />
+        <option value="$PROJECT_DIR$/apply_fail_list.html" />
+        <option value="$PROJECT_DIR$/tree_files/fuelux.tree-sampledata.js" />
+        <option value="$PROJECT_DIR$/role_add.html" />
         <option value="$PROJECT_DIR$/js/goldLord_list.js" />
         <option value="$PROJECT_DIR$/goldLord_list.html" />
+        <option value="$PROJECT_DIR$/js/tab.js" />
+        <option value="$PROJECT_DIR$/tab.html" />
+        <option value="$PROJECT_DIR$/js/core.js" />
+        <option value="$PROJECT_DIR$/js/loan_apply_list.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/normal_topay_list.html" />
+        <option value="$PROJECT_DIR$/overdue_topay_list.html" />
+        <option value="$PROJECT_DIR$/js/hot_locan_list.js" />
+        <option value="$PROJECT_DIR$/hot_locan_list.html" />
+        <option value="$PROJECT_DIR$/js/to_passmoney_list.js" />
+        <option value="$PROJECT_DIR$/to_passmoney_list.html" />
       </list>
     </option>
   </component>
@@ -234,10 +203,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="796" />
-    <option name="y" value="75" />
-    <option name="width" value="1274" />
-    <option name="height" value="1414" />
+    <option name="x" value="3" />
+    <option name="y" value="49" />
+    <option name="width" value="1402" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -251,6 +220,11 @@
             <path>
               <item name="admin" type="b2602c69:ProjectViewProjectNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="admin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="admin" type="b2602c69:ProjectViewProjectNode" />
@@ -349,16 +323,63 @@
       <workItem from="1541667705399" duration="6417000" />
       <workItem from="1541742256385" duration="526000" />
       <workItem from="1541748660091" duration="794000" />
+      <workItem from="1541750130432" duration="4832000" />
+      <workItem from="1541761654730" duration="135000" />
+      <workItem from="1541762906318" duration="327000" />
+      <workItem from="1541813615614" duration="880000" />
+      <workItem from="1541820609148" duration="1282000" />
+      <workItem from="1541830174366" duration="67000" />
+      <workItem from="1541830245325" duration="368000" />
+      <workItem from="1541830732625" duration="4361000" />
+      <workItem from="1541840764813" duration="2887000" />
+      <workItem from="1541848825118" duration="3179000" />
+      <workItem from="1541912104890" duration="219000" />
+      <workItem from="1542005880896" duration="850000" />
+      <workItem from="1542088310719" duration="172000" />
+      <workItem from="1542088499641" duration="2589000" />
+      <workItem from="1542100098796" duration="1270000" />
+      <workItem from="1542101520727" duration="1478000" />
+      <workItem from="1542108037629" duration="1192000" />
+      <workItem from="1542111103038" duration="2639000" />
+      <workItem from="1542114681040" duration="1503000" />
+      <workItem from="1542160860634" duration="608000" />
+      <workItem from="1542162459287" duration="3886000" />
+      <workItem from="1542183639369" duration="906000" />
+      <workItem from="1542186686478" duration="33000" />
+      <workItem from="1542186966472" duration="76000" />
+      <workItem from="1542187169673" duration="939000" />
+      <workItem from="1542193528988" duration="741000" />
+      <workItem from="1542194647619" duration="947000" />
+      <workItem from="1542195851737" duration="3913000" />
+      <workItem from="1542202262184" duration="5000" />
+      <workItem from="1542247159587" duration="40000" />
+      <workItem from="1542247206708" duration="686000" />
+      <workItem from="1542248415149" duration="62000" />
+      <workItem from="1542250755988" duration="274000" />
+      <workItem from="1542258985700" duration="2141000" />
+      <workItem from="1542268984758" duration="504000" />
+      <workItem from="1542269508891" duration="359000" />
+      <workItem from="1542349585659" duration="1516000" />
+      <workItem from="1542352499168" duration="79000" />
+      <workItem from="1542356544685" duration="19000" />
+      <workItem from="1542356607775" duration="88000" />
+      <workItem from="1542356941595" duration="1022000" />
+      <workItem from="1542358076416" duration="517000" />
+      <workItem from="1542358606652" duration="27000" />
+      <workItem from="1542359830769" duration="566000" />
+      <workItem from="1542360804424" duration="269000" />
+      <workItem from="1542361786551" duration="266000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49619000" />
+    <option name="totallyTimeSpent" value="100338000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="796" y="75" width="1274" height="1414" extended-state="0" />
+    <frame x="3" y="49" width="1402" height="1417" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22346368" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20275164" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -409,257 +430,16 @@
           <url>file://$PROJECT_DIR$/normal_topay_list.html</url>
           <line>202</line>
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/js/loan_apply_list.js</url>
+          <line>70</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4704">
-          <caret line="196" column="42" selection-start-line="196" selection-start-column="42" selection-end-line="196" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/register_msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2664">
-          <caret line="111" column="72" selection-start-line="111" selection-start-column="69" selection-end-line="111" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/all_black.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="984">
-          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/all_black.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/borrow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1968">
-          <caret line="82" column="51" lean-forward="true" selection-start-line="82" selection-start-column="51" selection-end-line="82" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4968">
-          <caret line="207" column="71" selection-start-line="207" selection-start-column="71" selection-end-line="207" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/all_black.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="984">
-          <caret line="41" column="28" lean-forward="true" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/all_black.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/borrow1.html" />
-    <entry file="file://$PROJECT_DIR$/register_msg1.html" />
-    <entry file="file://$PROJECT_DIR$/loan_apply_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/loan_apply_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apply_fail_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="912">
-          <caret line="38" column="48" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/apply_fail_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5376">
-          <caret line="224" column="16" lean-forward="true" selection-start-line="224" selection-start-column="16" selection-end-line="224" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index_v1.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/department_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1056">
-          <caret line="44" column="28" selection-start-line="44" selection-start-column="28" selection-end-line="44" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/department_list.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/to_passmoney_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="46" column="30" selection-start-line="46" selection-start-column="30" selection-end-line="46" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/to_passmoney_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="214" column="24" lean-forward="true" selection-start-line="214" selection-start-column="24" selection-end-line="214" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/param_setting_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="36" column="35" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/param_setting_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="40" column="98" selection-start-line="40" selection-start-column="73" selection-end-line="40" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/modify_param_setting.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="135" column="38" lean-forward="true" selection-start-line="125" selection-start-column="12" selection-end-line="135" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modify_param_setting.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2770">
-          <caret line="171" column="95" selection-start-line="171" selection-start-column="95" selection-end-line="171" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/role_jurisdiction_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="44" column="25" selection-start-line="44" selection-start-column="25" selection-end-line="44" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/role_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="74" column="25" selection-start-line="74" selection-start-column="25" selection-end-line="74" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/overdue_examine_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/overdue_examine_list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3168">
-          <caret line="132" selection-start-line="132" selection-end-line="132" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/channel_trans_summary.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/channel_trans_summary.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/channel_trans.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="37" column="27" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/channel_trans.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="24" column="43" selection-start-line="24" selection-start-column="43" selection-end-line="24" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="7" lean-forward="true" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/role_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1488">
-          <caret line="62" column="55" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tree_files/fuelux.tree-sampledata.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1944">
-          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/goldLordRecharge.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/common.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="192" column="18" selection-start-line="192" selection-start-column="18" selection-end-line="192" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="37" column="39" lean-forward="true" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bank_card_add.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1032">
@@ -686,62 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register_msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/borrow.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12624">
-          <caret line="693" column="28" selection-start-line="693" selection-start-column="28" selection-end-line="693" selection-end-column="28" />
-          <folding>
-            <element signature="e#3243#3355#0" expanded="true" />
-            <element signature="e#3362#3419#0" expanded="true" />
-            <element signature="e#3448#3560#0" expanded="true" />
-            <element signature="e#3567#3624#0" expanded="true" />
-            <element signature="e#3662#3774#0" expanded="true" />
-            <element signature="e#3781#3838#0" expanded="true" />
-            <element signature="e#3929#4041#0" expanded="true" />
-            <element signature="e#4048#4105#0" expanded="true" />
-            <element signature="e#4258#4370#0" expanded="true" />
-            <element signature="e#4377#4434#0" expanded="true" />
-            <element signature="e#4461#4573#0" expanded="true" />
-            <element signature="e#4643#4699#0" expanded="true" />
-            <element signature="e#4726#4782#0" expanded="true" />
-            <element signature="e#4823#4935#0" expanded="true" />
-            <element signature="e#5005#5061#0" expanded="true" />
-            <element signature="e#5088#5144#0" expanded="true" />
-            <element signature="e#5241#5353#0" expanded="true" />
-            <element signature="e#5423#5479#0" expanded="true" />
-            <element signature="e#5480#5486#1" expanded="true" />
-            <element signature="e#5506#5618#0" expanded="true" />
-            <element signature="e#5625#5682#0" expanded="true" />
-            <element signature="e#5707#5819#0" expanded="true" />
-            <element signature="e#5826#5883#0" expanded="true" />
-            <element signature="e#5991#6103#0" expanded="true" />
-            <element signature="e#6173#6229#0" expanded="true" />
-            <element signature="e#6230#6236#1" expanded="true" />
-            <element signature="e#6256#6368#0" expanded="true" />
-            <element signature="e#6375#6432#0" expanded="true" />
-            <element signature="e#6464#6576#0" expanded="true" />
-            <element signature="e#6583#6640#0" expanded="true" />
-            <element signature="e#6666#6778#0" expanded="true" />
-            <element signature="e#6785#6842#0" expanded="true" />
-            <element signature="e#6870#6982#0" expanded="true" />
-            <element signature="e#7052#7108#0" expanded="true" />
-            <element signature="e#7109#7115#1" expanded="true" />
-            <element signature="e#7135#7247#0" expanded="true" />
-            <element signature="e#7254#7311#0" expanded="true" />
-            <element signature="e#7379#7491#0" expanded="true" />
-            <element signature="e#7498#7555#0" expanded="true" />
-            <element signature="e#47991#48103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/normal_topay_list.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1776">
@@ -749,57 +473,347 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/normal_topay_list.html">
+    <entry file="file://$PROJECT_DIR$/register_msg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5568">
-          <caret line="232" column="60" selection-start-line="232" selection-start-column="60" selection-end-line="232" selection-end-column="60" />
+        <state relative-caret-position="8544">
+          <caret line="416" column="89" selection-start-line="416" selection-start-column="89" selection-end-line="416" selection-end-column="89" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/all_black.js">
+    <entry file="file://$PROJECT_DIR$/borrow.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="946">
+          <caret line="747" column="84" selection-start-line="747" selection-start-column="84" selection-end-line="747" selection-end-column="84" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/all_black.html">
+    <entry file="file://$PROJECT_DIR$/channel_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channel_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channel_member_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/channel_member_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channel_trans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1056">
+          <caret line="44" column="42" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/channel_trans.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="29" column="22" lean-forward="true" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/overdue_list_core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="82" column="66" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
-          <folding>
-            <element signature="n#style#0;n#li#9;n#ul#0;n#div#1;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-3183" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/normal_topay_list_detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-218" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/channel_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1060">
+          <caret line="50" column="49" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/goldLord_list.js">
+    <entry file="file://$PROJECT_DIR$/js/channel_orderList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="220" lean-forward="true" selection-start-line="220" selection-end-line="220" />
+        <state relative-caret-position="1704">
+          <caret line="71" column="81" selection-start-line="71" selection-start-column="81" selection-end-line="71" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channel_orderList.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5160">
+          <caret line="215" column="53" selection-start-line="215" selection-start-column="53" selection-end-line="215" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="22" column="34" lean-forward="true" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/apply_fail_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1464">
+          <caret line="61" column="185" selection-start-line="61" selection-start-column="185" selection-end-line="61" selection-end-column="185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/apply_fail_list2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apply_fail_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1416">
+          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apply_fail_list2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree_files/fuelux.tree-sampledata.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1632">
+          <caret line="68" column="27" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/role_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/goldLord_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="34" column="38" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        <state relative-caret-position="672">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/goldLord_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5208">
+          <caret line="217" column="21" selection-start-line="217" selection-start-column="21" selection-end-line="217" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/coupon_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1797">
+          <caret line="109" column="32" lean-forward="true" selection-start-line="88" selection-start-column="24" selection-end-line="109" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/all_black.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/all_black.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="38" column="23" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="38" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/channel_trans_summary.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="936">
+          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/channel_trans_summary.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1872">
+          <caret line="78" column="16" lean-forward="true" selection-start-line="78" selection-start-column="16" selection-end-line="78" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index_v1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="55" column="22" selection-start-line="55" selection-start-column="22" selection-end-line="55" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index1.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/be_overdue.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="888">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/be_overdue.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/loan_apply_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1656">
+          <caret line="69" column="54" selection-start-line="69" selection-start-column="54" selection-end-line="69" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loan_apply_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="5762" column="17" lean-forward="true" selection-start-line="5762" selection-start-column="17" selection-end-line="5762" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/normal_topay_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1032">
+          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#th#4;n#tr#0;n#thead#0;n#table#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/overdue_topay_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="31" column="11" lean-forward="true" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/param_setting_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3048">
+          <caret line="127" column="68" selection-start-line="127" selection-start-column="68" selection-end-line="127" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tab.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2904">
+          <caret line="121" column="80" selection-start-line="121" selection-start-column="80" selection-end-line="121" selection-end-column="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="446" column="52" lean-forward="true" selection-start-line="446" selection-start-column="52" selection-end-line="446" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/hot_locan_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="169" column="21" selection-start-line="169" selection-start-column="21" selection-end-line="169" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#599#605#0" expanded="true" />
+            <element signature="e#681#687#0" expanded="true" />
+            <element signature="e#830#836#0" expanded="true" />
+            <element signature="e#930#936#0" expanded="true" />
+            <element signature="e#1079#1085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/to_passmoney_list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="807">
+          <caret line="458" column="52" selection-start-line="458" selection-start-column="52" selection-end-line="458" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#844#850#1" expanded="true" />
+            <element signature="e#958#964#1" expanded="true" />
+            <element signature="e#1098#1104#1" expanded="true" />
+            <element signature="e#1188#1194#1" expanded="true" />
+            <element signature="e#1286#1292#1" expanded="true" />
+            <element signature="e#1380#1386#1" expanded="true" />
+            <element signature="e#1522#1528#1" expanded="true" />
+            <element signature="e#1619#1625#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hot_locan_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="984">
+          <caret line="41" column="47" selection-start-line="41" selection-start-column="47" selection-end-line="41" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/to_passmoney_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="863">
+          <caret line="61" column="12" selection-start-line="61" selection-start-column="12" selection-end-line="61" selection-end-column="12" />
         </state>
       </provider>
     </entry>

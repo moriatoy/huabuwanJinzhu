@@ -59,7 +59,7 @@ function loadMyEssay(){
 
 		$("#thislist").html("");
 		$.ajax({
-			url: urlcore + "/api/loanOrder/userSelectLoanOrder?gmtDatetime=" + gmtDatetime + "&name=" + name + "&phone=" + phone + "&currentPage=" + pageNo+"&status=" + 7+"&refuseType=0",
+			url: urlcore + "/api/loanOrder/userSelectLoanOrder?gmtDatetime=" + gmtDatetime + "&name=" + name + "&phone=" + phone + "&currentPage=" + pageNo+"&status=" + 7+"&refuseType=1",
 			type: "get",
 			dataType: 'json',
 			async:'false',

@@ -62,7 +62,10 @@ function getOneAdmin1() {
 				} else if (data.data.partnerId === 14) {
                     $("#titleBox").text("钱袋宝后台管理");
                     $("title").text("钱袋宝后台管理");
-				}
+				} else if (data.data.partnerId === 15) {
+                    $("#titleBox").text("及时雨后台管理");
+                    $("title").text("及时雨后台管理");
+                }
 			} else if (data.code == 'OVERTIME'){
 				var thisUrl = window.location.href;
 				if (thisUrl.indexOf('login.html') <= -1) {

@@ -10,15 +10,15 @@ var channelId = getvl('channelId');
 //var jName = getCookie('Jname');
 
 //我的权限数组
-var arrayTitle = new Array; 
+var arrayTitle = new Array;
 loadMyEssay();
- 
+
 function loadMyEssay() {
 	$(document).ready(function() {
 //		findMyCatalogue();
 		init(currentPage);
 	});
-  
+
 	function init(pageNo) {
 		$("#thislist").html("");
 		$.ajax({
@@ -59,19 +59,19 @@ function loadMyEssay() {
 						}else if(n.orderStatus == 5){
 							statusTitle='逾期';
 						}
-						
+
 						var thislist =
 							'<tr class="footable-even" style="display: table-row;">' +
 							'<td class="footable-visible"><input type="checkbox" value="'+n.id+'" name="selectcheck" /></td>' +
 							'<td class="footable-visible">' + n.id + '</td>' +
 							'<td class="footable-visible">' + n.lianPayNum + '</td>' +
 							'<td class="footable-visible">' + userName + '</td>' +
-							'<td class="footable-visible">' + phone + '</td>' +
-							'<td class="footable-visible">' + n.limitDays + '</td>' +
-							'<td class="footable-visible">' + n.borrowMoney + '</td>' +
-							'<td class="footable-visible">' + n.realMoney + '</td>' +
-							'<td class="footable-visible">' + n.needPayMoney + '</td>' +
-							'<td class="footable-visible">' + "李浩" + '</td>' +
+							// '<td class="footable-visible">' + phone + '</td>' +
+							// '<td class="footable-visible">' + n.limitDays + '</td>' +
+							// '<td class="footable-visible">' + n.borrowMoney + '</td>' +
+							// '<td class="footable-visible">' + n.realMoney + '</td>' +
+							// '<td class="footable-visible">' + n.needPayMoney + '</td>' +
+							// '<td class="footable-visible">' + "李浩" + '</td>' +
 							'<td class="footable-visible">' +n.gmtDatetime + '</td>' +
 							'<td class="footable-visible">' +n.user.channel.name + '</td>' +
 							'<td class="footable-visible">' +n.channelProfit + '</td>' +
@@ -95,7 +95,7 @@ function loadMyEssay() {
 						totalcount: data.data.pageDto.total,
 						buttonClickCallback: PageClick
 					});
-				
+
 
 					if(data.code == 'OVERTIME') {
 						var thisUrl = window.location.href;
@@ -176,7 +176,7 @@ function passMoney(id) {
 
 
 function passSelected(){
-	
+
 	if(temp==0) {
 		alert("当前无未打款订单！")
 	} else {
@@ -184,14 +184,14 @@ function passSelected(){
 			var obj = document.getElementsByName("selectcheck");
 			for(var k in obj){
 				if(obj[k].checked){
-					
+
 					passMoney1(obj[k].value);
 				}
 		}
-			loadMyEssay('','',''); 
+			loadMyEssay('','','');
  }
 }
-	
+
 }
 
 function passMoney1(id) {
@@ -203,7 +203,7 @@ function passMoney1(id) {
 			contentType: "application/json;charset=utf-8",
 			success: function(data) {
 				countPeopleMoney('','','');
-				
+
 			},
 			error: function() {
 				/* Act on the event */
@@ -246,7 +246,7 @@ function passMoney1(id) {
 //}
 
 function thisRefuse(id) {
-	
+
 	if(confirm("您确定拒绝该申请吗？")) {
 		$.ajax({
 			url: urlcore + "/api/loanOrder/thisRefuse?id=" + id,
@@ -256,7 +256,7 @@ function thisRefuse(id) {
 			success: function(data) {
 				loadMyEssay('','','');
 				countPeopleMoney('','','');
-			   
+
 			},
 			error: function() {
 				/* Act on the event */
@@ -264,7 +264,7 @@ function thisRefuse(id) {
 			}
 		});
 	}
- 
+
 }
 
 function selectAll(o){

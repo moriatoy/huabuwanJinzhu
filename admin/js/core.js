@@ -1,5 +1,5 @@
 // 测试环境
-// var urlcore = 'http://47.98.135.67:8081';
+// var urlcore = 'http://192.168.0.149:8081';
 // var urlcore = 'http://47.98.135.67:8081';
 // 正式环境
 var urlcore = 'http://www.tth.hndbtop.com:8080';

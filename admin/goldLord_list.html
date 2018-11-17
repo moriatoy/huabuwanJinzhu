@@ -9,15 +9,15 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link rel="shortcut icon" href="favicon.ico"> 
+    <link rel="shortcut icon" href="favicon.ico">
     <link href="css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="css/plugins/footable/footable.core.css" rel="stylesheet">
 
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css?v=4.1.0" rel="stylesheet">
-     <link rel="stylesheet" href="css/page.css"/>
-   
+    <link rel="stylesheet" href="css/page.css"/>
+
 
     <!-- 全局js -->
     <script src="js/jquery.min.js?v=2.1.4"></script>
@@ -26,10 +26,10 @@
 
     <!-- 分页js -->
     <script type="text/javascript" src="js/jquery.page.js"></script>
-   
+
 
     <!-- 自定义js -->
-   <script src="js/content.js?v=1.0.0"></script>
+    <script src="js/content.js?v=1.0.0"></script>
     <script>
         $(document).ready(function() {
             $('.footable').footable();
@@ -37,48 +37,48 @@
         });
     </script>
     <script src="js/core.js"></script>
-    <script src="js/goldLord_list.js?v=0.1"></script>
+    <script src="js/goldLord_list.js?v=0.4"></script>
 </head>
 <body class="gray-bg">
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title" style="padding-top: 6px">
-                        <h3 style="padding-top: 7px; display:inline;" id="update_add_title">金主列表</h3>
-                        <a  hidden="hidden" data="新增金主" name="新增金主" style="margin-left: 100px;" id="add" href="javascript:;" data-toggle="modal" data-target="#departmentAdd" onclick="configure()">添加金主</a>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title" style="padding-top: 6px">
+                    <h3 style="padding-top: 7px; display:inline;" id="update_add_title">金主列表</h3>
+                    <a  hidden="hidden" data="新增金主" name="新增金主" style="margin-left: 100px;" id="add" href="javascript:;" data-toggle="modal" data-target="#departmentAdd" onclick="configure()">添加金主</a>
                     </h3>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>金主账号</th>
-                                    <!--<th>操作</th>  -->
-                                </tr>
-                            </thead>
-                            <tbody id="thislist"></tbody>
-                        </table>
-                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-stripped toggle-arrow-tiny" data-page-size="8">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>金主账号</th>
+                            <!--<th>操作</th>  -->
+                        </tr>
+                        </thead>
+                        <tbody id="thislist"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <style>
-        @media (min-width: 768px) {
-            .modal-dialog {
-                width: 850px;
-                margin: 30px auto;
-            }
+</div>
+<style>
+    @media (min-width: 768px) {
+        .modal-dialog {
+            width: 850px;
+            margin: 30px auto;
         }
-        .col-sm-6 {
-            margin-top: 12px
-        }
-        .form-control {
-            border: 1px solid #ccc
-        }
-    </style>
+    }
+    .col-sm-6 {
+        margin-top: 12px
+    }
+    .form-control {
+        border: 1px solid #ccc
+    }
+</style>
 <div class="modal inmodal" id="departmentAdd" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated bounceInRight">
@@ -231,13 +231,91 @@
                         </div>
                     </div>
                     <!--<div class="col-sm-6">-->
-                        <!--<label class="col-sm-4 control-label">-->
-                            <!--<span>多投风控:</span>-->
-                        <!--</label>-->
-                        <!--<div class="col-sm-8">-->
-                            <!--<input type="text" class="form-control input text" id="name" name="name" value="" placeholder="" required="required">-->
-                        <!--</div>-->
+                    <!--<label class="col-sm-4 control-label">-->
+                    <!--<span>多投风控:</span>-->
+                    <!--</label>-->
+                    <!--<div class="col-sm-8">-->
+                    <!--<input type="text" class="form-control input text" id="name" name="name" value="" placeholder="" required="required">-->
                     <!--</div>-->
+                    <!--</div>-->
+
+
+                    <div class="col-sm-12" style="margin-top: 20px">
+                        <h3>淘宝配置</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>最低档:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="firstBorrowMoney" name="name" value="" placeholder="请输入金主账号昵称" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>二档:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="secondBorrowMoney" name="name" value="" placeholder="请输入金主后台账号" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>三挡:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="thirdBorrowMoney" name="name" value="" placeholder="请输入金主后台密码" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>最高档:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="fourthBorrowMoney" name="name" value="" placeholder="请输入金主后台密码" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>提额:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="userEdu" name="name" value="" placeholder="请输入金主后台密码" required="required">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-top: 20px">
+                        <h3>客服信息</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>客服电话:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="phone" name="name" value="" placeholder="请输入金主账号昵称" required="required">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>客服微信:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="wx" name="name" value="" placeholder="请输入金主后台账号" required="required">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12" style="margin-top: 20px">
+                        <h3>白名单配置</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <label class="col-sm-4 control-label">
+                            <span>用户初始额度:</span>
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control input text" id="vipEdu" name="name" value="" placeholder="请输入金主账号昵称" required="required">
+                        </div>
+                    </div>
+
 
                     <div class="col-sm-12" style="margin-top: 20px">
                         <h3>账号配置</h3>

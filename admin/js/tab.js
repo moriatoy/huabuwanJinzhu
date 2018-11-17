@@ -393,31 +393,37 @@ function loadMyEssay3() {
 }
 
 function loadMyEssay4() {
-
 	var taskId = "";
 	// var userName = "";
-	var new_window = window.open("","","width=1000,height=800");
+	// var new_window = window.open("","","width=1000,height=800");
     $.ajax({
-    	url: urlcore + "/api/user/selectYYSResult?userId=" + id ,
+        url: urlcore + "/api/user/selectYYSResult?userId=" + id ,
+        // url: urlcore + "/api/user/selectYYSResult?userId=548340" ,
     	type: "get",
     	dataType: 'json',
     	contentType: "application/json;charset=utf-8",
     	success: function(data) {
-    		taskId = data.data.taskId;
-    		// userName = data.data.mobile;
-            $.ajax({
-                url: urlcore + "/api/user/getTongdunToken",
-                type: "get",
-                dataType: 'json',
-                contentType: "application/json;charset=utf-8",
-                success: function(data) {
-                    var token = data.data;
-                    new_window .location = "https://report.shujumohe.com/report/"+taskId+"/"+token;
-                },
-                error: function() {
-                    alert("error");
-                }
-            });
+			if (data.data) {
+                taskId = data.data.taskId;
+                // userName = data.data.mobile;
+                $.ajax({
+                    url: urlcore + "/api/user/getTongdunToken",
+                    type: "get",
+                    dataType: 'json',
+                    contentType: "application/json;charset=utf-8",
+                    success: function(data) {
+                        var token = data.data;
+                        $("#operator").prop("src","https://report.shujumohe.com/report/"+taskId+"/"+token);
+                        $("#operator").css("height",window.innerHeight-171+"px");
+                        // new_window .location = ;
+                    },
+                    error: function() {
+                        alert("error");
+                    }
+                });
+			} else {
+                $("#operator").prop("src","https://api.wawazz.cn/404");
+			}
     	},
     	error: function() {
 
@@ -431,17 +437,53 @@ function loadMyEssay0() {
     var taskId = "";
     $.ajax({
         url: urlcore + "/api/userTaobao/select?userId=" + id,
+        // url: urlcore + "/api/userTaobao/select?userId=553451",
         type: "get",
         dataType: 'json',
         contentType: "application/json;charset=utf-8",
         success: function(data) {
         	if (data.data !== null) {
-				$("#email2").text(data.data.email);
-                $("#huabei").text(data.data.huabei / 100);
-                $("#jiebei").text(data.data.jiebei / 100);
-                $("#mobiles").text(data.data.mobiles);
-                $("#zhima").text(data.data.zhima);
-			} else {
+                // 个人信息
+				$("#userName").text(data.data.data.task_data.base_info.user_name);
+				$("#userLevel").text(data.data.data.task_data.base_info.user_level);
+                $("#nickName").text(data.data.data.task_data.base_info.nick_name);
+                $("#name2").text(data.data.data.task_data.base_info.name);
+                $("#gender").text(data.data.data.task_data.base_info.gender);
+                $("#mobile").text(data.data.data.task_data.base_info.mobile);
+                $("#realName2").text(data.data.data.task_data.base_info.real_name);
+                $("#identityCode").text(data.data.data.task_data.base_info.identity_code);
+                $("#email").text(data.data.data.task_data.base_info.email);
+                // 账户信息
+                $("#accountBalance").text(data.data.data.task_data.account_info.account_balance);
+                $("#financialAccountBalance").text(data.data.data.task_data.account_info.financial_account_balance);
+                $("#zhimaPoint").text(data.data.data.task_data.account_info.zhima_point);
+                $("#creditQuota").text(data.data.data.task_data.account_info.credit_quota/100);
+                $("#consumeQuota").text(data.data.data.task_data.account_info.consume_quota/100);
+                $("#jiebeiQuota").text(data.data.data.task_data.account_info.jiebei_quota/100);
+                // 收货地址
+                $.each(data.data.data.task_data.receiver_list, function(i, n) {
+                    var addresslist =
+                        '<tr class="footable-even" style="display: table-row;">' +
+                        '	<td class="footable-visible">' + n.name + '</td>' +
+                        '	<td class="footable-visible">' + n.area + '</td>' +
+                        '	<td class="footable-visible">' + n.address + '</td>' +
+                        '	<td class="footable-visible">' + n.mobile + '</td>' +
+                        '</tr>';
+                    $('#addressList').append(addresslist);
+                });
+                // 订单列表
+                $.each(data.data.data.task_data.order_list, function(i, n) {
+                    var orderList =
+                        '<tr class="footable-even" style="display: table-row;">' +
+                        '	<td class="footable-visible">' + n.order_id + '</td>' +
+                        '	<td class="footable-visible">' + n.order_amount/100 + '</td>' +
+                        '	<td class="footable-visible">' + n.order_type + '</td>' +
+                        '	<td class="footable-visible">' + n.order_status + '</td>' +
+                        '	<td class="footable-visible">' + n.order_time + '</td>' +
+                        '</tr>';
+                    $('#orderList').append(orderList);
+                });
+            } else {
         		alert("未认证")
 			}
         },

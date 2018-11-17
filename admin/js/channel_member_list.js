@@ -40,7 +40,7 @@ function loadMyEssay() {
 							'<td class="footable-visible"><input type="checkbox" /></td>' +
 							'<td class="footable-visible">' + n.id + '</td>' +
 							'<td class="footable-visible">' + n.userName + '</td>' +
-							'<td class="footable-visible">' +n.phone+'</td>' +
+							// '<td class="footable-visible">' +n.phone+'</td>' +
 							'<td class="footable-visible">' + n.gmtDatetime + '</td>' +
 							'<td class="footable-visible">' + status + '</td>' +
 							'<td class="footable-visible">' + n.authScore + '</td>' +

@@ -74,6 +74,12 @@ function loadMyEssay(){
 						}else if(n.user.label==1){
 							label="新用户"
 						}
+                        var btnRedColor = '';
+                        if (n.alipayCheckStatus === 0) {
+                            btnRedColor = "background: red";
+                        } else if (n.alipayCheckStatus === 1) {
+                            btnRedColor = "";
+                        }
 						var thislist =
 							'<tr class="footable-even" style="display: table-row;'+addRedColor+'">' +
 							'<td class="footable-visible"><input type="checkbox" name="selectcheck" value="'+n.id+'"/></td>' +
@@ -93,7 +99,7 @@ function loadMyEssay(){
 							'<td class="footable-visible" ><span class="btn '+ style+ '  btn-xs">' + label+ '</span></td>' +							
 							'<td class="footable-visible footable-last-column" style="text-align: center">'+
 								'<a hidden="hidden" class="" name="分配" href="javascript:;" data-toggle="modal" data-target="#fenpei" onclick="fenpei('+id+')">分配</a>&nbsp;'+
-								'<a hidden="hidden" name="查看认证信息" class="" href="tab.html?id=' + n.userId + '&userName=' +escape(userName)  + '&phone=' + phone + '&orderId=' +n.id+ '" >查看认证信息</a>&nbsp;'+
+								'<a hidden="hidden" name="查看认证信息" style="'+btnRedColor+'" class="" href="tab.html?id=' + n.userId + '&userName=' +escape(userName)  + '&phone=' + phone + '&orderId=' +n.id+ '" >查看认证信息</a>&nbsp;'+
 								'<a hidden="hidden" name="查看老用户" class="" href="javascript:;" data-toggle="modal" data-target="#oldMsg" onclick="selectOld('+n.userId+')">查看老用户</a>&nbsp;'+
 								'<a hidden="hidden" name="详情" class="" href="loan_apply_list_detail.html?id='+id+'" >详情</a>&nbsp;'+
                             	auditHtml+

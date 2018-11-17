@@ -39,7 +39,7 @@
 		</script>
 		<script src="js/common.js"></script>
 		<script src="js/core.js"></script>
-		<script src="js/hot_locan_list.js"></script>
+		<script src="js/hot_locan_list.js?v=0.7"></script>
 	</head>
 
 	<body class="gray-bg">
@@ -120,6 +120,14 @@
 												<option value="1">认证成功</option>
 											</select>
 										</div>
+										<label class="left control-label">
+											<span>渠道：</span>
+										</label>
+										<div class="right">
+											<select oninput="selectOrdersStatus2(this.value)" id="channel" name="auth_status" class="form-control lyui-select select" style="font-size: 13px">
+												<option value='0'>全部：</option>
+											</select>
+										</div>
 									</div>
 									<div class="input-group search-form" style="padding-bottom: 15px;">
 										<input type="text" name="phoneNumber" id="phoneNumber" class="search-input form-control" value="" placeholder="请输入电话号码" onkeyup="EnterSearchList();">
@@ -140,6 +148,7 @@
 										<th><input type="checkbox" /></th>
 										<th>ID</th>
 										<th>姓名</th>
+										<th>渠道</th>
 										<th>手机号码</th>
 										<th>申请日期</th>  
 										<th>身份状态</th>
@@ -157,6 +166,9 @@
 										<td colspan="8">
 											<div id="pager"></div>
 										</td>
+										<!--<td colspan="4">-->
+											<!--<span>sdfsdfsd</span>-->
+										<!--</td>-->
 									</tr>
 								</tbody>
 							</table>

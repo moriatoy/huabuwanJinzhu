@@ -66,6 +66,7 @@ tree_data['审核管理']['additionalParameters'] = {
 	'children' : {
         '待放款管理' : {name: '待放款管理', type: 'folder'},
         '风控拒绝' : {name: '风控拒绝', type: 'folder'},
+        '人工拒绝' : {name: '人工拒绝', type: 'folder'},
         '放款记录' : {name: '放款记录', type: 'folder'},
         '正常还款' : {name: '正常还款', type: 'folder'},
         '审核统计' : {name: '审核统计', type: 'folder'},

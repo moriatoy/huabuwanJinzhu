@@ -33,9 +33,10 @@ var channel_trans = {
 							'<td class="footable-visible">' + n.sdate + '</td>' +
 							'<td class="footable-visible">' + n.channelName + '</td>' +
 //							'<td class="footable-visible">' + common.nullToZero(n.h5Click) + '</td>' +
+                            '<td class="footable-visible">' + common.nullToZero(n.h5Click) + '</td>' +
 							'<td class="footable-visible">' + common.nullToZero(n.h5Register) + '</td>' +
 							'<td class="footable-visible">' + common.nullToZero(n.appDown) + '</td>' +
-                            '<td class="footable-visible">' + common.nullToZero(n.h5Click) + '</td>' +
+
                             '<td class="footable-visible">' + common.nullToZero((n.h5Register/n.h5Click*100).toFixed(2)) + '%</td>' +
                             // '<td class="footable-visible">' + common.nullToZero(n.baiscAuth) + '</td>' +
                             // '<td class="footable-visible">' + common.nullToZero(n.identityAuth) + '</td>' +

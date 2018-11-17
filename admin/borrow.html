@@ -157,7 +157,7 @@ text-justify:inter-ideograph;text-indent:0cm'><span lang=EN-US
 
     <p style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:justify;
 text-justify:inter-ideograph;text-indent:0cm'><span style='font-size:10.5pt;
-line-height:150%;font-family:кнлЕ'>рр╥╫ё╗вй╫ПЁЖ╫Х╥╫ё╘ё╨╨╪жщ<span class="name">лЛлЛ╩╗</span>©ф╪╪споч╧╚к╬</span></p>
+line-height:150%;font-family:кнлЕ'>рр╥╫ё╗вй╫ПЁЖ╫Х╥╫ё╘ё╨<span class="company">╨╪жщлЛлЛ╩╗©ф╪╪споч╧╚к╬</span></span></p>
 
     <p style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:justify;
 text-justify:inter-ideograph;text-indent:0cm'><span style='font-size:10.5pt;
@@ -195,7 +195,7 @@ text-justify:inter-ideograph;text-indent:0cm'><span lang=EN-US
     <p style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:justify;
 text-justify:inter-ideograph;text-indent:0cm'><span lang=EN-US
                                                     style='font-size:10.5pt;line-height:150%;font-family:кнлЕ'>4</span><span
-            style='font-size:10.5pt;line-height:150%;font-family:кнлЕ'>║╒╢Ш©Нвй╫Прт╪╟╢Ш©Н╥ЧнЯси╪в╥╫╨╪жщ<span class="name">лЛлЛ╩╗</span>╤Н©ф╪╪споч╧╚к╬║ё</span></p>
+            style='font-size:10.5pt;line-height:150%;font-family:кнлЕ'>║╒╢Ш©Нвй╫Прт╪╟╢Ш©Н╥ЧнЯси╪в╥╫<span class="company">╨╪жщлЛлЛ╩╗©ф╪╪споч╧╚к╬</span>║ё</span></p>
 
     <p style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:justify;
 text-justify:inter-ideograph;text-indent:0cm'><span style='font-size:10.5pt;
@@ -704,7 +704,7 @@ line-height:150%;font-family:кнлЕ'>╪в╥╫ё╨<span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbs
 
     <p style='margin-bottom:0cm;margin-bottom:.0001pt;text-align:justify;
 text-justify:inter-ideograph;text-indent:0cm'><span style='font-size:10.5pt;
-line-height:150%;font-family:кнлЕ'>рр╥╫ё╨╨╪жщ<span class="name">лЛлЛ╩╗</span>©ф╪╪споч╧╚к╬<span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>хуфзё╨</span></p>
+line-height:150%;font-family:кнлЕ'>рр╥╫ё╨<span class="company">╨╪жщлЛлЛ╩╗©ф╪╪споч╧╚к╬</span><span lang=EN-US>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>хуфзё╨</span></p>
 
     <p class=MsoNormal style='line-height:150%'><span lang=EN-US style='line-height:
 150%;font-family:кнлЕ'>&nbsp;</span></p>
@@ -729,14 +729,23 @@ line-height:150%;font-family:кнлЕ'>рр╥╫ё╨╨╪жщ<span class="name">лЛлЛ╩╗</span>©ф╪
                 for (var i = 0; i < name.length; i++) {
                     name[i].textContent = "г╝╢Э╠╕"
                 }
+                document.getElementsByClassName("company")[0].textContent = "╦ёжщг╝╢Э╠╕мЬбГ©ф╪╪споч╧╚к╬";
                 document.getElementsByClassName("address")[0].textContent = "╦ё╫╗й║╦ёжщйпцЖ╨НоьдосЛуРнзаЗ╫╜до╢С╣ю33╨едооЦ╨Ч";
                 document.getElementsByClassName("address1")[0].textContent = "╦ё╫╗й║╦ёжщйп"
             } else if (partnerTag === "6adff0b46ad341ffb1db01bbba6523db") {
                 for (var i = 0; i < name.length; i++) {
                     name[i].textContent = "лЛлЛ╩╗"
                 }
+                document.getElementsByClassName("company")[0].textContent = "╨╪жщлЛлЛ╩╗©ф╪╪споч╧╚к╬";
                 document.getElementsByClassName("address")[0].textContent = "╨╪жщйпнВ╨ЧгЬ╧е╢Дб╥58╨е213╨е";
                 document.getElementsByClassName("address1")[0].textContent = "уЦ╫╜й║╨╪жщйп"
+            } else if (partnerTag === "849c3a5a59df4e0bab79e61de950df00") {
+                for (var i = 0; i < name.length; i++) {
+                    name[i].textContent = "╪╟й╠сЙ"
+                }
+                document.getElementsByClassName("company")[0].textContent = "╢хо╙оИб║пео╒©ф╪╪споч╧╚к╬";
+                document.getElementsByClassName("address")[0].textContent = "уЦ╫╜й║╢хо╙йпаЗи╫уРаЗм╥Ё║╢Е";
+                document.getElementsByClassName("address1")[0].textContent = "уЦ╫╜й║╢хо╙йп"
             }
 
         }
