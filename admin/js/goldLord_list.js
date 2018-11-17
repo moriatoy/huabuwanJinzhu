@@ -29,6 +29,7 @@ function loadMyEssay() {
                         var thislist =
                             '<tr>'+
                             '	<td class="footable-visible">'+n.id+'</td>'+
+                            '   <td class="footable-visible">'+n.partnerTag+'</td>'+
                             '   <td class="footable-visible">'+n.partnerName+'</td>'+
                             // '	<td class="footable-visible footable-last-column">'+
                             // '		<a class="btn btn-primary btn-xs" onclick="configure(' + id + ')" >配置</a>'+
